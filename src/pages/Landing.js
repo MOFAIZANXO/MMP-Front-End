@@ -66,7 +66,43 @@ function Landing() {
           </p>
         </div>
       </section>
-    
+      {/*Features Section*/}
+      <section className="features-section">
+  <div className="features-container">
+    <div className="feature-item">
+      <img
+        src="https://media.istockphoto.com/id/1294492188/video/slow-pan-of-beautiful-custom-home-and-for-rent-real-estate-sign.jpg?s=640x640&k=20&c=RKac7HEnbbOKbAU57yHnTR8aJlrxCQhfJVeC1U6GuTM="
+        alt="Feature 1"
+        className="feature-icon"
+      />
+      <h3>Looking for a place to rent?</h3>
+      <p>Sign up today as a renter and discover the perfect place to call home. Let us help you find your ideal property, hassle-free!</p>
+      <button>Sign Up as Renter</button>
+    </div>
+    <div className="feature-item">
+      <img
+        src="https://media.istockphoto.com/id/1184243297/vector/real-estate-concept-buy-house-poster-with-men-hands-paying-money-for-the-home-building.jpg?s=612x612&w=0&k=20&c=PSLYN4VhHpjMkpn8OsKigEI5nzmQIhxwbH1nxvvUbtM="
+        alt="owner"
+        className="feature-icon"
+      />
+      <h3>Worried about your property?</h3>
+      <p>Sign up and connect with our dedicated property manager today. Managers will handle your rent problems starting today!</p>
+      <button>Get a Property Manager</button>
+    </div>
+    <div className="feature-item">
+      <img
+        src="https://media.istockphoto.com/id/1184243290/vector/real-estate-concept-buy-house-poster-vector-illustration.jpg?s=612x612&w=0&k=20&c=bp9zkxoi1lN4WSKJjsMpaVYm5Zz4dBrjCUZGgkzB2aw="
+        alt="Feature 3"
+        className="feature-icon"
+      />
+      <h3>Become a Property Manager Today!</h3>
+      <p>Sign up today as a property manager. Helping both renters and owners in their property related endeavors. Today!</p>
+      <button>Sign Up as Manager</button>
+    </div>
+  </div>
+</section>
+
+
 
 
       {/* Landing Page Content */}

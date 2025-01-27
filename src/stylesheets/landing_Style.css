@@ -7,12 +7,17 @@
 
 /* General page layout */
 .landing-page {
-  font-family: Arial, sans-serif;
+  height: 100vh;
   display: flex;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  font-family: Arial, sans-serif;
   flex-direction: column;
   min-height: 100vh;
   background-color: #f4f4f4; /* Light background for the whole page */
 }
+
 
 /* Navbar styles */
 .navbar {
@@ -94,8 +99,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1070px 0 110px;
-  height: 300vh;
+  padding: 1700px 0 300px;
+  height: 310vh;
   background: linear-gradient(to left, #ef4444, #111827);
 }
 
@@ -236,8 +241,99 @@
 }
 
 .about-text p {
-  left: auto;
   font-size: 22px;
   line-height: 1.5;
   color: #676767;
+}
+/* Features Section */
+.features-section {
+  padding: 50px 20px;
+  background: linear-gradient(to left, #ef4444, #111827);
+  text-align: center;
+  color: #fff;
+  width: 100%; /* Ensure it spans the full viewport width */
+  margin: 0; /* Remove any default margin */
+  box-sizing: border-box; /* Include padding in the width */
+}
+
+.features-container {
+  display: flex;
+  justify-content: center; /* Align the cards in the center */
+  gap: 25px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  flex-wrap: wrap;
+  max-width: 1200px; /* Optional: Limit content width */
+  margin: 0 auto; /* Center the container */
+}
+
+.feature-item {
+  flex: 1 1 300px;
+  max-width: 300px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  position: relative;
+}
+
+.feature-icon {
+  width: 125px;
+  height: 125px;
+  position: absolute;
+  top: -70px;
+  left: 85px;
+  background-color: #f4f4f4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature-item h3 {
+  font-size: 25px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #000000, #e13737); /* Gradient from white to red */
+  -webkit-background-clip: text; /* Clip the background to text */
+  background-clip: text; /* For non-webkit browsers */
+  color: transparent; /* Set the text color to transparent to show the gradient */
+}
+
+.feature-item p {
+  margin-top: 20px;
+  font-size: 23px;
+  color: #545050;
+  margin-bottom: 15px;
+}
+
+.feature-item button {
+  font-family: 'Bakbak One', sans-serif;
+  font-weight: bold;
+  background-color: #d61a1a;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block; /* Make the button a block element */
+  margin-left: auto; /* Align to the left */
+  margin-right: auto; /* Align to the right */
+  margin-top: 20px; /* Optional: adds space above the button */
+}
+
+
+.feature-item button:hover {
+  background-color: #ff0000;
+}
+
+
+.feature-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Slightly deeper shadow for a refined effect */
 }

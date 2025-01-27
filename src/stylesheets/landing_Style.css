@@ -275,7 +275,9 @@
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: left;
-  position: relative;
+  position: relative;  
+  transition: transform 0.5s ease, box-shadow 0.3s ease; /* Smooth animation for transform and box-shadow */
+
 }
 
 .feature-icon {
@@ -301,6 +303,7 @@
   -webkit-background-clip: text; /* Clip the background to text */
   background-clip: text; /* For non-webkit browsers */
   color: transparent; /* Set the text color to transparent to show the gradient */
+
 }
 
 .feature-item p {

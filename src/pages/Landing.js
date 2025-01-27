@@ -52,16 +52,16 @@ function Landing() {
         {/* Image Section */}
         <div className="about-image">
           <img
-            src="https://plus.unsplash.com/premium_photo-1682309788947-606b23185331?q=80&w=1824&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="https://images.unsplash.com/photo-1700136968705-e4e93ff4d6f2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Property illustration"
           />
         </div>
 
         {/* Text Section */}
         <div className="about-text">
-          <h2>About Us</h2>
+          <h2 style={{ color: "#ff4d4d" }}>About Us</h2>
           <p>
-            Welcome to <strong style={{ color: "#ff4d4d" }}>Manage My Property</strong>, your trusted partner in
+            Welcome to <strong style={{ color: "#393333" }}>Manage My Property</strong>, your trusted partner in
             property rental and management. We specialize in connecting property
             owners with reliable tenants and providing seamless property management
             solutions tailored to your needs.
@@ -121,7 +121,7 @@ function Landing() {
         </div>
         <div className="vendor-image">
           <img 
-            src="https://media.istockphoto.com/id/823328086/photo/new-roof-installation.jpg?s=612x612&w=0&k=20&c=bbsfNLdLXy_yIOd0EtKNXiaLUdXjTgOhTFRmmdITYQc="
+            src="https://plus.unsplash.com/premium_photo-1682086494487-cda8b0c292ff?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE5fHx8ZW58MHx8fHx8"
             alt="Vendor"
             className="rounded"
           />

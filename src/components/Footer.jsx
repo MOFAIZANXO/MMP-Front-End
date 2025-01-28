@@ -1,7 +1,9 @@
 // src/components/Footer.jsx
 import React from 'react';
+import { FaFacebookF, FaTwitter, FaInstagram, FaCheckCircle, FaUsers, FaChartBar } from 'react-icons/fa'; // Importing icons
 import logo from "../assets/images/logo.png";
 import "../stylesheets/Footer.css";
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -10,9 +12,6 @@ const Footer = () => {
         <div className="footer-left">
           <img src={logo} alt="MMP Logo" className="footer-logo" />
           <h3>MMP</h3>
-          <p className="footer-description">
-            MMP Dedicated to connecting the right people with the right homes. Excellence in property management, every step of the way.
-          </p>
           <p className="footer-contact">
             <a href="tel:1234567890" className="footer-link">
               (123) 456–7890
@@ -24,29 +23,24 @@ const Footer = () => {
             </a>
           </p>
           <div className="footer-social">
-            <a href="/" aria-label="Facebook" className="footer-icon">
-              <i className="fab fa-facebook-f"></i>
+            <a href="https://www.facebook.com/" aria-label="Facebook" className="footer-icon">
+              <FaFacebookF />
             </a>
-            <a href="/" aria-label="Twitter" className="footer-icon">
-              <i className="fab fa-twitter"></i>
+            <a href="https://x.com/i/flow/login" aria-label="Twitter" className="footer-icon">
+              <FaTwitter />
             </a>
-            <a href="/" aria-label="Instagram" className="footer-icon">
-              <i className="fab fa-instagram"></i>
+            <a href="https://www.instagram.com/accounts/login/?hl=en" aria-label="Instagram" className="footer-icon">
+              <FaInstagram />
             </a>
           </div>
         </div>
 
-        {/* Middle Section: Product Links */}
+        {/* Middle Section: Product Links with Icons */}
         <div className="footer-section">
           <h4 className="footer-heading">Product</h4>
-          <ul className="footer-list">
-            <li><a href="/" className="footer-link">Autocapture</a></li>
-            <li><a href="#" className="footer-link">Data Governance</a></li>
-            <li><a href="#" className="footer-link">Virtual Events</a></li>
-            <li><a href="#" className="footer-link">Virtual Users</a></li>
-            <li><a href="#" className="footer-link">Behavioral Analytics</a></li>
-            <li><a href="#" className="footer-link">Connect</a></li>
-          </ul>
+          <p className="footer-description">
+            MMP Dedicated to connecting the right people with the right homes. Excellence in property management, every step of the way.
+          </p>
         </div>
 
         {/* Right Section: Explore Links */}

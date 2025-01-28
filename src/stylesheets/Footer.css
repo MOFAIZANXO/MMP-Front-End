@@ -1,8 +1,4 @@
 /* Footer Styles */
-* {
-  font-family: "Poppins", serif;
-}
-
 .footer {
   background-color: #ffffff;
   color: #333333;
@@ -31,12 +27,12 @@
 }
 
 .footer-description {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   margin: 1rem 0;
 }
 
 .footer-contact {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
 }
 
 .footer-social {
@@ -47,7 +43,7 @@
 }
 
 .footer-icon {
-  font-size: 1.0rem;
+  font-size: 1.2rem;
   color: #333333;
   transition: color 0.3s ease;
 }
@@ -62,7 +58,7 @@
 }
 
 .footer-heading {
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   margin-bottom: 1rem;
   font-weight: 600;
 }
@@ -75,7 +71,7 @@
 .footer-link {
   text-decoration: none;
   color: #333333;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   transition: color 0.3s ease;
 }
 

@@ -5,11 +5,12 @@
     font-size: 26px; 
     color: #333; 
     cursor: pointer;
+    transition: color 1.5s;
 }
 
 .back-btn:hover {
-    color: #000000;
-    transform: scale(1.1);
+    color: #FA1A1A;
+    transform: scale(1);
 }
 
 .signUp {
@@ -124,7 +125,7 @@
 .signup-button {
     width: 150px;
     padding: 8px 12px;
-    background-color: #9a9a9a;
+    background-color: #FA1A1A;
     border: none;
     border-radius: 5px;
     color: white;
@@ -137,7 +138,7 @@
 .login-button {
     width: 270px;
     padding: 8px 12px;
-    background-color: #FF6767;
+    background-color: #9a9a9a;
     border: none;
     border-radius: 5px;
     color: white;
@@ -148,11 +149,11 @@
 }
 
 .signup-button:hover {
-    background-color: #616161;
+    background-color: #c10000;
 }
 
 .login-button:hover {
-    background-color: #FF4C4C;
+    background-color: #616161;
 }
 
 .login-button-text {

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import Footer from '../components/Footer'; // Adjust path if necessary
-import logo from "../assets/images/logo.png"; // Ensure this path is correct
-import "../stylesheets/landing_Style.css";
+import Footer from '../components/Footer'; 
+import logo from "../assets/images/logo.png"; 
+import "../stylesheets/landing.css";
 
 function Landing() {
   return (
@@ -15,10 +15,13 @@ function Landing() {
             <h1 className="navbar-title">Manage My Property</h1>
           </div>
 
-          {/* Sign Up Button */}
-          <div className="signup-btn-container">
+          {/* Sign Up and Login Buttons */}
+          <div className="auth-btn-container">
             <Link to="/signup" className="signup-btn">
               SIGN UP
+            </Link>
+            <Link to="/login" className="login-btn">
+              LOGIN
             </Link>
           </div>
         </div>

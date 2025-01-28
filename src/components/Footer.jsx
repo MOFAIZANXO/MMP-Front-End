@@ -1,6 +1,6 @@
 // src/components/Footer.jsx
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaInstagram, FaCheckCircle, FaUsers, FaChartBar } from 'react-icons/fa'; // Importing icons
+import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa'; // Importing icons
 import logo from "../assets/images/logo.png";
 import "../stylesheets/Footer.css";
 

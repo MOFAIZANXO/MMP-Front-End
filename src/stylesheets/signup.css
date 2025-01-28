@@ -1,0 +1,161 @@
+.backBtn {
+    position: absolute; 
+    top: 20px; 
+    left: 30px; 
+    font-size: 26px; 
+    color: #333; 
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    color: #FF6767;
+    transform: scale(1.1);
+}
+
+.signUp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 30px;
+    height: 90vh;
+}
+
+.logoImg {
+    width: 80px;
+    height: 80px;
+}
+
+.signup-head {
+    font-size: 35px;
+    font-weight: 700;
+}
+
+.signup-subhead {
+    font-size: 11px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #FF6767;
+}
+
+.name-container {
+    display: flex;
+    width: 26%;
+}
+
+.firstname-box {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    font-size: 14px;
+    color: #666;
+}
+
+.lastname-box {
+    width: 50%;
+    padding: 10px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    font-size: 14px;
+    color: #666;
+}
+
+.input-box {
+    width: 26%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    font-size: 14px;
+    color: #666;
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 45px;
+    margin-top: 15px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    font-size: 17px;
+    color: #999;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, border 0.3s;
+}
+
+.checkbox:checked {
+    background-color: #FF6767;
+    border-color: #FF6767;
+}
+
+.checkbox:hover {
+    border-color: #FF6767;
+}
+
+.checkbox:checked:hover {
+    background-color: #FF4C4C;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.signup-button {
+    width: 150px;
+    padding: 8px 12px;
+    background-color: #9a9a9a;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.login-button {
+    width: 270px;
+    padding: 8px 12px;
+    background-color: #FF6767;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.signup-button:hover {
+    background-color: #616161;
+}
+
+.login-button:hover {
+    background-color: #FF4C4C;
+}
+
+.login-button-text {
+    text-decoration: none;
+    color: white;
+}

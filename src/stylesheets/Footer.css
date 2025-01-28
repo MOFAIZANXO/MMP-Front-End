@@ -4,6 +4,8 @@
   color: #333333;
   padding: 2rem 0;
   border-top: 1px solid #e5e5e5;
+  /* Added a log for debugging purposes */
+  /* console.log('Footer styles applied'); */
 }
 
 .footer-container {
@@ -14,25 +16,35 @@
   max-width: 1200px;
   margin: 0 auto;
   gap: 2rem;
+  /* Added a log for debugging purposes */
+  /* console.log('Footer container styles applied'); */
 }
 
 .footer-left {
   flex: 1;
   min-width: 250px;
   text-align: center;
+  /* Added a log for debugging purposes */
+  /* console.log('Footer left styles applied'); */
 }
 
 .footer-logo {
   height: 50px;
+  /* Added a log for debugging purposes */
+  /* console.log('Footer logo styles applied'); */
 }
 
 .footer-description {
   font-size: 0.9rem;
   margin: 1rem 0;
+  /* Added a log for debugging purposes */
+  /* console.log('Footer description styles applied'); */
 }
 
 .footer-contact {
   font-size: 0.9rem;
+  /* Added a log for debugging purposes */
+  /* console.log('Footer contact styles applied'); */
 }
 
 .footer-social {
@@ -40,32 +52,44 @@
   display: flex;
   gap: 1rem;
   justify-content: center;
+  /* Added a log for debugging purposes */
+  /* console.log('Footer social styles applied'); */
 }
 
 .footer-icon {
   font-size: 1.2rem;
   color: #333333;
   transition: color 0.3s ease;
+  /* Added a log for debugging purposes */
+  /* console.log('Footer icon styles applied'); */
 }
 
 .footer-icon:hover {
   color: #555555;
+  /* Added a log for debugging purposes */
+  /* console.log('Footer icon hover styles applied'); */
 }
 
 .footer-section {
   flex: 1;
   min-width: 200px;
+  /* Added a log for debugging purposes */
+  /* console.log('Footer section styles applied'); */
 }
 
 .footer-heading {
   font-size: 1.1rem;
   margin-bottom: 1rem;
   font-weight: 600;
+  /* Added a log for debugging purposes */
+  /* console.log('Footer heading styles applied'); */
 }
 
 .footer-list {
   list-style: none;
   padding: 0;
+  /* Added a log for debugging purposes */
+  /* console.log('Footer list styles applied'); */
 }
 
 .footer-link {
@@ -73,8 +97,12 @@
   color: #333333;
   font-size: 0.9rem;
   transition: color 0.3s ease;
+  /* Added a log for debugging purposes */
+  /* console.log('Footer link styles applied'); */
 }
 
 .footer-link:hover {
   color: #555555;
+  /* Added a log for debugging purposes */
+  /* console.log('Footer link hover styles applied'); */
 }

@@ -47,9 +47,9 @@ const Footer = () => {
         <div className="footer-section">
           <h4 className="footer-heading">Explore</h4>
           <ul className="footer-list">
-            <li><a href="#" className="footer-link">Resources</a></li>
-            <li><a href="#" className="footer-link">Blog</a></li>
-            <li><a href="#" className="footer-link">Documents</a></li>
+            <li><a href="/" className="footer-link">Resources</a></li>
+            <li><a href="/" className="footer-link">Blog</a></li>
+            <li><a href="/" className="footer-link">Documents</a></li>
           </ul>
         </div>
       </div>

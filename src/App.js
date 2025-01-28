@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Admin from './pages/Admin';
 import PropertyManager from './pages/PropertyManager';
@@ -6,6 +6,8 @@ import Owner from './pages/Owner';
 import Renter from './pages/Renter';
 import Vendor from './pages/Vendor';
 import Landing from './pages/Landing';
+import SignUp from './pages/signup/SignUp';
+import Login from './pages/login/Login';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="/owner" element={<Owner />} />
           <Route path="/renter" element={<Renter />} />
           <Route path="/vendor" element={<Vendor />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </div>
     </Router>

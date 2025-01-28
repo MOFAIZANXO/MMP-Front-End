@@ -121,7 +121,7 @@ function Landing() {
         </div>
         <div className="vendor-image">
           <img 
-            src="https://plus.unsplash.com/premium_photo-1682086494487-cda8b0c292ff?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE5fHx8ZW58MHx8fHx8"
+            src="https://media.istockphoto.com/id/1278270010/photo/builder-handyman-with-construction-tools-house-renovation-background.jpg?s=612x612&w=0&k=20&c=rE6SpYbv-QiUBl77pvfuJVOuvxvVLjNs4Q4V2x9i6Uo="
             alt="Vendor"
             className="rounded"
           />

@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"; // Import eye icons
+import { faArrowLeft, faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons"; 
 import { useState } from "react";
 import { saveUserData, getUserData } from "../../datasets/user";
 import "../../stylesheets/signup.css";
@@ -13,8 +13,8 @@ export default function SignUp() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [passwordVisibility, setPasswordVisibility] = useState(false); // State for password visibility
-    const [confirmPasswordVisibility, setConfirmPasswordVisibility] = useState(false); // State for confirm password visibility
+    const [passwordVisibility, setPasswordVisibility] = useState(false); 
+    const [confirmPasswordVisibility, setConfirmPasswordVisibility] = useState(false); 
     const navigate = useNavigate();
 
     const handleCheckboxChange = (type) => {
@@ -101,33 +101,37 @@ export default function SignUp() {
                 />
 
                 <div className="password-container">
-                    <input
-                        type={passwordVisibility ? "text" : "password"}
-                        placeholder="Passcode"
-                        className="input-box"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <FontAwesomeIcon
-                        icon={passwordVisibility ? faEye : faEyeSlash}
-                        className="eye-icon"
-                        onClick={() => setPasswordVisibility(!passwordVisibility)} // Toggle password visibility
-                    />
+                    <div className="input-with-icon">
+                        <input
+                            type={passwordVisibility ? "text" : "password"}
+                            placeholder="Passcode"
+                            className="input-box-1"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <FontAwesomeIcon
+                            icon={passwordVisibility ? faEye : faEyeSlash}
+                            className="eye-icon"
+                            onClick={() => setPasswordVisibility(!passwordVisibility)}
+                        />
+                    </div>
                 </div>
 
                 <div className="password-container">
-                    <input
-                        type={confirmPasswordVisibility ? "text" : "password"}
-                        placeholder="Confirm Passcode"
-                        className="input-box"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                    />
-                    <FontAwesomeIcon
-                        icon={confirmPasswordVisibility ? faEye : faEyeSlash}
-                        className="eye-icon"
-                        onClick={() => setConfirmPasswordVisibility(!confirmPasswordVisibility)} // Toggle confirm password visibility
-                    />
+                    <div className="input-with-icon">
+                        <input
+                            type={confirmPasswordVisibility ? "text" : "password"}
+                            placeholder="Confirm Passcode"
+                            className="input-box-1"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                        />
+                        <FontAwesomeIcon
+                            icon={confirmPasswordVisibility ? faEye : faEyeSlash}
+                            className="eye-icon"
+                            onClick={() => setConfirmPasswordVisibility(!confirmPasswordVisibility)}
+                        />
+                    </div>
                 </div>
 
                 <div className="checkbox-container">

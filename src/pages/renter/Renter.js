@@ -1,7 +1,7 @@
 import React from "react";
-import "../stylesheets/Renter/Home.css";
-import RenterNavbar from "../components/Renter/RenterNavbar";
-import Footer from "../components/Footer"; 
+import "../../stylesheets/Renter/Home.css";
+import RenterNavbar from "../../components/Renter/RenterNavbar";
+import Footer from "../../components/Footer"; 
 
 function Renter() {
   return (

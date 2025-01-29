@@ -84,7 +84,7 @@ function Landing() {
             <h3>Looking for a place to rent?</h3>
             <p>Sign up today as a renter and discover the perfect place to call home. Let us help you find your ideal property, hassle-free!</p>
             <Link to="/renter">
-              <button className="button">Sign Up as Renter</button> {/* Navigate to Renter Portal */}
+              <button className="button">Rent Today!</button> {/* Navigate to Renter Portal */}
             </Link>
           </div>
           <div className="feature-item">
@@ -95,7 +95,7 @@ function Landing() {
             />
             <h3>Worried about your property?</h3>
             <p>Sign up and connect with our dedicated property manager today. Managers will handle your rent problems starting today!</p>
-            <Link to="/Owner">
+            <Link to="/owner">
               <button className="button">Get a Property Manager</button> {/* Navigate to Property Manager Portal */}
             </Link>
           </div>
@@ -108,7 +108,7 @@ function Landing() {
             <h3>Become a Property Manager Today!</h3>
             <p>Sign up today as a property manager. Helping both renters and owners in their property related endeavors. Today!</p>
             <Link to="/property-manager">
-              <button className="button">Sign Up as Manager</button> {/* Navigate to Property Manager Portal */}
+              <button className="button">Sign In as Manager</button> {/* Navigate to Property Manager Portal */}
             </Link>
           </div>
         </div>

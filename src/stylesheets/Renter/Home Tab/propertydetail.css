@@ -1,0 +1,149 @@
+
+  .property-detail-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .property-details, .rent-include-exclude, .property-neighborhood, .reviews {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .review {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  /* Property Detail Page */
+.property-detail-page {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  /* Breadcrumb */
+  .breadcrumb {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .breadcrumb span {
+    color: #007bff;
+    cursor: pointer;
+  }
+  
+  /* Property Title and Rating */
+  .property-detail-page h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .property-location {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 10px;
+  }
+  
+  .property-rating {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Owned By */
+  .owned-by {
+    margin-bottom: 20px;
+  }
+  
+  .owned-by h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .owned-by p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  /* General Information */
+  .general-info {
+    margin-bottom: 20px;
+  }
+  
+  .general-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .general-info p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+  }
+  
+  /* Apply For Rent Button */
+  .apply-for-rent-button {
+    background-color: #bc2d2d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .apply-for-rent-button:hover {
+    background-color: #f21e1e;
+  }
+  
+  /* About Location's Neighborhood */
+  .neighborhood-info {
+    margin-bottom: 20px;
+  }
+  
+  .neighborhood-info h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .neighborhood-info p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  /* Reviews */
+  .reviews {
+    margin-bottom: 20px;
+  }
+  
+  .reviews h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .review {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .review p {
+    font-size: 16px;
+    color: #555;
+    margin: 0;
+  }
+  
+  .review b {
+    color: #333;
+  }

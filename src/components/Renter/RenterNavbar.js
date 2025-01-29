@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom"; // Import NavLink
 import "../../stylesheets/Renter/Navbar.css";
 
 function RenterNavbar() {
@@ -10,9 +11,30 @@ function RenterNavbar() {
       </div>
       <nav>
         <ul className="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/">Agents</a></li>
-          <li><a href="/">Profile</a></li>
+          <li>
+            <NavLink
+              to="/renter"
+              className={({ isActive }) => (isActive ? "active-link" : "")}
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/agents"
+              className={({ isActive }) => (isActive ? "active-link" : "")}
+            >
+              Agents
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/profile"
+              className={({ isActive }) => (isActive ? "active-link" : "")}
+            >
+              Profile
+            </NavLink>
+          </li>
         </ul>
       </nav>
       <div className="profile-pic">

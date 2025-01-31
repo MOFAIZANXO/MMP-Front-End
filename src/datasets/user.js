@@ -1,5 +1,6 @@
 let users = JSON.parse(localStorage.getItem("users")) || [
     {
+        profileImg: "",
         firstName: "John",
         lastName: "Doe",
         email: "john.doe@example.com",
@@ -7,6 +8,7 @@ let users = JSON.parse(localStorage.getItem("users")) || [
         userType: "owner",
     },
     {
+        profileImg: "",
         firstName: "Jane",
         lastName: "Smith",
         email: "jane.smith@example.com",

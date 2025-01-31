@@ -9,6 +9,8 @@ import Landing from './pages/Landing';
 import SignUp from './pages/signup/SignUp';
 import Login from './pages/login/Login';
 import PropertyDetail from "./pages/RenterPages/Home Tab/PropertyDetail";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   return (

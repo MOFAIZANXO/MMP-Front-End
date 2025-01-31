@@ -3,7 +3,7 @@ import './App.css';
 import Admin from './pages/Admin';
 import PropertyManager from './pages/PropertyManagerPages/PropertyManager.js';
 import Owner from './pages/OwnerPages/OwnerProfile.js';
-import Renter from './pages/RenterPages/Home Tab/RentForm.js';
+import Renter from './pages/RenterPages/Home Tab/WorkOrderForm.js';
 import Vendor from './pages/VendorPages/Vendor.js';
 import Landing from './pages/Landing';
 import SignUp from './pages/signup/SignUp';

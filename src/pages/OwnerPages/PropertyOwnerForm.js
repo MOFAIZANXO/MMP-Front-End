@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
-import '../stylesheets/Owner/OwnerForm.css';
-import logo from '../assets/images/logo.png';
+import '../../stylesheets/Owner/OwnerForm.css';  // Adjusted path for OwnerForm.css
+import logo from '../../assets/images/logo.png';  // Adjusted path for logo.png
 
 const OwnerForm = () => {
   const [page, setPage] = useState(1);
@@ -202,11 +202,7 @@ const OwnerForm = () => {
                   Gas
                 </label>
                 <label>
-                  <input
-                    type="checkbox"
-                    checked={includedUtilities.electricity}
-                    onChange={() => handleUtilityChange('electricity')}
-                  />
+                  <input type="checkbox" checked={includedUtilities.electricity} onChange={() => handleUtilityChange('electricity')}/>
                   Electricity
                 </label>
               </div>

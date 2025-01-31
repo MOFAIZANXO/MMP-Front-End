@@ -1,0 +1,549 @@
+/* OwnerProfile.css */
+.profile-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    width: 280px;
+    background: linear-gradient(180deg, #000000, #db3434);
+    padding: 25px;
+    color: white;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .profile-pic-upload {
+    border: 2px dashed rgba(255,255,255,0.3);
+    padding: 25px;
+    text-align: center;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 10px;
+  }
+  
+  .profile-pic-upload:hover {
+    background-color: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.5);
+  }
+  
+  .menu-item {
+    padding: 15px 20px;
+    margin: 12px 0;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.95em;
+  }
+  
+  .menu-item:hover {
+    background-color: #5e3434;
+    transform: translateX(5px);
+  }
+  
+  .menu-item.active {
+    background-color: #db3434;
+    font-weight: 600;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  }
+  
+  /* Main Content Styles */
+  .main-content {
+    flex: 1;
+    padding: 35px;
+    background-color: #f8f9fa;
+    transition: all 0.3s;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+    padding: 20px;
+    background: linear-gradient(90deg, #000000, #db3434);
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Property Statistics */
+  .property-stats {
+    margin-bottom: 35px;
+  }
+  
+  .stat-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  }
+  
+  .stat-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+  }
+  
+  .stat-item {
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .stat-item:hover {
+    transform: translateY(-3px);
+  }
+  
+  .stat-item.rented {
+    background: rgba(39, 174, 96, 0.1);
+    border: 2px solid #27ae60;
+  }
+  
+  .stat-item.pending {
+    background: rgba(219, 52, 52, 0.1);
+    border: 2px solid #db3434;
+  }
+  
+  .stat-item span {
+    font-size: 2.4em;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 12px;
+  }
+  
+  .stat-item.rented span {
+    color: #27ae60;
+  }
+  
+  .stat-item.pending span {
+    color: #db3434;
+  }
+  
+  .stat-item p {
+    color: #666;
+    margin: 0;
+    font-size: 0.95em;
+  }
+  
+  /* Revenue Chart */
+  .revenue-chart {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  }
+  
+  .revenue-chart h2 {
+    margin: 0 0 25px 0;
+    color: #2c3e50;
+    font-size: 1.4em;
+  }
+  
+  /* Personal Info Section */
+  .personal-info {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  }
+  
+  .input-group {
+    margin-bottom: 25px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 0.95em;
+    font-weight: 500;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: all 0.3s;
+  }
+  
+  .input-group input:focus {
+    border-color: #db3434;
+    box-shadow: 0 0 0 3px rgba(219, 52, 52, 0.1);
+    outline: none;
+  }
+  
+  .detail-value {
+    padding: 12px 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    color: #333;
+    font-size: 1em;
+  }
+  
+  /* Properties Section */
+  .properties-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .add-property-btn {
+    background-color: #db3434;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+  }
+  
+  .property-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+  }
+  
+  .property-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .status {
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 500;
+    display: inline-block;
+  }
+  
+  .status.rented {
+    background-color: #27ae60;
+    color: white;
+  }
+  
+  .status.pending {
+    background-color: #db3434;
+    color: white;
+  }
+  
+  /* Chat Section */
+  .chat-container {
+    display: flex;
+    gap: 20px;
+    height: 400px;
+  }
+  
+  .agents-list {
+    width: 200px;
+    border-right: 2px solid #eee;
+    padding-right: 20px;
+  }
+  
+  .agent-item {
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f8f9fa;
+    transition: all 0.3s;
+  }
+  
+  .agent-item:hover {
+    background-color: #5e3434;
+    color: white;
+  }
+  
+  .chat-window {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .chat-messages {
+    flex: 1;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    overflow-y: auto;
+  }
+  
+  .message {
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 15px;
+    max-width: 70%;
+  }
+  
+  .message.received {
+    background-color: #f8f9fa;
+    align-self: flex-start;
+  }
+  
+  .message.sent {
+    background-color: #db3434;
+    color: white;
+    align-self: flex-end;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .profile-container {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+  
+    .main-content {
+      padding: 20px;
+    }
+  
+    .stat-items {
+      grid-template-columns: 1fr;
+    }
+  
+    .properties-header {
+      flex-direction: column;
+      gap: 15px;
+      align-items: flex-start;
+    }
+  
+    .property-tabs {
+      flex-wrap: wrap;
+    }
+  
+    .chat-container {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .agents-list {
+      width: 100%;
+      border-right: none;
+      padding-right: 0;
+      margin-bottom: 20px;
+    }
+  
+    .stat-item {
+      padding: 15px;
+    }
+  
+    .stat-item span {
+      font-size: 1.8em;
+    }
+  }
+  
+  /* Additional Components */
+  .edit-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .edit-btn, .save-btn, .cancel-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+  }
+  
+  .edit-btn {
+    background-color: #db3434;
+    color: white;
+  }
+  
+  .save-btn {
+    background-color: #27ae60;
+    color: white;
+  }
+  
+  .cancel-btn {
+    background-color: #f8f9fa;
+    color: #666;
+    border: 1px solid #ddd;
+  }
+  
+  .logout-btn {
+    background-color: #d20000;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    transition: all 0.3s;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  /* Agents Profile Section */
+.agents-section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  }
+  
+  .agent-chat-container {
+    display: flex;
+    gap: 25px;
+    height: 500px;
+  }
+  
+  .agents-list-container {
+    width: 250px;
+    border-right: 2px solid #eee;
+    padding-right: 25px;
+  }
+  
+  .agent-list-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .agent-list-item {
+    padding: 15px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .agent-list-item:hover {
+    background-color: #db3434;
+    color: white;
+    transform: translateX(5px);
+  }
+  
+  .agent-list-item.active {
+    background-color: #5e3434;
+    color: white;
+  }
+  
+  /* Agents Profile Section */
+.section.agents-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  
+  .chat-container {
+    display: flex;
+    gap: 2rem;
+    height: 65vh;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  
+  .agents-list {
+    width: 250px;
+    border-right: 2px solid #eee;
+    padding-right: 1.5rem;
+  }
+  
+  .agent-item {
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+    cursor: pointer;
+    border-radius: 8px;
+    background: white;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    border: 1px solid #eee;
+  }
+  
+
+  .agent-item.active {
+    background: #db3434;
+    color: white;
+    border-color: #db3434;
+  }
+
+  
+  .chat-input {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+  
+  .chat-input input {
+    flex: 1;
+    padding: 0.8rem 1.25rem;
+    border: 2px solid #eee;
+    border-radius: 2rem;
+    font-size: 0.95em;
+    transition: all 0.2s ease;
+  }
+  
+  .chat-input input:focus {
+    border-color: #db3434;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(219, 52, 52, 0.1);
+  }
+  
+  .chat-input button {
+    padding: 0.8rem 1.5rem;
+    border-radius: 2rem;
+    background: #db3434;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .chat-input button:hover {
+    background: #c22d2d;
+    transform: translateY(-1px);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .chat-container {
+      flex-direction: column;
+      height: auto;
+      padding: 1rem;
+    }
+  
+    .agents-list {
+      width: 100%;
+      border-right: none;
+      border-bottom: 2px solid #eee;
+      padding-right: 0;
+      padding-bottom: 1rem;
+    }
+  
+    .agent-item {
+      margin-bottom: 0.5rem;
+    }
+  
+    .message {
+      max-width: 85%;
+    }
+  }

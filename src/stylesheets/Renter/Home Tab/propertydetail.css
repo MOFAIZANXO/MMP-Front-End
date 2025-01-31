@@ -1,0 +1,397 @@
+.property-detail-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.property-details, .rent-include-exclude, .property-neighborhood, .reviews {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.review {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.property-detail-page {
+  padding: 20px;
+  margin: 0 auto;
+  text-align: left;
+  margin-top: 50px;
+  position: relative; 
+}
+
+.backBtn {
+  position: absolute; 
+  top: 20px; 
+  left: 30px; 
+  font-size: 26px; 
+  color: #333; 
+  cursor: pointer;
+  transition: color 0.3s; 
+}
+
+.backBtn:hover {
+  color: #bc2d2d;
+}
+
+.breadcrumb {
+  display: flex;
+  font-weight: 600;
+  color: #555;
+  margin-top: 5px;
+  margin-left: 70px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px;
+}
+
+.breadcrumbHome {
+  color: #555;
+  text-decoration: none;
+  margin-top: -0.2px;
+  font-size: 20px;
+}
+
+.breadcrumbSymbol {
+  margin-top: 2px;
+  font-size: 20px;
+}
+
+.breadcrumbSpan {
+  color: #bc2d2d;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 0.4px;
+}
+
+.house-icon {
+  color: #bc2d2d;
+  font-size: 50px;
+  margin-right: 20px; 
+}
+
+.detail-head-div {
+  display: flex;
+  margin-top: 30px;
+}
+
+.detail-div-1 {
+  display: block;
+  width: 60%;
+}
+
+.property-detail-page h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.property-location {
+  font-size: 18px;
+  color: #777;
+  margin-bottom: 5px;
+  margin-top: -10px;
+}
+
+.property-rating {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.owned-by {
+  margin-top: 7px;
+}
+
+.owned-by h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.owned-by p {
+  font-size: 16px;
+  color: #555;
+}
+
+.owner-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.owner-profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 200px;
+}
+
+.property-slider {
+  margin-bottom: 200px;
+  width: 95%;
+  height: 500px; 
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-swiper {
+  width: 80%;
+  height: 500px; 
+  margin-bottom: 15px;
+}
+
+.property-slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.thumbnail-swiper {
+  width: 100%; 
+  height: 120px; 
+  overflow: hidden; 
+  margin-top: 10px; 
+  padding: 5px 0; 
+  cursor: grab; 
+}
+
+.thumbnail-swiper .swiper-wrapper {
+  display: flex;
+  flex-wrap: nowrap; 
+}
+
+.thumbnail-swiper .swiper-slide {
+  width: auto; 
+  flex-shrink: 0; 
+}
+
+.thumbnail-image {
+  width: 300px; 
+  height: 100%; 
+  object-fit: cover; 
+  border-radius: 8px; 
+}
+
+.thumbnail-image:hover {
+  opacity: 1;
+}
+
+.main-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  opacity: 1;
+  margin: 0 5px !important; 
+  transition: background-color 0.3s ease;
+}
+
+.main-swiper .swiper-pagination-bullet-active {
+  background-color: #bc2d2d; 
+}
+
+.main-swiper .swiper-button-next {
+  right: 10px; 
+}
+
+.main-swiper .swiper-button-prev {
+  left: 10px; 
+}
+
+.main-swiper .swiper-button-next,
+.main-swiper .swiper-button-prev {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 50%; 
+  color: white; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.main-swiper .swiper-button-next:hover,
+.main-swiper .swiper-button-prev:hover {
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.main-swiper .swiper-button-next::after,
+.main-swiper .swiper-button-prev::after {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.thumbnail-swiper .swiper-slide {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.thumbnail-swiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.swiper-slide-thumb-active .thumbnail-image {
+  opacity: 1;
+  border: 2px solid #bc2d2d;
+}
+
+.general-info {
+  margin-top: 170px;
+  padding-bottom: 25px;
+}
+
+/* General Information Heading */
+.general-info-heading {
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Cards Container */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; 
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Info Card */
+.info-card {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center; 
+  text-align: center; 
+  padding: 20px;
+  border: 1px solid #ddd; 
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff; 
+  width: 350px;
+  height: 300px;
+}
+
+.info-card h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.info-card p {
+  font-size: 16px;
+  color: black;
+  margin-bottom: 5px;
+}
+
+.rent p {
+  text-transform: capitalize;
+}
+
+.bath, .bed, .unit {
+  display: flex;
+}
+
+.bathIcon, .bedIcon, .unitIcon {
+  margin-top: 3px;
+  margin-right: 8px;
+  font-size: 18px;
+  color: #555;
+}
+
+/* Copy Location Button */
+.copy-location-button {
+  background-color: #bc2d2d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.copy-location-button:hover {
+  background-color: #f21e1e;
+}
+
+.roomImg, .rentImg, .locationImg {
+  width: 150px;
+  height: 90px;
+}
+
+.apply-for-rent-button {
+  background-color: #bc2d2d;
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 15px;
+  margin-bottom: 22px;
+  margin-left: 490px;
+  transition: background-color 0.3s ease;
+}
+
+.apply-for-rent-button:hover {
+  background-color: #f21e1e;
+}
+
+.neighborhood-info {
+  margin: 20px auto; /* Center the box horizontally */
+  padding: 20px; /* Add padding inside the box */
+  width: 80%; /* Set width to 80% of the parent container */
+  background-color: #fff; /* White background */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center; /* Center-align text */
+}
+
+.neighborhood-info h3 {
+  font-size: 20px;
+  margin-bottom: 15px; /* Space below the heading */
+  color: #333; /* Dark text color */
+}
+
+.neighborhood-info p {
+  font-size: 16px;
+  color: #555; /* Slightly lighter text color */
+  line-height: 1.6; /* Improve readability */
+  margin: 0; /* Remove default margin */
+}
+
+.reviews {
+  margin-bottom: 20px;
+}
+
+.reviews h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.review {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.review p {
+  font-size: 16px;
+  color: #555;
+  margin: 0;
+}
+
+.review b {
+  color: #333;
+}

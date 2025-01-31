@@ -1,15 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Admin from './pages/Admin';
-import PropertyManager from './pages/PropertyManager';
-<<<<<<< HEAD
+import PropertyManager from './pages/PropertyManagerPages/PropertyManager.js';
 import Owner from './pages/OwnerPages/OwnerProfile.js';
-import Renter from './pages/RenterPages/Renter';
-=======
-import Owner from './pages/Owner';
-import Renter from './pages/RenterPages/Home Tab/Renter';
->>>>>>> d2d11d481dbaddb58c4e5f7642e1de723ad57dbf
-import Vendor from './pages/Vendor';
+import Renter from './pages/RenterPages/Home Tab/RentForm.js';
+import Vendor from './pages/VendorPages/Vendor.js';
 import Landing from './pages/Landing';
 import SignUp from './pages/signup/SignUp';
 import Login from './pages/login/Login';

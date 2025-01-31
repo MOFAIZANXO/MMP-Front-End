@@ -5,7 +5,7 @@ import properties from "../../../datasets/newProperties";
 import RenterNavbar from "../../../components/Renter/RenterNavbar";
 import Footer from "../../../components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faHouse, faHouseChimney, faBed, faToilet } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft, faHouseChimney, faBed, faToilet } from "@fortawesome/free-solid-svg-icons";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Thumbs, FreeMode, Scrollbar } from "swiper/modules";
 import "swiper/css";

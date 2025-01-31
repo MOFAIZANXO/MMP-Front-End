@@ -1,0 +1,74 @@
+.vendor-portal {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .vendor-portal h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .vendor-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+  }
+  
+  .form-group input[type="text"],
+  .form-group textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .services, .license {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .services label, .license label {
+    font-weight: normal;
+  }
+  
+  .form-group textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  .back-button, .confirm-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .back-button {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .confirm-button {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .back-button:hover {
+    background-color: #ddd;
+  }
+  
+  .confirm-button:hover {
+    background-color: #45a049;
+  }

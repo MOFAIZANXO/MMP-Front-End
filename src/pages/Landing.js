@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import Footer from '../components/Footer'; 
-import logo from "../assets/images/logo.png"; 
+import Footer from '../components/Footer';
+import logo from "../assets/images/logo.png";
 import "../stylesheets/landing.css";
 
 function Landing() {
@@ -72,7 +72,7 @@ function Landing() {
         </div>
       </section>
 
-      {/*Portals Section (except admin and vendor) */}
+      {/* Portals Section (except admin and vendor) */}
       <section className="features-section">
         <div className="features-container">
           <div className="feature-item">
@@ -131,9 +131,15 @@ function Landing() {
         </div>
       </section>
 
-       {/* Footer */}
-       <Footer />
+      {/* Chat Button */}
+      <div className="chat-button-container">
+        <Link to="/chat" className="chat-button">
+          Chat with Property Manager
+        </Link>
+      </div>
 
+      {/* Footer */}
+      <Footer />
     </div>
   );
 }

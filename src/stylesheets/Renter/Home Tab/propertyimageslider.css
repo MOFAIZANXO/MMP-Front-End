@@ -1,0 +1,111 @@
+/* PropertyImageSlider.css */
+.property-slider {
+    margin-bottom: 200px;
+    width: 95%;
+    height: 500px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .main-swiper {
+    width: 80%;
+    height: 500px;
+    margin-bottom: 15px;
+  }
+  
+  .property-slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  
+  .thumbnail-swiper {
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+    margin-top: 10px;
+    padding: 5px 0;
+    cursor: grab;
+  }
+  
+  .thumbnail-swiper .swiper-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  
+  .thumbnail-swiper .swiper-slide {
+    width: auto;
+    flex-shrink: 0;
+  }
+  
+  .thumbnail-image {
+    width: 300px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .thumbnail-image:hover {
+    opacity: 1;
+  }
+  
+  .main-swiper .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    opacity: 1;
+    margin: 0 5px !important;
+    transition: background-color 0.3s ease;
+  }
+  
+  .main-swiper .swiper-pagination-bullet-active {
+    background-color: #bc2d2d;
+  }
+  
+  .main-swiper .swiper-button-next {
+    right: 10px;
+  }
+  
+  .main-swiper .swiper-button-prev {
+    left: 10px;
+  }
+  
+  .main-swiper .swiper-button-next,
+  .main-swiper .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .main-swiper .swiper-button-next:hover,
+  .main-swiper .swiper-button-prev:hover {
+    background-color: rgba(0, 0, 0, 1);
+  }
+  
+  .main-swiper .swiper-button-next::after,
+  .main-swiper .swiper-button-prev::after {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .thumbnail-swiper .swiper-slide {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+  
+  .thumbnail-swiper .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+  
+  .swiper-slide-thumb-active .thumbnail-image {
+    opacity: 1;
+    border: 2px solid #bc2d2d;
+  }

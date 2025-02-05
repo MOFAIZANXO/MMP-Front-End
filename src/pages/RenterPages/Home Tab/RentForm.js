@@ -1,16 +1,19 @@
 import "../../../stylesheets/Renter/Home Tab/RentForm.css";
 import React, { useState, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion"; // Import Framer Motion
+import { useNavigate, Link } from "react-router-dom";
+import { FaCheckCircle } from 'react-icons/fa';
 import logo from "../../../assets/images/logo.png";
+import rentRequests from "../../../datasets/rentrequests"; // Import rentRequests
 
 const ApplyForm = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     name: "",
     contact: "",
-    numberOfPeople: 1,
+    numberOfPeople: "",
     cnicFront: null,
     cnicBack: null,
+    propertyId: null, // Add propertyId to formData
   });
   const [previews, setPreviews] = useState({ front: null, back: null });
   const [touched, setTouched] = useState({
@@ -20,9 +23,13 @@ const ApplyForm = () => {
     cnicFront: false,
     cnicBack: false,
   });
-  const [isSubmitted, setIsSubmitted] = useState(false); // Track submission state
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const fileInputFront = useRef(null);
   const fileInputBack = useRef(null);
+  const navigate = useNavigate();
+
+  // Get propertyId from URL
+  const propertyId = new URLSearchParams(window.location.search).get('propertyId');
 
   const handleNext = () => {
     if (step === 1 && !isStep1Valid()) {
@@ -60,7 +67,11 @@ const ApplyForm = () => {
 
   const isStep1Valid = () => {
     const { name, contact, numberOfPeople } = formData;
-    return name.trim() !== "" && contact.length >= 10 && numberOfPeople >= 1;
+    return (
+      name.trim() !== "" &&
+      contact.length >= 10 &&
+      Number(numberOfPeople) >= 1
+    );
   };
 
   const isStep2Valid = () => formData.cnicFront && formData.cnicBack;
@@ -79,7 +90,11 @@ const ApplyForm = () => {
   };
 
   const triggerFileInput = (type) => {
-    type === "front" ? fileInputFront.current.click() : fileInputBack.current.click();
+    if (type === "front") {
+      fileInputFront.current.click();
+    } else {
+      fileInputBack.current.click();
+    }
   };
 
   const handleSubmit = () => {
@@ -87,6 +102,16 @@ const ApplyForm = () => {
       alert("Please complete all steps correctly.");
       return;
     }
+
+    // Save the rent request
+    const rentRequest = {
+      ...formData,
+      propertyId,
+      status: "pending",
+      date: new Date().toISOString(),
+    };
+    rentRequests.push(rentRequest); // Save to rentRequests
+
     setIsSubmitted(true); // Trigger success animation
     console.log("Form Data:", formData);
   };
@@ -101,7 +126,7 @@ const ApplyForm = () => {
         if (formData.contact.length < 10) return "Contact must be at least 10 digits";
         return null;
       case "numberOfPeople":
-        return formData.numberOfPeople < 1 ? "At least 1 person required" : null;
+        return Number(formData.numberOfPeople) < 1 ? "At least 1 resident is required" : null;
       case "cnicFront":
         return !formData.cnicFront ? "CNIC Front is required" : null;
       case "cnicBack":
@@ -109,13 +134,6 @@ const ApplyForm = () => {
       default:
         return null;
     }
-  };
-
-  // Animation variants for success message
-  const successVariants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-    exit: { opacity: 0, y: 50, transition: { duration: 0.5 } },
   };
 
   return (
@@ -166,7 +184,7 @@ const ApplyForm = () => {
                 <input
                   type="number"
                   name="numberOfPeople"
-                  placeholder="Number of People"
+                  placeholder="No. of Residents"
                   value={formData.numberOfPeople}
                   onChange={handleChange}
                   onBlur={() => handleBlur("numberOfPeople")}
@@ -178,7 +196,7 @@ const ApplyForm = () => {
               </div>
 
               <div className="button-container">
-                <button className="cancel-button" onClick={handleBack}>
+                <button className="cancel-button" onClick={() => navigate(-1)}>
                   Cancel
                 </button>
                 <button className="next-button" onClick={handleNext} disabled={!isStep1Valid()}>
@@ -267,7 +285,7 @@ const ApplyForm = () => {
                   <strong>Contact:</strong> <span>{formData.contact}</span>
                 </p>
                 <p>
-                  <strong>Number of People:</strong> <span>{formData.numberOfPeople}</span>
+                  <strong>No. of Residents:</strong> <span>{formData.numberOfPeople}</span>
                 </p>
 
                 <p>
@@ -308,18 +326,13 @@ const ApplyForm = () => {
           )}
         </>
       ) : (
-        <AnimatePresence>
-          <motion.div
-            className="success-message"
-            variants={successVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-          >
-            <h2>🎉 Success!</h2>
-            <p>Your application has been submitted successfully.</p>
-          </motion.div>
-        </AnimatePresence>
+        <div className="success-screen">
+          <FaCheckCircle className="success-icon" />
+          <h2>Your rent request has been sent successfully!</h2>
+          <p id="p1">Thanks for contacting MMP! Our agent will reach out to you soon!</p>
+          <p id="p2">Have a great day!</p>
+          <Link to="/renterprofile" className="continue-button">Continue</Link>
+        </div>
       )}
     </div>
   );

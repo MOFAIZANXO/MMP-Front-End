@@ -1,0 +1,97 @@
+.reviews {
+  margin-bottom: 20px;
+}
+
+.reviews h3 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.review-card {
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 200px; /* Fixed height for square cards */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-right: 10px; /* Add margin between cards */
+  margin-left: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.reviewer-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.reviewer-profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.review-card p {
+  font-size: 16px;
+  color: #555;
+  margin: 0;
+}
+
+.review-card b {
+  color: #333;
+}
+
+/* Slider adjustments */
+.reviews .slick-slide {
+  padding: 0 10px;
+}
+
+.reviews .slick-list {
+  overflow: hidden;
+}
+
+.reviews .slick-track {
+  display: flex;
+  gap: 20px; /* Add gap between cards */
+}
+
+/* Custom styles for slick dots */
+.reviews .slick-dots {
+  position: absolute;
+  bottom: -30px; /* Adjust the position of the dots */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.reviews .slick-dots li {
+  margin: 0 5px; /* Add spacing between dots */
+}
+
+.reviews .slick-dots li button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc; /* Default dot color */
+  border: none;
+  padding: 0;
+  opacity: 1;
+}
+
+.reviews .slick-dots li.slick-active button {
+  background-color: #bc2d2d; /* Active dot color */
+}
+
+.slider-disabled .slick-prev, .slider-disabled .slick-next, .slider-disabled .slick-dots {
+  display: none !important;
+}

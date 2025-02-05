@@ -1,93 +1,92 @@
- 
-  .form-step {
-    margin-top: 20px;
-  }
-  
-  input {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .file-upload {
-    margin: 10px 0;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .cancel-button, .back-button {
-    background-color: #ccc;
-    color: white;
-  }
+.form-step {
+  margin-top: 20px;
+}
 
-  .cancel-button:hover, .back-button:hover{
-    background-color: #1c1b1b;
-    color: white;
-  }
+input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
   
-  .next-button, .submit-button {
-    background-color: red;
-    color: white;
-  }
-  
-  .review-section {
-    background: #f8f9fa;
-    border-radius: 10px;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border: 1px solid #e9ecef;
-  }
-  .apply-form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .logo-image {
-    max-width: 50px;
-    margin-bottom: 20px;
-  }
-  
-  .heading {
-    color: #333;
-    margin-bottom: 10px;
-    font-size: 24px;
-  }
-  
-  .subheading {
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 30px;
-  }
-  
-  .progress-bar-container {
-    margin-bottom: 30px;
-  }
-  
-  .progress-bar {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    margin: 0 auto;
-    width: 80%;
-  }
-  /* Improved Review Section Styles */
+.file-upload {
+  margin: 10px 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancel-button, .back-button {
+  background-color: #ccc;
+  color: white;
+}
+
+.cancel-button:hover, .back-button:hover{
+  background-color: #1c1b1b;
+  color: white;
+}
+
+.next-button, .submit-button {
+  background-color: red;
+  color: white;
+}
+
+.review-section {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border: 1px solid #e9ecef;
+}
+.apply-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.logo-image {
+  max-width: 50px;
+  margin-bottom: 20px;
+}
+
+.heading {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.subheading {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.progress-bar-container {
+  margin-bottom: 30px;
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 0 auto;
+  width: 80%;
+}
+/* Improved Review Section Styles */
 
 
 .review-section p {
@@ -123,74 +122,74 @@
 
 /* Updated File Preview Styles */
 
-  .progress-bar::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background-color: #ddd;
-    z-index: -1;
-  }
-  
-  .progress-step {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 14px;
-  }
-  
-  .progress-step.active {
-    background-color: #ec2828;
-  }
-  
-  /* File Upload Styles */
-  .file-drop-area {
-    border: 2px dashed #ddd;
-    border-radius: 8px;
-    padding: 2rem;
-    margin: 1.5rem 0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .file-drop-area:hover {
-    transform: scale(1.03);
-    border-color: #FB1717;
-    background: #fff6f6;
-    box-shadow: 0 4px 8px rgba(0,0,0,.5);
-  }
-  
-  .file-drop-area p {
-    color: #666;
-    margin: 0;
-  }
-  
-  .file-preview {
-    position: relative;
-    margin-top: 1rem;
-  }
-  
-  .file-preview img {
-    max-width: 100%;
-    max-height: 200px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-  }
-  
-  .replace-text {
-    display: block;
-    color: #666;
-    font-size: 12px;
-    margin-top: 8px;
-  }
-  /* Error styling */
+.progress-bar::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #ddd;
+  z-index: -1;
+}
+
+.progress-step {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+}
+
+.progress-step.active {
+  background-color: #ec2828;
+}
+
+/* File Upload Styles */
+.file-drop-area {
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.file-drop-area:hover {
+  transform: scale(1.03);
+  border-color: #FB1717;
+  background: #fff6f6;
+  box-shadow: 0 4px 8px rgba(0,0,0,.5);
+}
+
+.file-drop-area p {
+  color: #666;
+  margin: 0;
+}
+
+.file-preview {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.file-preview img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.replace-text {
+  display: block;
+  color: #666;
+  font-size: 12px;
+  margin-top: 8px;
+}
+/* Error styling */
 .input-group.error input {
   border-color: #ff4444;
   box-shadow: 0 0 0 2px rgba(255, 68, 68, 0.2);
@@ -215,10 +214,53 @@ button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
-.success-message {
+
+/* Success Screen Styles */
+.success-screen {
+  width: 700px;
   text-align: center;
-  padding: 20px;
-  background: #e8f5e9;
-  border-radius: 8px;
-  margin-top: 20px;
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  margin-top: 2rem;
+  margin-left: -80px;
+}
+
+.success-icon {
+  color: #4CAF50; /* Green color */
+  font-size: 4rem; /* Large size */
+  margin-bottom: 20px; /* Spacing below the icon */
+  animation: bounce 1s ease-in-out; /* Optional: Add animation */
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-30px); }
+  60% { transform: translateY(-15px); }
+}
+
+.success-screen h2 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.success-screen p {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#p2 {
+  margin-bottom: 30px; /* Ensure "Have a great day!" is 1px above the button */
+}
+
+.continue-button {
+  background-color: #ff4444;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 35px;
+  cursor: pointer;
+  display: inline-block; /* Ensure the button behaves as a block element */
 }

@@ -29,7 +29,7 @@ function RenterNavbar() {
           </li>
           <li>
             <NavLink
-              to="/profile"
+              to="/renterprofile"
               className={({ isActive }) => (isActive ? "active-link" : "")}
             >
               Profile

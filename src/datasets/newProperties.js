@@ -50,7 +50,7 @@ const properties = [
     },
     propertyRent: 120000,
     rentIncludeExclude: {
-      included: ["water supply", "maintenance"],
+      included: ["water supply"],
       excluded: ["electricity bill"],
     },
     propertyNeighborhood:
@@ -87,7 +87,7 @@ const properties = [
     },
     propertyRent: 40000,
     rentIncludeExclude: {
-      included: ["internet", "water supply"],
+      included: ["water supply"],
       excluded: ["electricity bill", "gas bill"],
     },
     propertyNeighborhood:
@@ -124,7 +124,7 @@ const properties = [
     },
     propertyRent: 180000,
     rentIncludeExclude: {
-      included: ["maintenance", "water supply", "parking"],
+      included: ["water supply"],
       excluded: ["electricity bill"],
     },
     propertyNeighborhood:
@@ -161,8 +161,8 @@ const properties = [
     },
     propertyRent: 50000,
     rentIncludeExclude: {
-      included: ["firewood", "water supply"],
-      excluded: ["electricity bill", "internet"],
+      included: ["water supply"],
+      excluded: ["electricity bill", "gas bill"],
     },
     propertyNeighborhood:
       "This cozy cottage in Murree is perfect for a relaxing getaway. Surrounded by lush greenery and fresh mountain air, it offers the perfect escape from the city.",
@@ -172,6 +172,34 @@ const properties = [
         username: "Imran Khan",
         userReview:
           "Loved the peaceful ambiance and the proximity to nature. Ideal for a weekend retreat.",
+        stars: 4,
+      },
+      {
+        profilePicture: "https://i.pinimg.com/736x/59/89/c1/5989c1229d544bfc87263fbbdd61a2fd.jpg",
+        username: "Sara Malik",
+        userReview:
+          "The cottage was well-kept and the fireplace added a warm touch. Perfect for a family trip.",
+        stars: 4,
+      },
+      {
+        profilePicture: "https://i.pinimg.com/736x/59/89/c1/5989c1229d544bfc87263fbbdd61a2fd.jpg",
+        username: "Sara Malik",
+        userReview:
+          "The cottage was well-kept and the fireplace added a warm touch. Perfect for a family trip.",
+        stars: 4,
+      },
+      {
+        profilePicture: "https://i.pinimg.com/736x/59/89/c1/5989c1229d544bfc87263fbbdd61a2fd.jpg",
+        username: "Sara Malik",
+        userReview:
+          "The cottage was well-kept and the fireplace added a warm touch. Perfect for a family trip.",
+        stars: 4,
+      },
+      {
+        profilePicture: "https://i.pinimg.com/736x/59/89/c1/5989c1229d544bfc87263fbbdd61a2fd.jpg",
+        username: "Sara Malik",
+        userReview:
+          "The cottage was well-kept and the fireplace added a warm touch. Perfect for a family trip.",
         stars: 4,
       },
       {

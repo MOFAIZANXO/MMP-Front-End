@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import PropertyManager from './pages/PropertyManagerPages/PropertyManager.js';
-import Owner from './pages/OwnerPages/OwnerProfile.js';
+import Owner from './pages/OwnerPages/PropertyOwnerForm.js';
 import Renter from './pages/RenterPages/Home Tab/WorkOrderForm.js';
 import Vendor from './pages/VendorPages/Vendor.js';
 import LandingPage from './pages/Landing'; // Imported as LandingPage
@@ -10,6 +10,7 @@ import Login from './pages/login/Login';
 import PropertyDetail from "./pages/RenterPages/Home Tab/PropertyDetail";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import ChatPage from './pages/Chat.js';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/chat" element={<ChatPage />} />
           <Route path="/property-manager" element={<PropertyManager />} />
           <Route path="/owner" element={<Owner />} />
           <Route path="/renter" element={<Renter />} />

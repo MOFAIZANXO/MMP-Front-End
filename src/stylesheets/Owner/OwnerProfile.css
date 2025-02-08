@@ -1,5 +1,5 @@
 /* OwnerProfile.css */
-.profile-container {
+.profileContainer {
     display: flex;
     min-height: 100vh;
     background-color: #f5f5f5;
@@ -110,7 +110,7 @@
   
   .stat-item.pending {
     background: rgba(219, 52, 52, 0.1);
-    border: 2px solid #db3434;
+    border: 2px solid #db9834;
   }
   
   .stat-item span {

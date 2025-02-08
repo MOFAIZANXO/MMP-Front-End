@@ -268,7 +268,7 @@ const OwnerProfile = () => {
   };
 
   return (
-    <div className="profile-container">
+    <div className="profileContainer">
       <div className="sidebar">
         <div className="profile-pic-section">
           <div className="profile-pic-upload">

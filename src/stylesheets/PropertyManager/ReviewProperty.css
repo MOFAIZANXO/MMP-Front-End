@@ -1,0 +1,150 @@
+.PM_logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.PM_logo {
+  height: 60px; /* Adjust height as needed */
+}
+.PM_review-property {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .PM_review-property h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+  
+  /* Review Sections */
+  .PM_review-section {
+    padding: 1rem;
+  }
+  
+  .PM_review-group {
+    margin-bottom: 2rem;
+  }
+  
+  .PM_review-group h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+  }
+  
+  .PM_review-group p {
+    margin: 0.5rem 0;
+    color: #333;
+  }
+  
+  .PM_review-group p strong {
+    color: #555;
+  }
+  
+  /* File Previews */
+  .PM_file-previews {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .PM_file-preview {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  .PM_file-preview img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .PM_file-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .PM_file-preview span {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  /* Action Buttons */
+  .PM_review-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .PM_approve-button,
+.PM_reject-button,
+.PM_contact-button {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  color: white;
+}
+
+/* Approve Button */
+.PM_approve-button {
+  background: #28a745;
+}
+
+.PM_approve-button:hover {
+  background: #218838;
+}
+
+/* Reject Button */
+.PM_reject-button {
+  background: #dc3545;
+}
+
+.PM_reject-button:hover {
+  background: #c82333;
+}
+
+/* Contact Owner Button */
+.PM_contact-button {
+  background: #007bff;
+}
+
+.PM_contact-button:hover {
+  background: #0056b3;
+}
+
+/* Close Button */
+.PM_close-button {
+  position: absolute;
+  top: 55px;
+  right: 250px;
+  background: transparent;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #ff4d4d;
+
+}
+
+.PM_close-button:hover {
+  color: #d40000;
+}
+
+
+
+

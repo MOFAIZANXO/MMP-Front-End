@@ -117,14 +117,14 @@ function Landing() {
       {/* Vendor Section */}
       <section className="vendor-section">
         <div className="vendor-text">
-          <h2>Become a Vendor</h2>
+          <h2>Looking for Work?</h2>
           <p>Join our team and start earning by providing top-notch services. Connect with property managers and handle work orders with ease.</p>
           <p>With our platform, gain access to numerous opportunities, build a trusted network, and grow your business efficiently.</p>
           <a href="/Vendor" className="button">Become a Vendor</a>
         </div>
         <div className="vendor-image">
           <img 
-            src="https://media.istockphoto.com/id/1278270010/photo/builder-handyman-with-construction-tools-house-renovation-background.jpg?s=612x612&w=0&k=20&c=rE6SpYbv-QiUBl77pvfuJVOuvxvVLjNs4Q4V2x9i6Uo="
+            src="https://img.freepik.com/free-photo/male-protective-mask-standing-with-drill-female-hiding-white-hardhat-renewing-their-flat-working-together-using-building-instruments-construction-workers-improving-something-room_273609-7932.jpg?t=st=1739051067~exp=1739054667~hmac=0328d285f93c12a5f251b1bbdb0db807bc942038d95f78391596809c7d7bf70d&w=900"
             alt="Vendor"
             className="rounded"
           />

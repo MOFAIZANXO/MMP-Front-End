@@ -330,6 +330,276 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .profileContainer {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    width: 280px;
+    background: linear-gradient(180deg, #000000, #db3434);
+    padding: 25px;
+    color: white;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  }
+  
+  .profile-pic-upload {
+    border: 2px dashed rgba(255,255,255,0.3);
+    padding: 25px;
+    text-align: center;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 10px;
+  }
+  
+  .profile-pic-upload:hover {
+    background-color: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.5);
+  }
+  
+  .menu-item {
+    padding: 15px 20px;
+    margin: 12px 0;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.95em;
+  }
+  
+  .menu-item:hover {
+    background-color: #5e3434;
+    transform: translateX(5px);
+  }
+  
+  .menu-item.active {
+    background-color: #db3434;
+    font-weight: 600;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  }
+  
+  /* Main Content Styles */
+  .main-content {
+    flex: 1;
+    padding: 35px;
+    background-color: #f8f9fa;
+    transition: all 0.3s;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+    padding: 20px;
+    background: linear-gradient(90deg, #000000, #db3434);
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  /* Property Statistics */
+  .property-stats {
+    margin-bottom: 35px;
+  }
+  
+  .stat-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  }
+  
+  .stat-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+  }
+  
+  .stat-item {
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .stat-item:hover {
+    transform: translateY(-3px);
+  }
+  
+  .stat-item.rented {
+    background: rgba(39, 174, 96, 0.1);
+    border: 2px solid #27ae60;
+  }
+  
+  .stat-item.pending {
+    background: rgba(219, 52, 52, 0.1);
+    border: 2px solid #db9834;
+  }
+  
+  .stat-item span {
+    font-size: 2.4em;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 12px;
+  }
+  
+  .stat-item.rented span {
+    color: #27ae60;
+  }
+  
+  .stat-item.pending span {
+    color: #db3434;
+  }
+  
+  .stat-item p {
+    color: #666;
+    margin: 0;
+    font-size: 0.95em;
+  }
+  
+  /* Revenue Chart */
+  .revenue-chart {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  }
+  
+  .revenue-chart h2 {
+    margin: 0 0 25px 0;
+    color: #2c3e50;
+    font-size: 1.4em;
+  }
+  
+  /* Personal Info Section */
+  .personal-info {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  }
+  
+  .input-group {
+    margin-bottom: 25px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 0.95em;
+    font-weight: 500;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: all 0.3s;
+  }
+  
+  .input-group input:focus {
+    border-color: #db3434;
+    box-shadow: 0 0 0 3px rgba(219, 52, 52, 0.1);
+    outline: none;
+  }
+  
+  .detail-value {
+    padding: 12px 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    color: #333;
+    font-size: 1em;
+  }
+  
+  /* Properties Section */
+  .properties-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .add-property-btn {
+    background-color: #db3434;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+  }
+  
+  .property-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s;
+  }
+  
+  .property-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .status {
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 500;
+    display: inline-block;
+  }
+  
+  .status.rented {
+    background-color: #27ae60;
+    color: white;
+  }
+  
+  .status.pending {
+    background-color: #db3434;
+    color: white;
+  }
+  
+  /* Chat Section */
+  .chat-container {
+    display: flex;
+    gap: 20px;
+    height: 400px;
+  }
+  
+  .agents-list {
+    width: 200px;
+    border-right: 2px solid #eee;
+    padding-right: 20px;
+  }
+  
+  .agent-item {
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f8f9fa;
+    transition: all 0.3s;
+  }
+  
+  .agent-item:hover {
+    background-color: #5e3434;
+    color: white;
+  }
+  
+  .chat-window {
+    flex: 1;
+    display: flex;
     flex-direction: column;
   }
 

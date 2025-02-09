@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../stylesheets/Vendor/VendorForm.css';
 import logo from '../../assets/images/logo.png';
-import { FaTools, FaBroom, FaPaintRoller, FaWrench, FaCheckCircle } from 'react-icons/fa';
+import { FaTools, FaBroom, FaPaintRoller, FaWrench, FaHammer, FaCheckCircle } from 'react-icons/fa';
 
 function Vendor() {
   const navigate = useNavigate();
@@ -14,6 +14,7 @@ function Vendor() {
     cleaner: false,
     painter: false,
     plumber: false,
+    carpenter: false, // Added carpenter
   });
   const [cnicFront, setCnicFront] = useState(null);
   const [cnicBack, setCnicBack] = useState(null);
@@ -158,6 +159,7 @@ function Vendor() {
                     {service === 'cleaner' && <FaBroom className="service-icon" />}
                     {service === 'painter' && <FaPaintRoller className="service-icon" />}
                     {service === 'plumber' && <FaWrench className="service-icon" />}
+                    {service === 'carpenter' && <FaHammer className="service-icon" />} {/* Added carpenter icon */}
                     {service.charAt(0).toUpperCase() + service.slice(1)}
                   </label>
                 ))}

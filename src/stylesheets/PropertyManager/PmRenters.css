@@ -90,32 +90,31 @@
 }
 /* Search Bar */
 .PmRenterSearchContainer {
-    display: flex;
-    justify-content: center;
-    margin: 15px 0;
-  }
-  
-  .PmRenterSearchWrapper {
-    position: relative;
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  .PmRenterSearchBar {
-    width: 100%;
-    padding: 10px 40px 10px 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    outline: none;
-  }
-  
-  .PmRenterSearchIcon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: gray;
-    font-size: 16px;
-  }
-  
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.PmRenterSearchWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.PmRenterSearchBar {
+  width: 100%;
+  padding: 10px 40px 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+}
+
+.PmRenterSearchIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: gray;
+  font-size: 16px;
+}

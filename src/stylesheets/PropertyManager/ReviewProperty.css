@@ -131,18 +131,20 @@
 /* Close Button */
 .PM_close-button {
   position: absolute;
-  top: 15px;
-  right: 20px;
+  top: 55px;
+  right: 250px;
   background: transparent;
   border: none;
   font-size: 28px;
   cursor: pointer;
   color: #ff4d4d;
+
 }
 
 .PM_close-button:hover {
   color: #d40000;
 }
+
 
 
 

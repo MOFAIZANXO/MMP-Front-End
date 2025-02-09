@@ -12,7 +12,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 5px 20px;
-  background: white;
+  background: white; 
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -41,8 +44,11 @@
   background: rgb(0, 0, 0);
   justify-content: start;
   padding: 10px 0;
-  position: relative;
+  position: sticky;
+  top: 70px; /* Header height (approx 50px) */
+  z-index: 999;
   padding-left: 30px;
+  
 }
 
 .PM_nav-bar button {
@@ -56,8 +62,8 @@
 }
 
 .PM_nav-bar .PM_active {
-  background: rgb(255, 255, 255);
-  color: rgb(0, 0, 0);
+  background: rgb(208, 0, 0);
+  color: rgb(255, 255, 255);
   font-weight: bold;
 }
 

@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { FaSearch } from "react-icons/fa"; // Import search icon
+import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "../../../stylesheets/PropertyManager/PmProperties.css";
-import dummyPropertyData from "../../../datasets/DummyPmProperty"; // Import dummy data
+import DummyPmProperty from "../../../datasets/DummyPmProperty";
 
 const PmProperties = () => {
   const [activeSubTab, setActiveSubTab] = useState("Listing Requests");
   const [searchTerm, setSearchTerm] = useState("");
+  const [statusFilter, setStatusFilter] = useState("All");
 
-  // Use imported dummy data
-  const { listingRequests, currentManaging } = dummyPropertyData;
+  const { listingRequests, currentManaging } = DummyPmProperty;
 
-  // Filter properties based on search input
+  // Filter properties based on search input and status filter
   const filteredProperties =
     activeSubTab === "Listing Requests"
       ? listingRequests.filter(
@@ -19,11 +19,18 @@ const PmProperties = () => {
             (property.name && property.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
             (property.ownerName && property.ownerName.toLowerCase().includes(searchTerm.toLowerCase()))
         )
-      : currentManaging.filter(
-          (property) =>
+      : currentManaging.filter((property) => {
+          const matchesSearch =
             (property.name && property.name.toLowerCase().includes(searchTerm.toLowerCase())) ||
-            (property.ownerName && property.ownerName.toLowerCase().includes(searchTerm.toLowerCase()))
-        );
+            (property.ownerName && property.ownerName.toLowerCase().includes(searchTerm.toLowerCase()));
+
+          const matchesStatus =
+            statusFilter === "All" ||
+            (statusFilter === "Active" && property.status === "Active") ||
+            (statusFilter === "Vacant" && property.status.includes("Vacant"));
+
+          return matchesSearch && matchesStatus;
+        });
 
   return (
     <div className="PM_properties">
@@ -43,7 +50,7 @@ const PmProperties = () => {
         </button>
       </div>
 
-      {/* Search Bar with Icon */}
+      {/* Search Bar and Filter Dropdown */}
       <div className="PM_search-container">
         <div className="PM_search-wrapper">
           <FaSearch className="PM_search-icon" />
@@ -55,33 +62,35 @@ const PmProperties = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
+        {/* Status Filter Dropdown */}
+        {activeSubTab === "Current Managing" && (
+          <select
+            className="PM_status-filter"
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+          >
+            <option value="All">All</option>
+            <option value="Active">Active</option>
+            <option value="Vacant">Vacant</option>
+          </select>
+        )}
       </div>
 
       {/* Listing Requests Section */}
       {activeSubTab === "Listing Requests" && (
         <div className="PM_listing-requests">
-          <h2>Listing Requests</h2>
+          {/* Updated Heading with Total Count */}
+          <h2>Listing Requests : {filteredProperties.length}</h2>
           {filteredProperties.map((property) => (
             <div className="PM_property-card" key={property.id}>
-              <img
-                src='https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb3BlcnR5fGVufDB8fDB8fHww'
-                alt={property.name || "Property Image"}
-                className="PM_property-img"
-              />
+              <img src={property.image} alt={property.name} className="PM_property-img" />
               <div className="PM_property-info">
-                <h3>{property.name || "Unnamed Property"}</h3>
-                <p>
-                  <strong>Rent Rate:</strong> {property.rentRate || "N/A"}
-                </p>
-                <p>
-                  <strong>Address:</strong> {property.address || "No Address"}
-                </p>
-                <div className="PM_status">{property.status || "Pending"}</div>
-                <Link
-                  to="/review-property"
-                  state={{ propertyData: property }}
-                  className="PM_review-button"
-                >
+                <h3>{property.name}</h3>
+                <p><strong>Rent Rate:</strong> {property.rentRate}</p>
+                <p><strong>Address:</strong> {property.address}</p>
+                <p><strong>Owner:</strong> {property.ownerName}</p>
+                <div className="PM_status">{property.status}</div>
+                <Link to="/review-property" state={{ propertyData: property }} className="PM_review-button">
                   Review Request
                 </Link>
               </div>
@@ -93,30 +102,37 @@ const PmProperties = () => {
       {/* Current Managing Section */}
       {activeSubTab === "Current Managing" && (
         <div className="PM_current-managing">
-          <h2>Current Properties</h2>
+          {/* Updated Heading with Total Count */}
+          <h2>Current Properties : {filteredProperties.length}</h2>
           {filteredProperties.map((property) => (
             <div className="PM_property-card" key={property.id}>
-              <img
-                src='https://media.istockphoto.com/id/2155879454/photo/this-is-an-exterior-photo-of-a-home-for-sale-in-beverly-hills-ca.webp?a=1&b=1&s=612x612&w=0&k=20&c=GvT1GQsxPREVk5rWMjlZaZHJH8TSpBDagNgZDg1NxyE='
-                alt={property.name || "Property Image"}
-                className="PM_property-img"
-              />
+              <img src={property.image} alt={property.name} className="PM_property-img" />
               <div className="PM_property-info">
-                <h3>{property.name || "Unnamed Property"}</h3>
-                <p>
-                  <strong>Rent Rate:</strong> {property.rentRate || "N/A"}
-                </p>
-                <p>
-                  <strong>Address:</strong> {property.address || "No Address"}
-                </p>
-                <p>
-                  <strong>Owner:</strong> {property.ownerName || "Unknown"}
-                </p>
-                {/* Apply .PM_status-vacant if the property is Vacant */}
+                <h3>{property.name}</h3>
+                <p><strong>Rent Rate:</strong> {property.rentRate}</p>
+                <p><strong>Address:</strong> {property.address}</p>
+                <p><strong>Owner:</strong> {property.ownerName}</p>
+
+                {property.status === "Active" && (
+                  <>
+                    <p><strong>Renter:</strong> {property.renterName}</p>
+                    <div className={`PM_rent-status ${property.rentStatus === "Paid" ? "PM_rent-status-paid" : "PM_rent-status-pending"}`}>
+                      Rent Status: {property.rentStatus}
+                    </div>
+                  </>
+                )}
+
                 <div className={`PM_status ${property.status.includes("Vacant") ? "PM_status-vacant" : ""}`}>
-                  {property.status || "Active"}
+                  {property.status}
                 </div>
-                <button className="PM_contact-owner">Contact Owner</button>
+
+                {/* Contact Buttons */}
+                <div className="PM_contact-buttons">
+                  {property.status === "Active" && (
+                    <button className="PM_contact-renter">Contact Renter</button>
+                  )}
+                  <button className="PM_contact-owner">Contact Owner</button>
+                </div>
               </div>
             </div>
           ))}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { FaSearch } from "react-icons/fa"; 
-import { Link, useNavigate  } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 import "../../../stylesheets/PropertyManager/PmRenters.css";
 
 const PmRenters = () => {
@@ -66,7 +66,8 @@ const PmRenters = () => {
       {/* Requests Section */}
       {activeTab === "requests" && (
         <div className="PmRenterSection">
-          <h2>Renter Applications</h2>
+          {/* Updated Heading with Total Count */}
+          <h2>Renter Applications : {filteredRenterRequests.length}</h2>
           {filteredRenterRequests.length > 0 ? (
             filteredRenterRequests.map((renter) => (
               <div key={renter.id} className="PmRenterCard">
@@ -79,7 +80,6 @@ const PmRenters = () => {
                 >
                   Review
                 </Link>
-
               </div>
             ))
           ) : (
@@ -91,7 +91,8 @@ const PmRenters = () => {
       {/* Current Renters Section */}
       {activeTab === "current" && (
         <div className="PmRenterSection">
-          <h2>Current Renters</h2>
+          {/* Updated Heading with Total Count */}
+          <h2>Current Renters : {filteredCurrentRenters.length}</h2>
           {filteredCurrentRenters.length > 0 ? (
             filteredCurrentRenters.map((renter) => (
               <div key={renter.id} className="PmRenterCard">

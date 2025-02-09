@@ -1,8 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"; // For navigation
-import "../../../stylesheets/PropertyManager/ReviewRenter.css"; // CSS file
-import dummyRenterData from "../../../datasets/dummyRenterFormData"; // Import dummy renter data
-import logo from "../../../assets/images/logo.png"; // Import logo
+import { useNavigate } from "react-router-dom";
+import "../../../stylesheets/PropertyManager/ReviewRenter.css";
+import dummyRenterData from "../../../datasets/dummyRenterFormData"; 
+import logo from "../../../assets/images/logo.png"; 
 
 const PmRenterForm = ({ renterData = dummyRenterData }) => {
   const navigate = useNavigate(); // Hook for navigation

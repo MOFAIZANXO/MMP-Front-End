@@ -1,4 +1,43 @@
 /* Sub-Navigation for Properties */
+/* Sub-Navigation for Properties */
+/* Status Filter Dropdown */
+.PM_status-filter {
+  padding: 5px 12px;  /* Adjusted padding for a balanced look */
+  font-size: 14px;    /* Slightly larger for readability */
+  border-radius: 6px; /* Smoother edges */
+  margin-left: 8px;   /* Keeps gap from search bar */
+  background: #ff0000; /* Light background for elegance */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid #bbb;
+  color: #e0e0e0;
+  width: 140px;       
+  text-align: left;   
+  height: 40px;       
+  padding-left: 15px; 
+}
+
+/* Add hover effect for better UX */
+.PM_status-filter:hover {
+  background: #943d3d;
+  border-color: #777;
+}
+
+/* Focus styling to enhance accessibility */
+.PM_status-filter:focus {
+  border: 1px solid rgb(60, 60, 60);
+  outline: none;
+  box-shadow: 0 0 5px rgba(60, 60, 60, 0.3);
+}
+
+/* Style dropdown options */
+.PM_status-filter option {
+  padding: 10px;     
+  font-size: 14px;   
+  background: rgb(0, 0, 0);  
+  color: #d2d2d2;
+}
+
 .PM_sub-nav {
   display: flex;
   justify-content: center;
@@ -68,6 +107,7 @@
   font-size: 14px;
   font-weight: bold;
   margin-top: 10px;
+  margin-left: 15px;
   padding: 5px 10px;
   border-radius: 5px;
   display: inline-block;
@@ -81,6 +121,27 @@
 .PM_current-managing .PM_status {
   background: #e5ffe5;
   color: #2a8;
+}
+
+/* Rent Status */
+.PM_rent-status {
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px; /* Added space below Rent Status */
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.PM_rent-status.PM_rent-status-paid {
+  background: #e5ffe5; /* Green background for Paid */
+  color: #2a8; /* Green text */
+}
+
+.PM_rent-status.PM_rent-status-pending {
+  background: rgb(254, 207, 159); /* Orange background for Pending */
+  color: rgb(255, 123, 0); /* Orange text */
 }
 
 /* Review Button */
@@ -103,21 +164,29 @@
   font-weight: bold;
 }
 
-/* Contact Owner Button */
-.PM_contact-owner {
-  background: #2a8;
+/* Contact Buttons Container */
+.PM_contact-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* Contact Buttons */
+.PM_contact-owner,
+.PM_contact-renter {
+  background: rgb(0, 0, 0);
   color: white;
   border: none;
   padding: 10px 20px;
-  margin-left: calc(100% - 250px);
   border-radius: 5px;
   font-size: 14px;
   cursor: pointer;
   transition: background 0.2s ease-in-out;
 }
 
-.PM_contact-owner:hover {
-  background: #1e6f5c;
+.PM_contact-owner:hover,
+.PM_contact-renter:hover {
+  background: rgb(235, 32, 32);
 }
 
 /* Search Bar */
@@ -125,42 +194,6 @@
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
-}
-
-.PM_search-bar {
-  width: 50%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-  transition: border 0.3s ease-in-out;
-}
-
-.PM_search-bar:focus {
-  border: 1px solid black;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .PM_property-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .PM_property-img {
-    margin-bottom: 15px;
-  }
-
-  .PM_search-bar {
-    width: 80%;
-  }
-}
-/* Search Bar */
-.PM_search-container {
-  display: flex;
-  justify-content: center;
-  margin: 15px 0;
 }
 
 .PM_search-wrapper {
@@ -186,6 +219,7 @@
   color: gray;
   font-size: 16px;
 }
+
 /* Vacant Property Status */
 .PM_current-managing .PM_status-vacant {
   background: rgb(255, 200, 200);
@@ -194,4 +228,30 @@
   padding: 5px 10px;
   border-radius: 5px;
   display: inline-block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .PM_property-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .PM_property-img {
+    margin-bottom: 15px;
+  }
+
+  .PM_search-bar {
+    width: 80%;
+  }
+
+  .PM_review-button {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .PM_contact-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
 }

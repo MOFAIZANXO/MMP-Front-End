@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faToilet, faBed, faHouseChimney } from "@fortawesome/free-solid-svg-icons";
+import { faToilet, faBed, faKitchenSet } from "@fortawesome/free-solid-svg-icons";
 import room from "../../assets/images/room.png";
 import rent from "../../assets/images/rent.png";
 import location from "../../assets/images/location.png";
@@ -23,9 +23,9 @@ function PropertyGeneralInfo({ property }) {
             <FontAwesomeIcon icon={faBed} className="bedIcon" />
             <p><b>Bedroom:</b> {property.roomDetail.bedroom}</p>
           </div>
-          <div className="unit">
-            <FontAwesomeIcon icon={faHouseChimney} className="unitIcon" />
-            <p><b>Unit Size:</b> {property.roomDetail.unit}</p>
+          <div className="kitchen">
+            <FontAwesomeIcon icon={faKitchenSet} className="kitchenIcon" />
+            <p><b>Kitchen:</b> {property.roomDetail.kitchen}</p>
           </div>
         </div>
 

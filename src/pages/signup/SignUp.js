@@ -21,10 +21,6 @@ export default function SignUp() {
         setSelectedUserType(type === selectedUserType ? null : type);
     };
 
-    const handleBackClick = () => {
-        window.history.back();
-    };
-
     const handleSignUp = () => {
         if (!firstName || !lastName || !email || !password || !confirmPassword) {
             alert("Please fill in all fields.");
@@ -67,7 +63,7 @@ export default function SignUp() {
 
     return (
         <div className="signup-container">
-            <div className="backBtn" onClick={handleBackClick}>
+            <div className="backBtn" onClick={() => {navigate("/")}}>
                 <FontAwesomeIcon icon={faArrowLeft} className="back-btn" />
             </div>
             <div className="signUp">

@@ -1,9 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import '../../stylesheets/Owner/OwnerProfile.css';
+import logo from "../../assets/images/logo.png";
+import { getProperties } from '../../datasets/ownerproperties';
 
 const OwnerProfile = () => {
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState('profile');
+  const [properties, setProperties] = useState(getProperties());
   const [editMode, setEditMode] = useState(false);
   const [activeTab, setActiveTab] = useState('rented');
   const [selectedAgent, setSelectedAgent] = useState(null);
@@ -25,34 +30,6 @@ const OwnerProfile = () => {
   ];
 
   const agents = ['Agent 1', 'Agent 2', 'Agent 3'];
-  
-  const properties = {
-    rented: [
-      {
-        name: 'Bahria Departments',
-        status: 'Rented',
-        rent: '60k/month',
-        address: 'Islamabad, Main Bulliward Bahria Town Block A',
-        area: '1200 sqft'
-      },
-      {
-        name: 'Rayan Resort',
-        status: 'Rented',
-        rent: '90k/month',
-        address: 'Islamabad, Near Faisal Mosque',
-        area: '2500 sqft'
-      }
-    ],
-    pending: [
-      {
-        name: 'Kashmir Lodges',
-        status: 'Pending',
-        rent: '50k/month',
-        address: 'Islamabad, Main Bulliward Bahria Town Block A',
-        area: '1800 sqft'
-      }
-    ]
-  };
 
   const handleSendMessage = () => {
     if (message.trim()) {
@@ -60,6 +37,10 @@ const OwnerProfile = () => {
       setMessage('');
     }
   };
+
+  useEffect(() => {
+    setProperties(getProperties());
+  }, [activeTab]);
 
   const renderSection = () => {
     switch(activeSection) {
@@ -69,7 +50,7 @@ const OwnerProfile = () => {
             <div className="header">
               <h1>Profile Overview</h1>
               <div className="header-buttons">
-                <button className="logout-btn">Logout</button>
+                <button onClick={() => {navigate("/")}} className="logout-btn">Logout</button>
               </div>
             </div>
             
@@ -110,7 +91,7 @@ const OwnerProfile = () => {
 
       case 'agents':
         return (
-          <div className="section">
+          <div className="section-owner">
             <h2>Chat with Agents</h2>
             <div className="chat-container">
               <div className="agents-list">
@@ -149,10 +130,20 @@ const OwnerProfile = () => {
 
       case 'personal':
         return (
-          <div className="section">
+          <div className="section-owner">
             <h2>Personal Details</h2>
-            <div className="personal-info">
-              <div className="input-group">
+            <div className="personalInfo">
+              <p className="profilePicture-text">Profile Picture</p>
+                {/* Profile Picture */}
+              <div className="profilePicture">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfSSmuKtBLKfGzFv1Bi23dtQWZyLgtUERRdA&s"
+                  alt="Profile-Picture"
+                  className="profileImg"
+                />
+              </div>
+
+              <div className="inputGroup">
                 <label>Full Name</label>
                 {editMode ? (
                   <input 
@@ -160,10 +151,10 @@ const OwnerProfile = () => {
                     value={personalDetails.name}
                     onChange={(e) => setPersonalDetails({...personalDetails, name: e.target.value})}
                   />
-                ) : <div className="detail-value">{personalDetails.name}</div>}
+                ) : <div className="detailValue">{personalDetails.name}</div>}
               </div>
               
-              <div className="input-group">
+              <div className="inputGroup">
                 <label>Email Address</label>
                 {editMode ? (
                   <input 
@@ -171,10 +162,10 @@ const OwnerProfile = () => {
                     value={personalDetails.email}
                     onChange={(e) => setPersonalDetails({...personalDetails, email: e.target.value})}
                   />
-                ) : <div className="detail-value">{personalDetails.email}</div>}
+                ) : <div className="detailValue">{personalDetails.email}</div>}
               </div>
 
-              <div className="input-group">
+              <div className="inputGroup">
                 <label>Phone Number</label>
                 {editMode ? (
                   <input 
@@ -182,17 +173,10 @@ const OwnerProfile = () => {
                     value={personalDetails.phone}
                     onChange={(e) => setPersonalDetails({...personalDetails, phone: e.target.value})}
                   />
-                ) : <div className="detail-value">{personalDetails.phone}</div>}
+                ) : <div className="detailValue">{personalDetails.phone}</div>}
               </div>
 
-              <div className="input-group">
-                <label>Planet Number</label>
-                <div className="detail-value">
-                  {personalDetails.planetNumber || 'Not provided'}
-                </div>
-              </div>
-
-              <div className="edit-buttons">
+              <div className="editButtons">
                 {editMode ? (
                   <>
                     <button 
@@ -216,48 +200,46 @@ const OwnerProfile = () => {
           </div>
         );
 
-      case 'properties':
-        return (
-          <div className="section">
-            <div className="properties-header">
-              <h2>Property Management</h2>
-              <button className="add-property-btn">+ Add New Property</button>
-            </div>
-            
-            <div className="property-tabs">
-              <button 
-                className={`tab-btn ${activeTab === 'rented' ? 'active' : ''}`}
-                onClick={() => setActiveTab('rented')}
-              >
-                Rented ({properties.rented.length})
-              </button>
-              <button 
-                className={`tab-btn ${activeTab === 'pending' ? 'active' : ''}`}
-                onClick={() => setActiveTab('pending')}
-              >
-                Pending ({properties.pending.length})
-              </button>
-            </div>
-
-            <div className="properties-list">
-              {properties[activeTab].map((property, index) => (
-                <div className="property-card" key={index}>
-                  <h3>{property.name}</h3>
-                  <div className="property-details">
-                    <span className={`status ${property.status.toLowerCase()}`}>
-                      {property.status}
-                    </span>
-                    <div className="rent-rate">{property.rent}</div>
-                    <div className="address">{property.address}</div>
-                    <div className="property-area">Area: {property.area}</div>
+        case 'properties':
+          return (
+            <div className="section-owner">
+              <div className="properties-header">
+                <h2>Property Management</h2>
+                <button onClick={() => navigate("/ownerform")} className="add-property-btn">+ Add New Property</button>
+              </div>
+              <div className="property-tabs">
+                <button className="rented-tab-btn" onClick={() => setActiveTab('rented')}>Rented ({properties.rented.length})</button>
+                <button className="pending-tab-btn" onClick={() => setActiveTab('pending')}>Pending ({properties.pending.length})</button>
+              </div>
+              <div className="propertiesList">
+                {properties[activeTab].map((property, index) => (
+                  <div key={index} className="propertyCard">
+                    <img className="propertyCard-img" src={property.images[0]} alt="" />
+                    <div className="propertyDetail-content">
+                      <div className="propertyCard-headings">
+                        <h3>{property.name}</h3>
+                        {property.status === 'Pending' && (
+                          // <button onClick={() => markAsRented(index)}>Mark as Rented</button>
+                          <button className="delete-btn">Delete</button>
+                        )}
+                      </div>
+                      <span className={`status-owner ${property.status.toLowerCase()}`}>
+                        {property.status}
+                      </span>
+                      <p className="rentRate">Rent: Rs. {property.rent}/month</p>
+                      <p className="propertyOwner">Owner: {property.ownerName}</p>
+                      <p className="address-owner">Address: {property.address}</p>
+                      <div className="propertyCard-buttons">
+                        {/* <button onClick={() => navigate(`/property/${index}`)}>View Details</button> */}
+                        <button className="viewDetails-btn">View Details</button>
+                        {property.status === 'Pending' && (
+                          // <button onClick={() => markAsRented(index)}>Mark as Rented</button>
+                          <button className="markAsRented-btn">Mark as Rented</button>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                  <div className="property-actions">
-                    <button className="list-btn">View Details</button>
-                    {property.status === 'Pending' && 
-                      <button className="pending-btn">Mark as Rented</button>}
-                  </div>
-                </div>
-              ))}
+                ))}
             </div>
           </div>
         );
@@ -268,12 +250,10 @@ const OwnerProfile = () => {
   };
 
   return (
-    <div className="profile-container">
+    <div className="profileContainer">
       <div className="sidebar">
-        <div className="profile-pic-section">
-          <div className="profile-pic-upload">
-            <span>Upload New Photo</span>
-          </div>
+        <div className="profile-menu-logo">
+          <img className="menu-logo" src={logo} alt="" />
         </div>
         
         <div 
@@ -302,7 +282,7 @@ const OwnerProfile = () => {
         </div>
       </div>
 
-      <div className="main-content">
+      <div className="mainContent">
         {renderSection()}
       </div>
     </div>

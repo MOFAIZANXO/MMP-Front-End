@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import "../../../stylesheets/Renter/Home Tab/propertydetail.css";
 import properties from "../../../datasets/newProperties";
 import RenterNavbar from "../../../components/Renter/RenterNavbar";
@@ -8,11 +8,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faHouseChimney } from "@fortawesome/free-solid-svg-icons";
 import PropertyImageSlider from "../../../components/Renter/PropertyImageSlider";
 import ReviewSlider from "../../../components/Renter/ReviewSlider";
-import PropertyGeneralInfo from "../../../components/Renter/PropertyGeneralInfo"; // Import the new component
+import PropertyGeneralInfo from "../../../components/Renter/PropertyGeneralInfo";
 
 function PropertyDetail() {
   const { index } = useParams();
   const property = properties[parseInt(index)];
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -21,10 +22,6 @@ function PropertyDetail() {
   if (!property) {
     return <div>Property not found!</div>;
   }
-
-  const handleBackClick = () => {
-    window.history.back();
-  };
 
   // Determine if the slider should be clickable
   const shouldEnableSlider = property.reviews.length > 2;
@@ -35,7 +32,7 @@ function PropertyDetail() {
       <div className="property-detail-page">
         {/* Breadcrumb */}
         <div className="breadcrumb">
-          <div className="backBtn" onClick={handleBackClick}>
+          <div className="backBtn" onClick={() => {navigate("/renter")}}>
             <FontAwesomeIcon icon={faArrowLeft} />
           </div>
           <Link to="/renter" className="breadcrumbHome">

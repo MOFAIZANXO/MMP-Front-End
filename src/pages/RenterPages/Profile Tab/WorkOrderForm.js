@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../../../stylesheets/Renter/WorkOrderForm.css';
 import logo from '../../../assets/images/logo.png'; // Adjust the path to your logo
 
-const VendorRequestForm = () => {
+const RepairRequestForm = () => {
   const [files, setFiles] = useState([]);
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleFileChange = (event) => {
     const selectedFiles = Array.from(event.target.files);
@@ -34,7 +36,7 @@ const VendorRequestForm = () => {
   const handleCancel = () => {
     setFiles([]);
     setError('');
-    console.log("Form canceled");
+    navigate('/renterprofile', { state: { activeSection: 'properties' } });
   };
 
   return (
@@ -74,12 +76,12 @@ const VendorRequestForm = () => {
           ))}
         </div>
         <div className="button-container">
-          <button type="button" onClick={handleCancel} className="cancel-button">Cancel</button>
-          <button type="submit" className="submit-button">Send</button>
+          <button type="button" onClick={handleCancel} className="cancelButton">Cancel</button>
+          <button type="submit" className="submitButton">Send</button>
         </div>
       </form>
     </div>
   );
 };
 
-export default VendorRequestForm;
+export default RepairRequestForm;

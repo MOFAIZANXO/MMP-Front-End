@@ -108,7 +108,8 @@ const ApplyForm = () => {
       ...formData,
       propertyId,
       status: "pending",
-      date: new Date().toISOString(),
+      type: "rent",
+      requestDate: new Date().toISOString(),
     };
     rentRequests.push(rentRequest); // Save to rentRequests
 
@@ -142,11 +143,11 @@ const ApplyForm = () => {
       <h1 className="heading">Renter Form</h1>
       <p className="subheading">Fill out the form to get started with your rental application!</p>
 
-      <div className="progress-bar-container">
-        <div className="progress-bar">
-          <div className={`progress-step ${step >= 1 ? "active" : ""}`}>1</div>
-          <div className={`progress-step ${step >= 2 ? "active" : ""}`}>2</div>
-          <div className={`progress-step ${step >= 3 ? "active" : ""}`}>3</div>
+      <div className="progress-Bar-container">
+        <div className="progressBar">
+          <div className={`progressStep ${step >= 1 ? "active" : ""}`}>1</div>
+          <div className={`progressStep ${step >= 2 ? "active" : ""}`}>2</div>
+          <div className={`progressStep ${step >= 3 ? "active" : ""}`}>3</div>
         </div>
       </div>
 
@@ -196,10 +197,10 @@ const ApplyForm = () => {
               </div>
 
               <div className="button-container">
-                <button className="cancel-button" onClick={() => navigate(-1)}>
+                <button className="cancelBtn" onClick={() => navigate(-1)}>
                   Cancel
                 </button>
-                <button className="next-button" onClick={handleNext} disabled={!isStep1Valid()}>
+                <button className="nextBtn" onClick={handleNext} disabled={!isStep1Valid()}>
                   Next
                 </button>
               </div>
@@ -264,10 +265,10 @@ const ApplyForm = () => {
               </div>
 
               <div className="button-container">
-                <button className="back-button" onClick={handleBack}>
+                <button className="back-Btn" onClick={handleBack}>
                   Back
                 </button>
-                <button className="next-button" onClick={handleNext} disabled={!isStep2Valid()}>
+                <button className="nextBtn" onClick={handleNext} disabled={!isStep2Valid()}>
                   Next
                 </button>
               </div>
@@ -315,10 +316,10 @@ const ApplyForm = () => {
                 </p>
               </div>
               <div className="button-container">
-                <button className="back-button" onClick={handleBack}>
+                <button className="back-Btn" onClick={handleBack}>
                   Back
                 </button>
-                <button className="submit-button" onClick={handleSubmit}>
+                <button className="submit-Btn" onClick={handleSubmit}>
                   Submit
                 </button>
               </div>
@@ -326,8 +327,8 @@ const ApplyForm = () => {
           )}
         </>
       ) : (
-        <div className="success-screen">
-          <FaCheckCircle className="success-icon" />
+        <div className="successScreen">
+          <FaCheckCircle className="successIcon" />
           <h2>Your rent request has been sent successfully!</h2>
           <p id="p1">Thanks for contacting MMP! Our agent will reach out to you soon!</p>
           <p id="p2">Have a great day!</p>

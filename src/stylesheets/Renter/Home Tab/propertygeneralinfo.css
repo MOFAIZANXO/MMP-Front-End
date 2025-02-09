@@ -49,11 +49,11 @@
     text-transform: capitalize;
   }
   
-  .bath, .bed, .unit {
+  .bath, .bed, .kitchen {
     display: flex;
   }
   
-  .bathIcon, .bedIcon, .unitIcon {
+  .bathIcon, .bedIcon, .kitchenIcon {
     margin-top: 3px;
     margin-right: 8px;
     font-size: 18px;

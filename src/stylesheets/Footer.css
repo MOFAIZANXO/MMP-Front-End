@@ -73,6 +73,7 @@
 .footer-section {
   flex: 1;
   min-width: 200px;
+  text-align: left;
   /* Added a log for debugging purposes */
   /* console.log('Footer section styles applied'); */
 }

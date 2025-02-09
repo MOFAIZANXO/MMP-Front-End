@@ -1,6 +1,6 @@
 const properties = [
   {
-    propertyImages: ["https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=200"],
+    propertyImages: ["https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg"],
     propertyTitle: "Bahria Departments",
     propertyLocation: "Lahore, Main Boulevard Bahria Town, Block A",
     propertyOwner: "Muhammad Faizan",
@@ -9,31 +9,14 @@ const properties = [
     roomDetail: {
       bathroom: 4,
       bedroom: 3,
-      unit: "84m²",
+      kitchen: 2, // Added kitchens field
     },
     propertyRent: 60000,
     rentIncludeExclude: {
       included: null,
       excluded: ["electricity bill", "gas bill"],
     },
-    propertyNeighborhood:
-      "This cabin comes with Smart Home System and beautiful viking style. You can see sunrise in the morning with City View from full Glass Window.\n\nThis unit is surrounded by business district of West Surabaya that offers you the city life as well as wide range of culinary.\n\nThis apartment equipped with Washing Machine, Electric Stove, Microwave, Refrigerator, Cutlery.",
-    reviews: [
-      {
-        profilePicture: "https://wallpapers.com/images/high/pink-bunny-cool-profile-picture-dc05663sotzgycnm.webp",
-        username: "Dianne Russell",
-        userReview:
-          "Exceptional Quality! The service provided was top-notch. Everything was handled with care and precision. I couldn't be happier with the results. Will definitely use this service again",
-        stars: 4,
-      },
-      {
-        profilePicture: "https://i.pinimg.com/736x/2b/e0/1d/2be01dad0db3765405a80ed28044770f.jpg",
-        username: "Pushpa Kumar Arora",
-        userReview:
-          "Highly Impressive! This was an outstanding experience from start to finish. The level of professional and dedication is unmatched. Truly a pleasure to work with!",
-        stars: 4,
-      },
-    ],
+    propertyNeighborhood: "This cabin comes with Smart Home System..."
   },
   
   {
@@ -46,7 +29,7 @@ const properties = [
     roomDetail: {
       bathroom: 5,
       bedroom: 4,
-      unit: "150m²",
+      kitchen: 1,
     },
     propertyRent: 120000,
     rentIncludeExclude: {
@@ -83,7 +66,7 @@ const properties = [
     roomDetail: {
       bathroom: 1,
       bedroom: 1,
-      unit: "45m²",
+      kitchen: 1,
     },
     propertyRent: 40000,
     rentIncludeExclude: {
@@ -120,7 +103,7 @@ const properties = [
     roomDetail: {
       bathroom: 3,
       bedroom: 3,
-      unit: "200m²",
+      kitchen: 2,
     },
     propertyRent: 180000,
     rentIncludeExclude: {
@@ -157,7 +140,7 @@ const properties = [
     roomDetail: {
       bathroom: 2,
       bedroom: 2,
-      unit: "120m²",
+      kitchen: 1,
     },
     propertyRent: 50000,
     rentIncludeExclude: {

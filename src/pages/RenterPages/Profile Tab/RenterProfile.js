@@ -1,12 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import RenterNavbar from "../../../components/Renter/RenterNavbar";
 import "../../../stylesheets/Renter/Profile Tab/renterprofile.css";
-import { FaBell, FaSignOutAlt, FaTimes } from 'react-icons/fa';
-import rentRequests from "../../../datasets/rentrequests"; // Import rentRequests
+import { FaBell, FaSignOutAlt, FaTimes, FaEdit, FaSave, FaTimesCircle } from 'react-icons/fa';
+import rentRequests from '../../../datasets/rentrequests';
+import { currentProperties, previouslyRentedProperties } from "../../../datasets/rentedproperties.js";
+import { useLocation } from 'react-router-dom'; 
 
 const RenterProfile = () => {
+  const location = useLocation();
   const [activeSection, setActiveSection] = useState('personal');
   const [showNotifications, setShowNotifications] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
+  const [firstName, setFirstName] = useState('John');
+  const [lastName, setLastName] = useState('Doe');
+  const [email, setEmail] = useState('john@example.com');
+  const [phoneNumber, setPhoneNumber] = useState('+1234567890');
+  const [selectedProperty, setSelectedProperty] = useState(null);
+  const navigate = useNavigate();
+
+  // Set the active section based on the state passed via navigation
+  useEffect(() => {
+    if (location.state?.activeSection) {
+      setActiveSection(location.state.activeSection);
+    }
+  }, [location.state]);
+
+  const handleSaveChanges = () => {
+    // Save changes logic (e.g., API call)
+    setIsEditing(false);
+  };
+
+  const handleCancel = () => {
+    // Reset to original values
+    setFirstName('John');
+    setLastName('Doe');
+    setEmail('john@example.com');
+    setPhoneNumber('+1234567890');
+    setIsEditing(false);
+  };
+
+  const handlePropertyClick = (property) => {
+    setSelectedProperty(property);
+  };
+
+  const closePropertyDetails = () => {
+    setSelectedProperty(null);
+  };
 
   const renderSection = () => {
     switch (activeSection) {
@@ -15,56 +55,167 @@ const RenterProfile = () => {
           <div className="section">
             <h2>Personal Information</h2>
             <div className="personal-info">
-              <div className="input-group">
-                <label>Full Name</label>
-                <div className="detail-value">John Doe</div>
+              <p className="profile-picture-text">Profile Picture</p>
+              {/* Profile Picture */}
+              <div className="profile-picture">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfSSmuKtBLKfGzFv1Bi23dtQWZyLgtUERRdA&s"
+                  alt="Profile-Picture"
+                  className="profile-img"
+                />
               </div>
+              {/* First Name */}
+              <div className="input-group">
+                <label>First Name</label>
+                {isEditing ? (
+                  <input
+                    type="text"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    className="edit-input"
+                  />
+                ) : (
+                  <div className="detail-value">{firstName}</div>
+                )}
+              </div>
+              {/* Last Name */}
+              <div className="input-group">
+                <label>Last Name</label>
+                {isEditing ? (
+                  <input
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    className="edit-input"
+                  />
+                ) : (
+                  <div className="detail-value">{lastName}</div>
+                )}
+              </div>
+              {/* Email Address */}
               <div className="input-group">
                 <label>Email Address</label>
-                <div className="detail-value">john@example.com</div>
+                {isEditing ? (
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="edit-input"
+                  />
+                ) : (
+                  <div className="detail-value">{email}</div>
+                )}
               </div>
+              {/* Phone Number */}
               <div className="input-group">
                 <label>Phone Number</label>
-                <div className="detail-value">+1234567890</div>
+                {isEditing ? (
+                  <input
+                    type="text"
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    className="edit-input"
+                  />
+                ) : (
+                  <div className="detail-value">{phoneNumber}</div>
+                )}
               </div>
             </div>
+            {/* Edit/Save/Cancel Buttons */}
+            <div className="edit-buttons">
+              {isEditing ? (
+                <>
+                  <button className="save-button" onClick={handleSaveChanges}>
+                    <FaSave className="icon" /> Save Changes
+                  </button>
+                  <button className="cancel-button" onClick={handleCancel}>
+                    <FaTimesCircle className="icon" /> Cancel
+                  </button>
+                </>
+              ) : (
+                <button className="edit-button" onClick={() => setIsEditing(true)}>
+                  <FaEdit className="icon" /> Edit
+                </button>
+              )}
+            </div>
+            {/* Logout Button */}
             <div className="logout-container">
-              <button className="logout-button">
+              <button className="logout-button" onClick={() => {navigate("/")}}>
                 <FaSignOutAlt className="icon" /> Logout
               </button>
             </div>
           </div>
         );
-
+  
       case 'properties':
         return (
           <div className="section">
             <h2>My Properties</h2>
-            <div className="properties-list">
-              {/* Example of a rented property */}
-              <div className="property-card">
-                <h3>Bahria Apartments</h3>
-                <div className="property-details">
-                  <span className="status rented">Rented</span>
-                  <div className="rent-rate">60k/month</div>
-                  <div className="address">Islamabad, Main Boulevard Bahria Town</div>
-                  <div className="property-area">Area: 1200 sqft</div>
-                </div>
+            {/* Current Properties */}
+            <div className="properties-section">
+              <h3>Current Properties</h3>
+              <div className="properties-list">
+                {currentProperties.map((property) => (
+                  <div
+                    key={property.id}
+                    className="property-card"
+                    onClick={() => handlePropertyClick(property)}
+                  >
+                    <div className="property-image">
+                      <img src={property.img} alt={property.name} />
+                    </div>
+                    <h3>{property.name}</h3>
+                    <div className="property-details">
+                      <span className={`status ${property.status.toLowerCase().replace(' ', '-')}`}>
+                        {property.status}
+                      </span>
+                      <div className="rent-rate">Rent: Rs. {property.rentRate} per month</div>
+                      <div className="address">{property.address}
+                      </div>
+                      <div className="propertyOwner">Owner: {property.owner}</div>
+                    </div>
+                    {/* Add Pay Rent and Home Service Request Buttons */}
+                    <div className="property-buttons">
+                      <button className="payRent-button" onClick={() => {navigate("/rentpayment")}}>
+                        Pay Rent
+                      </button>
+                      <button className="home-service-button" onClick={() => {navigate("/repairform")}}>
+                        Home Service Request
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
-              {/* Example of a pending property */}
-              <div className="property-card">
-                <h3>Rayan Resort</h3>
-                <div className="property-details">
-                  <span className="status pending">Pending</span>
-                  <div className="rent-rate">90k/month</div>
-                  <div className="address">Islamabad, Near Faisal Mosque</div>
-                  <div className="property-area">Area: 2500 sqft</div>
-                </div>
+            </div>
+            {/* Previously Rented Properties */}
+            <div className="properties-section">
+              <h3>Previously Rented</h3>
+              <div className="properties-list">
+                {previouslyRentedProperties.map((property) => (
+                  <div
+                    key={property.id}
+                    className="property-card"
+                    onClick={() => handlePropertyClick(property)}
+                  >
+                    <div className="property-image">
+                      <img src={property.img} alt={property.name} />
+                    </div>
+                    <h3>{property.name}</h3>
+                    <div className="property-details">
+                      <span className={`status ${property.status.toLowerCase().replace(' ', '-')}`}>
+                        {property.status}
+                      </span>
+                      <div className="rent-rate">Rent: Rs. {property.rentRate} per month</div>
+                      <div className="address">{property.address}</div>
+                      <div className="propertyOwner">Owner: {property.owner}</div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         );
-
+  
       default:
         return null;
     }
@@ -89,6 +240,7 @@ const RenterProfile = () => {
                     <p><strong>Property:</strong> {request.propertyId}</p>
                     <p><strong>Type:</strong> {request.type === "rent" ? "Rent Request" : "Repair Request"}</p>
                     <p><strong>Status:</strong> {request.status}</p>
+                    <p><strong>Request Date:</strong> {request.requestDate}</p>
                     <button className="cancel-request-button">Cancel Request</button>
                   </div>
                 ))}
@@ -101,9 +253,35 @@ const RenterProfile = () => {
               <p><strong>Property:</strong> Bahria Apartments</p>
               <p><strong>Owner:</strong> Muhammad Faizan</p>
               <p><strong>Amount Due:</strong> 60k</p>
+              <p><strong>Due Date:</strong> 2023-10-15</p>
               <button className="pay-rent-button">Pay Rent</button>
             </div>
           </div>
+        </div>
+      </div>
+    );
+  };
+
+  const renderPropertyDetails = () => {
+    if (!selectedProperty) return null;
+  
+    return (
+      <div className="property-details-popup">
+        <div className="property-details-content">
+          <div className="property-image">
+            <img src={selectedProperty.img} alt={selectedProperty.name} />
+          </div>
+          <h3>{selectedProperty.name}</h3>
+          <div className="property-info">
+            <p><strong>Location:</strong> {selectedProperty.address}</p>
+            <p><strong>Owner:</strong> {selectedProperty.owner}</p>
+            <p><strong>Rented From:</strong> {selectedProperty.rentedFrom}</p>
+            <p><strong>Rented To:</strong> {selectedProperty.rentedTo}</p>
+            <p><strong>Monthly Rent:</strong> Rs. {selectedProperty.rentRate}</p>
+          </div>
+          <button className="close-button" onClick={closePropertyDetails}>
+            Close
+          </button>
         </div>
       </div>
     );
@@ -139,6 +317,8 @@ const RenterProfile = () => {
           {renderSection()}
         </div>
       </div>
+
+      {selectedProperty && renderPropertyDetails()}
     </div>
   );
 };

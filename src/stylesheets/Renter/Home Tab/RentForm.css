@@ -28,17 +28,17 @@ button {
   cursor: pointer;
 }
 
-.cancel-button, .back-button {
+.cancelBtn, .back-Btn {
   background-color: #ccc;
   color: white;
 }
 
-.cancel-button:hover, .back-button:hover{
+.cancelBtn:hover, .back-Btn:hover{
   background-color: #1c1b1b;
   color: white;
 }
 
-.next-button, .submit-button {
+.nextBtn, .submit-Btn {
   background-color: red;
   color: white;
 }
@@ -75,11 +75,11 @@ button {
   margin-bottom: 30px;
 }
 
-.progress-bar-container {
+.progress-Bar-container {
   margin-bottom: 30px;
 }
 
-.progress-bar {
+.progressBar {
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -122,7 +122,7 @@ button {
 
 /* Updated File Preview Styles */
 
-.progress-bar::before {
+.progressBar::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -133,7 +133,7 @@ button {
   z-index: -1;
 }
 
-.progress-step {
+.progressStep {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -145,7 +145,7 @@ button {
   font-size: 14px;
 }
 
-.progress-step.active {
+.progressStep.active {
   background-color: #ec2828;
 }
 
@@ -216,18 +216,18 @@ button:disabled {
 }
 
 /* Success Screen Styles */
-.success-screen {
+.successScreen {
   width: 700px;
   text-align: center;
   padding: 2rem;
   background: #f8f9fa;
   border-radius: 10px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-  margin-top: 2rem;
+  margin-top: 50px;
   margin-left: -80px;
 }
 
-.success-icon {
+.successIcon {
   color: #4CAF50; /* Green color */
   font-size: 4rem; /* Large size */
   margin-bottom: 20px; /* Spacing below the icon */
@@ -240,12 +240,12 @@ button:disabled {
   60% { transform: translateY(-15px); }
 }
 
-.success-screen h2 {
+.successScreen h2 {
   color: #333;
   margin-bottom: 1rem;
 }
 
-.success-screen p {
+.successScreen p {
   color: #666;
   font-size: 1rem;
   margin-bottom: 0.5rem;

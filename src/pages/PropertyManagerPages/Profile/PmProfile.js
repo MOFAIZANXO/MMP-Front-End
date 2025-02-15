@@ -9,7 +9,7 @@ const PmProfile = () => {
     phone: "123-456-7890",
     address: "123 Main St, City, Country",
     bio: "Experienced property manager with a focus on tenant satisfaction and property maintenance.",
-    image: "https://via.placeholder.com/150", // Default image
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfSSmuKtBLKfGzFv1Bi23dtQWZyLgtUERRdA&s", // Updated image URL
   });
 
   // State to toggle edit mode
@@ -38,19 +38,23 @@ const PmProfile = () => {
   return (
     <div className="PM_profiles">
       <div className="PM_profile-container">
-        {/* Profile Picture Section with Hover Edit */}
+        {/* Profile Picture Section with Conditional Edit Overlay */}
         <div className="PM_profile-picture">
-          <label htmlFor="imageUpload" className="PM_profile-edit-overlay">
-            Edit
-          </label>
+          {isEditing && (
+            <>
+              <label htmlFor="imageUpload" className="PM_profile-edit-overlay">
+                Edit
+              </label>
+              <input
+                type="file"
+                id="imageUpload"
+                accept="image/*"
+                onChange={handleImageUpload}
+                className="PM_file-input"
+              />
+            </>
+          )}
           <img src={profile.image} alt="Profile" className="PM_profile-img" />
-          <input
-            type="file"
-            id="imageUpload"
-            accept="image/*"
-            onChange={handleImageUpload}
-            className="PM_file-input"
-          />
         </div>
 
         {/* Profile Information Section */}
@@ -60,7 +64,12 @@ const PmProfile = () => {
               <div className="PM_profile-field" key={key}>
                 <label>{key.charAt(0).toUpperCase() + key.slice(1)}:</label>
                 {isEditing ? (
-                  <input type="text" name={key} value={profile[key]} onChange={handleChange} />
+                  <input 
+                    type="text" 
+                    name={key} 
+                    value={profile[key]} 
+                    onChange={handleChange} 
+                  />
                 ) : (
                   <p>{profile[key]}</p>
                 )}

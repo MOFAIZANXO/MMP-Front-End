@@ -14,6 +14,7 @@ import OwnerForm from './pages/OwnerPages/PropertyOwnerForm.js';
 import OwnerPropertyDetail from './pages/OwnerPages/OwnerPropertyDetail.js';
 import PmReviewProperty from './pages/PropertyManagerPages/Properties/ReviewProperty.js';
 import PmReviewRenter from './pages/PropertyManagerPages/Renters/PmRenterForm.js';
+import PmVendorForm from './pages/PropertyManagerPages/Vendors/PmVendorForm.js';
 import Vendor from './pages/VendorPages/Vendor.js';
 import LandingPage from './pages/Landing';
 import SignUp from './pages/signup/SignUp';
@@ -37,10 +38,11 @@ function App() {
           <Route path="/renterform" element={<ApplyForm />} />
           <Route path="/renterprofile" element={<RenterProfile />} />
           <Route path="/repairform" element={<RepairForm />} />
-          <Route path="/rentpayment" element={<RentPayment />}></Route>          
+          <Route path="/rentpayment" element={<RentPayment />} />          
           <Route path="/property-manager" element={<PropertyManager />} />
           <Route path="/review-property" element={<PmReviewProperty />} />
           <Route path="/PmRenterForm" element={<PmReviewRenter />} />
+          <Route path="/pm-vendor-form/:vendorId" element={<PmVendorForm />} />
           <Route path="/vendor" element={<Vendor />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />

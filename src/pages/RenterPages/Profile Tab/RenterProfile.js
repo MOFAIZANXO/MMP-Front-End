@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
-import RenterNavbar from "../../../components/Renter/RenterNavbar";
-import "../../../stylesheets/Renter/Profile Tab/renterprofile.css";
+import { useNavigate } from 'react-router-dom';
+import RenterNavbar from '../../../components/Renter/RenterNavbar';
+import '../../../stylesheets/Renter/Profile Tab/renterprofile.css';
 import { FaBell, FaSignOutAlt, FaTimes, FaEdit, FaSave, FaTimesCircle } from 'react-icons/fa';
 import rentRequests from '../../../datasets/rentrequests';
-import { currentProperties, previouslyRentedProperties } from "../../../datasets/rentedproperties.js";
+import { currentProperties, previouslyRentedProperties } from '../../../datasets/rentedproperties.js';
 import { useLocation } from 'react-router-dom';
 
 const RenterProfile = () => {
@@ -104,24 +104,27 @@ const RenterProfile = () => {
               <p className="profile-picture-text">Profile Picture</p>
               {/* Profile Picture */}
               <div className="profile-picture">
-                <label htmlFor="profile-picture-upload">
-                  <img
-                    src={profilePicture}
-                    alt="Profile-Picture"
-                    className="profile-img"
-                  />
-                </label>
                 {isEditing && (
-                  <input
-                    id="profile-picture-upload"
-                    type="file"
-                    accept="image/*"
-                    capture="user" // Opens the camera on mobile devices
-                    onChange={handleProfilePictureChange}
-                    className="profile-picture-upload"
-                    style={{ display: 'none' }} // Hide the input element
-                  />
+                  <>
+                    <label htmlFor="profile-picture-upload" className="profile-edit-overlay">
+                      Edit
+                    </label>
+                    <input
+                      id="profile-picture-upload"
+                      type="file"
+                      accept="image/*"
+                      capture="user" // Opens the camera on mobile devices
+                      onChange={handleProfilePictureChange}
+                      className="profile-picture-upload"
+                      style={{ display: 'none' }} // Hide the input element
+                    />
+                  </>
                 )}
+                <img
+                  src={profilePicture}
+                  alt="Profile-Picture"
+                  className="profile-img"
+                />
               </div>
               {/* First Name */}
               <div className="input-group">
@@ -199,13 +202,13 @@ const RenterProfile = () => {
             </div>
             {/* Logout Button */}
             <div className="logout-container">
-              <button className="logout-button" onClick={() => {navigate("/")}}>
+              <button className="logout-button" onClick={() => { navigate('/') }}>
                 <FaSignOutAlt className="icon" /> Logout
               </button>
             </div>
           </div>
         );
-  
+
       case 'properties':
         return (
           <div className="section">
@@ -229,16 +232,15 @@ const RenterProfile = () => {
                         {property.status}
                       </span>
                       <div className="rent-rate">Rent: Rs. {property.rentRate} per month</div>
-                      <div className="address">{property.address}
-                      </div>
+                      <div className="address">{property.address}</div>
                       <div className="propertyOwner">Owner: {property.owner}</div>
                     </div>
                     {/* Add Pay Rent and Home Service Request Buttons */}
                     <div className="property-buttons">
-                      <button className="payRent-button" onClick={() => {navigate("/rentpayment")}}>
+                      <button className="payRent-button" onClick={() => { navigate('/rentpayment') }}>
                         Pay Rent
                       </button>
-                      <button className="home-service-button" onClick={() => {navigate("/repairform")}}>
+                      <button className="home-service-button" onClick={() => { navigate('/repairform') }}>
                         Home Service Request
                       </button>
                     </div>
@@ -274,7 +276,7 @@ const RenterProfile = () => {
             </div>
           </div>
         );
-  
+
       default:
         return null;
     }
@@ -297,7 +299,7 @@ const RenterProfile = () => {
                 {rentRequests.map((request, index) => (
                   <div key={index} className="request-card">
                     <p><strong>Property:</strong> {request.propertyId}</p>
-                    <p><strong>Type:</strong> {request.type === "rent" ? "Rent Request" : "Repair Request"}</p>
+                    <p><strong>Type:</strong> {request.type === 'rent' ? 'Rent Request' : 'Repair Request'}</p>
                     <p><strong>Status:</strong> {request.status}</p>
                     <p><strong>Request Date:</strong> {request.requestDate}</p>
                     <button className="cancel-request-button">Cancel Request</button>
@@ -323,7 +325,7 @@ const RenterProfile = () => {
 
   const renderPropertyDetails = () => {
     if (!selectedProperty) return null;
-  
+
     return (
       <div className="property-details-popup">
         <div className="property-details-content">

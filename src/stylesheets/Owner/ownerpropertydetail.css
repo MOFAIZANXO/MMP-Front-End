@@ -1,0 +1,43 @@
+.owner-property-detail {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.property-info, .rentee-info, .rent-info {
+    margin-bottom: 30px;
+}
+
+.property-info h2, .rentee-info h2, .rent-info h2 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.property-info p, .rentee-info p, .rent-info p {
+    margin: 10px 0;
+    font-size: 1em;
+    color: #333;
+}
+
+.rentee-info img {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.back-button {
+    background-color: #db3434;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #c22d2d;
+}

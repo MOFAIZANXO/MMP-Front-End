@@ -7,13 +7,26 @@
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
-.header {
-  text-align: center;
-  margin-bottom: 2rem;
+.logoDiv {
+  margin-left: 320px;
+  margin-right: 307px;
 }
 
-.logo {
-  height: 43px;
+.Head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+  padding: 20px;
+  background: linear-gradient(90deg, #000000, #db3434);
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.headLogo {
+  height: 70px;
+  width: 70px;
 }
 
 .form-title {
@@ -89,7 +102,7 @@
   padding: 0 2rem;
 }
 
-.form-group {
+.FormGroup {
   margin-bottom: 1.5rem;
 }
 
@@ -129,7 +142,6 @@ input, select, textarea {
 .checkboxes label {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
 }
 
 .checkboxes input[type="checkbox"] {
@@ -256,26 +268,37 @@ input, select, textarea {
   color: #666;
 }
 
-.successScreen {
+/* Success Screen Styles */
+.SuccessScreen {
+  width: 700px;
   text-align: center;
   padding: 2rem;
   background: #f8f9fa;
   border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  margin-top: 145px;
+  margin-left: 280px;
 }
 
-.successScreen h2 {
+.successIcon {
+  color: #4CAF50; /* Green color */
+  font-size: 4rem; /* Large size */
+  margin-bottom: 20px; /* Spacing below the icon */
+  animation: bounce 1s ease-in-out; /* Optional: Add animation */
+}
+
+.SuccessScreen h2 {
   color: #333;
   margin-bottom: 1rem;
 }
 
-.successScreen p {
+.SuccessScreen p {
   color: #666;
   font-size: 1rem;
   margin-bottom: 1rem;
 }
 
-.successScreen button {
+.SuccessScreen button {
   background-color: #FB1717;
   color: white;
   border: none;
@@ -285,6 +308,6 @@ input, select, textarea {
   transition: background 0.3s ease;
 }
 
-.successScreen button:hover {
+.SuccessScreen button:hover {
   background-color: #d61414;
 }

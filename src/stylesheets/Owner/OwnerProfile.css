@@ -8,15 +8,15 @@
 /* Sidebar Styles */
 .sidebar {
   width: 280px;
-  background: black;
+  background: linear-gradient(90deg, #000000, #db3434);
   padding: 25px;
   color: white;
   position: sticky;
   top: 0;
   padding-top: 40px;
   box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-  height: 100vh; /* Full viewport height */
-  overflow-y: auto; /* Scroll if content exceeds height */
+  height: 100vh; 
+  overflow-y: auto; 
 }
   
 .profile-menu-logo {
@@ -58,7 +58,7 @@
   overflow-y: auto;
 }
 
-.header {
+.Header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -105,7 +105,7 @@
   border: 2px solid #27ae60;
 }
 
-.stat-item.pending {
+.stat-item.vacant {
   background: rgba(219, 52, 52, 0.1);
   border: 2px solid #db3434;
 }
@@ -121,7 +121,7 @@
   color: #27ae60;
 }
 
-.stat-item.pending span {
+.stat-item.vacant span {
   color: #db3434;
 }
 
@@ -173,6 +173,12 @@
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #db3434;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.profileImg:hover {
+  transform: scale(1.05); 
+  border-color: #c22d2d; 
 }
 
 .inputGroup {
@@ -225,9 +231,8 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.2s;
   font-weight: 500;
-  transition: all 0.1s;
 }
 
 .add-property-btn:hover {
@@ -249,7 +254,7 @@
 }
 
 .status-owner {
-  padding: 8px 460px 8px 15px;
+  padding: 8px 413px 8px 15px;
   border-radius: 20px;
   font-size: 0.9em;
   font-weight: 500;
@@ -262,7 +267,7 @@
   color: white;
 }
 
-.status-owner.pending {
+.status-owner.vacant {
   background-color: #db3434;
   color: white;
 }
@@ -348,21 +353,6 @@
     box-shadow: 2px 0 10px rgba(0,0,0,0.1);
   }
   
-  .profile-pic-upload {
-    border: 2px dashed rgba(255,255,255,0.3);
-    padding: 25px;
-    text-align: center;
-    margin-bottom: 30px;
-    cursor: pointer;
-    transition: all 0.3s;
-    border-radius: 10px;
-  }
-  
-  .profile-pic-upload:hover {
-    background-color: rgba(255,255,255,0.05);
-    border-color: rgba(255,255,255,0.5);
-  }
-  
   .menu-item {
     padding: 15px 20px;
     margin: 12px 0;
@@ -389,18 +379,6 @@
     padding: 35px;
     background-color: #f8f9fa;
     transition: all 0.3s;
-  }
-  
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 35px;
-    padding: 20px;
-    background: linear-gradient(90deg, #000000, #db3434);
-    border-radius: 12px;
-    color: white;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   }
   
   /* Property Statistics */
@@ -438,7 +416,7 @@
     border: 2px solid #27ae60;
   }
   
-  .stat-item.pending {
+  .stat-item.vacant {
     background: rgba(219, 52, 52, 0.1);
     border: 2px solid #db9834;
   }
@@ -454,7 +432,7 @@
     color: #27ae60;
   }
   
-  .stat-item.pending span {
+  .stat-item.vacant span {
     color: #db3434;
   }
   
@@ -565,7 +543,7 @@
     color: white;
   }
   
-  .status.pending {
+  .status.vacant {
     background-color: #db3434;
     color: white;
   }
@@ -866,19 +844,25 @@
   margin-top: 20px;
 }
 
-.pending-tab-btn {
-  margin-left: 10px;
+.vacant-tab-btn {
+  margin-left: 5px;
 }
 
-.pending-tab-btn, .rented-tab-btn {
-  background: #db3434;
+.vacant-tab-btn, .rented-tab-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: white;
   font-weight: 500;
-  color: white;
-  transition: all 0.1s;
+  color: #db3434;
+  border: 1.5px solid #db3434;;
+  transition: all 0.2s;
 }
 
-.pending-tab-btn:hover, .rented-tab-btn:hover {
-  background-color: #c22d2d;
+.vacant-tab-btn:hover, .rented-tab-btn:hover {
+  background-color: #db3434;
+  color: white;
 }
 
 .rentRate {
@@ -918,21 +902,27 @@
 }
 
 .propertyCard-img {
-  width: 250px;
-  height: 200px;
+  width: 300px;
+  height: 237px;
   border-radius: 12px;
   margin-right: 20px;
 }
 
-.delete-btn {
-  background: white;
-  border: 1px solid #db3434;
-  font-weight: 500;
-  color: #db3434;
+.propertyCard-headings h3 {
+  width: 84%;
+}
+
+.deleteBtnDiv {
   margin-top: -12px;
   margin-bottom: 8px;
+}
+
+.delete-btn {
+  background: white;
+  border: 1.5px solid #db3434;
+  font-weight: 500;
+  color: #db3434;
   padding: 5px 15px;
-  margin-left: 300px;
   transition: all 0.1s;
 }
 
@@ -941,15 +931,30 @@
   background-color: #db3434;
 }
 
-.viewDetails-btn, .markAsRented-btn {
-  background: #db3434;
+.viewDetails-btn {
+  background: white;
   font-weight: 500;
-  color: white;
+  color: #db3434;
+  border: 1.5px solid #db3434;
   transition: all 0.1s;
 }
 
-.viewDetails-btn:hover, .markAsRented-btn:hover {
-  background-color: #c22d2d;
+.viewDetails-btn:hover {
+  background-color: #db3434;
+  color: white;
+}
+
+.markAsRented-btn {
+  background: white;
+  font-weight: 500;
+  color: #27ae60;
+  border: 1.5px solid #27ae60;
+  transition: all 0.1s;
+}
+
+.markAsRented-btn:hover {
+  background-color: #27ae60;
+  color: white;
 }
 
 .markAsRented-btn {
@@ -962,4 +967,186 @@
 
 .propertyCard-headings {
   display: flex;
+}
+
+.property-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Active Tab Styles */
+.property-tabs button.active {
+  background-color: #db3434;
+  color: white;
+  border: 1.5px solid #db3434;;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Property Details Modal */
+.propertyDetailsPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.propertyDetailsContent {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 600px;
+  max-width: 90%;
+  padding: 30px 20px 20px 20px;
+  animation: fadeIn 0.3s ease;
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.propertyPictures {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.propertyPicture {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.propertyInformation {
+  margin-bottom: 20px;
+}
+
+.propertyInformation p {
+  margin: 10px 0;
+  font-size: 1em;
+  color: #333;
+}
+
+.closebutton-div {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
+}
+
+.CloseButton {
+  color: black;
+  cursor: pointer;
+  font-size: 25px;
+  margin-top: -5px;
+  margin-bottom: 13px;
+}
+
+.CloseButton:hover {
+  color: #c22d2d;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.deleteConfirmationPopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.deleteConfirmationContent {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  max-width: 90%;
+  padding: 30px;
+  text-align: center;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.CancelBtn, .DeleteBtn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.CancelBtn {
+  background-color: #f8f9fa;
+  color: #666;
+  border: 1px solid #ddd;
+}
+
+.CloseBtn {
+  background-color: white;
+  color: #db3434;
+  padding: 7px 20px;
+  border: 1.5px solid #db3434;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.DeleteBtn {
+  background-color: #db3434;
+  color: white;
+}
+
+.DeleteBtn:hover {
+  background-color: #c22d2d;
+}
+
+.CancelBtn:hover, .CloseBtn:hover {
+  background-color: #db3434;
+  color: white;
+}
+
+.SuccessMsg p {
+  color: black;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.ownerwarning-img {
+  width: 100px;
+  height: 80px;
+}
+
+.successIcon {
+  color: #4CAF50; 
+  font-size: 4rem; 
+  margin-bottom: 20px; 
+  animation: bounce 1s ease-in-out; 
 }

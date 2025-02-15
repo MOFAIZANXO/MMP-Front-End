@@ -3,6 +3,7 @@
 import React, { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addProperty } from '../../datasets/ownerproperties';
+import { FaCheckCircle } from 'react-icons/fa';
 import '../../stylesheets/Owner/OwnerForm.css';
 import logo from '../../assets/images/logo.png';
 
@@ -205,15 +206,30 @@ const OwnerForm = () => {
       alert("Please complete all steps correctly.");
       return;
     }
-
+  
     const fullAddress = `${cleanAddress(address)}, ${province}`;
-
+  
+    const includedUtilitiesArray = Object.keys(includedUtilities)
+      .filter(key => includedUtilities[key])
+      .map(key => {
+        switch (key) {
+          case 'electricityBill':
+            return 'Electricity bill';
+          case 'gasBill':
+            return 'Gas bill';
+          case 'waterSupply':
+            return 'Water supply bill';
+          default:
+            return '';
+        }
+      });
+  
     const newProperty = {
       name: propertyName,
       ownerName: ownerName,
       ownerPhone: contactNumber,
       CNIC: cnic,
-      status: 'Pending',
+      status: 'Vacant',
       rent: expectedRent,
       address: fullAddress,
       roomDetail: {
@@ -221,20 +237,34 @@ const OwnerForm = () => {
         bathrooms: bathrooms,
         kitchens: kitchens,
       },
-      included: Object.keys(includedUtilities).filter(key => includedUtilities[key]),
-      excluded: Object.keys(includedUtilities).filter(key => !includedUtilities[key]),
+      included: includedUtilitiesArray, 
+      excluded: Object.keys(includedUtilities)
+        .filter(key => !includedUtilities[key])
+        .map(key => {
+          switch (key) {
+            case 'electricityBill':
+              return 'Electricity Bill';
+            case 'gasBill':
+              return 'Gas Bill';
+            case 'waterSupply':
+              return 'Water Supply';
+            default:
+              return '';
+          }
+        }),
       propertyNeighborhood: propertyNeighborhood,
       images: files.map(fileObj => fileObj.preview),
     };
-
-    addProperty(newProperty); 
-    console.log("form submitted");
+  
+    addProperty(newProperty);
+    console.log("Form submitted with data:", newProperty);
     setIsSubmitted(true);
   };
 
   if (isSubmitted) {
     return (
-      <div className="successScreen">
+      <div className="SuccessScreen">
+        <FaCheckCircle className="successIcon" />
         <h2>Your property has been submitted successfully!</h2>
         <p>Thanks for listing your property with us!</p>
         <button onClick={() => navigate("/ownerprofile")}>Continue</button>
@@ -244,9 +274,12 @@ const OwnerForm = () => {
 
   return (
     <div className="owner-form">
-      <header className="header">
-        <img src={logo} alt="Logo" className="logo" />
-      </header>
+      <div className="logoDiv">
+        <header className="Head">
+          <img src={logo} alt="Logo" className="headLogo" />
+        </header>
+      </div>
+      
       <h1 className="form-title">
         {page === 1 ? 'Owner Details' :
           page === 2 ? 'Property Details' : 'Review Information'}
@@ -257,7 +290,7 @@ const OwnerForm = () => {
       <ProgressSteps />
       {page === 1 && (
         <div className="form-page">
-          <div className={`form-group ${getFieldError('ownerName') ? 'error' : ''}`}>
+          <div className={`FormGroup ${getFieldError('ownerName') ? 'error' : ''}`}>
             <input
               type="text"
               value={ownerName}
@@ -270,7 +303,7 @@ const OwnerForm = () => {
             {getFieldError('ownerName') && <div className="error-message">{getFieldError('ownerName')}</div>}
           </div>
 
-          <div className={`form-group ${getFieldError('contactNumber') ? 'error' : ''}`}>
+          <div className={`FormGroup ${getFieldError('contactNumber') ? 'error' : ''}`}>
             <input
               type="text"
               value={contactNumber}
@@ -280,7 +313,7 @@ const OwnerForm = () => {
             {getFieldError('contactNumber') && <div className="error-message">{getFieldError('contactNumber')}</div>}
           </div>
 
-          <div className={`form-group ${getFieldError('cnic') ? 'error' : ''}`}>
+          <div className={`FormGroup ${getFieldError('cnic') ? 'error' : ''}`}>
             <input
               type="text"
               value={cnic}
@@ -301,7 +334,7 @@ const OwnerForm = () => {
 
       {page === 2 && (
         <div className="form-page">
-          <div className={`form-group ${getFieldError('propertyName') ? 'error' : ''}`}>
+          <div className={`FormGroup ${getFieldError('propertyName') ? 'error' : ''}`}>
             <h3>Property Name</h3>
             <input
               type="text"
@@ -315,7 +348,7 @@ const OwnerForm = () => {
             {getFieldError('propertyName') && <div className="error-message">{getFieldError('propertyName')}</div>}
           </div>
 
-          <div className={`form-group ${getFieldError('province') ? 'error' : ''}`}>
+          <div className={`FormGroup ${getFieldError('province') ? 'error' : ''}`}>
             <h3>Location</h3>
             <select
               value={province}
@@ -344,7 +377,7 @@ const OwnerForm = () => {
             {getFieldError('address') && <div className="error-message">{getFieldError('address')}</div>}
           </div>
 
-          <div className={`form-group ${getFieldError('expectedRent') ? 'error' : ''}`}>
+          <div className={`FormGroup ${getFieldError('expectedRent') ? 'error' : ''}`}>
             <h3>Rent Details</h3>
             <input
               type="number"
@@ -356,7 +389,7 @@ const OwnerForm = () => {
             <div className="utilities-group">
               <div className="is-included">Included in rent:</div>
               <div className="checkboxes">
-                <label>
+                <label className="electricity">
                   <input
                     type="checkbox"
                     checked={includedUtilities.electricityBill}
@@ -364,7 +397,7 @@ const OwnerForm = () => {
                   />
                   Electricity Bill
                 </label>
-                <label>
+                <label className="gas">
                   <input
                     type="checkbox"
                     checked={includedUtilities.gasBill}
@@ -372,7 +405,7 @@ const OwnerForm = () => {
                   />
                   Gas Bill
                 </label>
-                <label>
+                <label classNamr="water">
                   <input
                     type="checkbox"
                     checked={includedUtilities.waterSupply}
@@ -384,7 +417,7 @@ const OwnerForm = () => {
             </div>
           </div>
 
-          <div className="form-group">
+          <div className="FormGroup">
             <h3>Property Details</h3>
             <div className="number-inputs">
               <input
@@ -420,7 +453,7 @@ const OwnerForm = () => {
             {getFieldError('propertyNeighborhood') && <div className="error-message">{getFieldError('propertyNeighborhood')}</div>}
           </div>
 
-          <div className={`form-group ${getFieldError('files') ? 'error' : ''}`}>
+          <div className={`FormGroup ${getFieldError('files') ? 'error' : ''}`}>
             <h3>Upload Photos</h3>
             <div
               className="file-drop-area"

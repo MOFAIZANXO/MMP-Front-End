@@ -5,7 +5,7 @@ import "../../../stylesheets/Renter/Profile Tab/renterprofile.css";
 import { FaBell, FaSignOutAlt, FaTimes, FaEdit, FaSave, FaTimesCircle } from 'react-icons/fa';
 import rentRequests from '../../../datasets/rentrequests';
 import { currentProperties, previouslyRentedProperties } from "../../../datasets/rentedproperties.js";
-import { useLocation } from 'react-router-dom'; 
+import { useLocation } from 'react-router-dom';
 
 const RenterProfile = () => {
   const location = useLocation();
@@ -16,6 +16,9 @@ const RenterProfile = () => {
   const [lastName, setLastName] = useState('Doe');
   const [email, setEmail] = useState('john@example.com');
   const [phoneNumber, setPhoneNumber] = useState('+1234567890');
+  const [profilePicture, setProfilePicture] = useState(
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfSSmuKtBLKfGzFv1Bi23dtQWZyLgtUERRdA&s'
+  );
   const [selectedProperty, setSelectedProperty] = useState(null);
   const navigate = useNavigate();
 
@@ -26,18 +29,61 @@ const RenterProfile = () => {
     }
   }, [location.state]);
 
+  // Load user data from localStorage
+  useEffect(() => {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const currentUser = users.find((user) => user.email === email);
+    if (currentUser) {
+      setFirstName(currentUser.firstName);
+      setLastName(currentUser.lastName);
+      setEmail(currentUser.email);
+      setPhoneNumber(currentUser.phoneNumber || '+1234567890');
+      setProfilePicture(currentUser.profileImg || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfSSmuKtBLKfGzFv1Bi23dtQWZyLgtUERRdA&s');
+    }
+  }, [email]);
+
   const handleSaveChanges = () => {
-    // Save changes logic (e.g., API call)
+    // Update user data in localStorage
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const updatedUsers = users.map((user) =>
+      user.email === email
+        ? {
+            ...user,
+            firstName,
+            lastName,
+            email,
+            phoneNumber,
+            profileImg: profilePicture,
+          }
+        : user
+    );
+    localStorage.setItem('users', JSON.stringify(updatedUsers));
     setIsEditing(false);
   };
 
   const handleCancel = () => {
     // Reset to original values
-    setFirstName('John');
-    setLastName('Doe');
-    setEmail('john@example.com');
-    setPhoneNumber('+1234567890');
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const currentUser = users.find((user) => user.email === email);
+    if (currentUser) {
+      setFirstName(currentUser.firstName);
+      setLastName(currentUser.lastName);
+      setEmail(currentUser.email);
+      setPhoneNumber(currentUser.phoneNumber || '+1234567890');
+      setProfilePicture(currentUser.profileImg || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfSSmuKtBLKfGzFv1Bi23dtQWZyLgtUERRdA&s');
+    }
     setIsEditing(false);
+  };
+
+  const handleProfilePictureChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfilePicture(reader.result); // Update the profile picture state
+      };
+      reader.readAsDataURL(file); // Convert the image to a base64 string
+    }
   };
 
   const handlePropertyClick = (property) => {
@@ -58,11 +104,24 @@ const RenterProfile = () => {
               <p className="profile-picture-text">Profile Picture</p>
               {/* Profile Picture */}
               <div className="profile-picture">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfSSmuKtBLKfGzFv1Bi23dtQWZyLgtUERRdA&s"
-                  alt="Profile-Picture"
-                  className="profile-img"
-                />
+                <label htmlFor="profile-picture-upload">
+                  <img
+                    src={profilePicture}
+                    alt="Profile-Picture"
+                    className="profile-img"
+                  />
+                </label>
+                {isEditing && (
+                  <input
+                    id="profile-picture-upload"
+                    type="file"
+                    accept="image/*"
+                    capture="user" // Opens the camera on mobile devices
+                    onChange={handleProfilePictureChange}
+                    className="profile-picture-upload"
+                    style={{ display: 'none' }} // Hide the input element
+                  />
+                )}
               </div>
               {/* First Name */}
               <div className="input-group">
@@ -290,7 +349,6 @@ const RenterProfile = () => {
   return (
     <div className="renter-profile">
       <RenterNavbar />
-
       <div className="profile-head">
         <div className="menu-options">
           <div
@@ -311,13 +369,11 @@ const RenterProfile = () => {
           {showNotifications && renderNotifications()}
         </div>
       </div>
-
       <div className="profile-container">
         <div className="main-content">
           {renderSection()}
         </div>
       </div>
-
       {selectedProperty && renderPropertyDetails()}
     </div>
   );

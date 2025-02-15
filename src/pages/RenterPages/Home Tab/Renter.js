@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../../stylesheets/Renter/Home Tab/Home.css";
 import RenterNavbar from "../../../components/Renter/RenterNavbar";
@@ -6,6 +6,10 @@ import Footer from "../../../components/Footer";
 import properties from "../../../datasets/newProperties";
 
 function Renter() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="home-renter-portal">
       <div className="renter-home">
@@ -31,29 +35,30 @@ function Renter() {
         </div>
 
         <section className="home-property-list">
-          {properties.map((property, index) => (
-            <div className="home-property-card" key={index}>
-              <img
-                src={property.propertyImages[0]}
-                alt="Property"
-                className="home-property-image"
-              />
-              <div className="home-property-info">
-                <h3 className="home-property-title">{property.propertyTitle}</h3>
-                <p className="home-property-location">{property.propertyLocation}</p>
-                <p><b>Owner:</b> {property.propertyOwner}</p>
-                <p><b>Price:</b> Rs. {property.propertyRent} per month</p>
-                <div className="home-property-details">
-                  <span>🛏️ {property.roomDetail.bedroom}</span>
-                  <span>🚽 {property.roomDetail.bathroom}</span>
-                </div>
+        {properties?.length > 0 ? properties.map((property, index) => (
+          <div className="home-property-card" key={index}>
+            <img
+              src={property?.propertyImages?.[0] || "default-image.jpg"} // Ensure a default image
+              alt="Property"
+              className="home-property-image"
+            />
+            <div className="home-property-info">
+              <h3 className="home-property-title">{property?.propertyTitle || "No Title"}</h3>
+              <p className="home-property-location">{property?.propertyLocation || "No Location"}</p>
+              <p><b>Owner:</b> {property?.propertyOwner || "Unknown"}</p>
+              <p><b>Price:</b> Rs. {property?.propertyRent || 0} per month</p>
+              <div className="home-property-details">
+                <span>🛏️ {property?.roomDetail?.bedroom || 0}</span>
+                <span>🚽 {property?.roomDetail?.bathroom || 0}</span>
               </div>
-              <Link to={`/property/${index}`} className="home-details-button-link">
-                <button className="home-details-button">Check Details</button>
-              </Link>
             </div>
-          ))}
-        </section>
+            <Link to={`/property/${index}`} className="home-details-button-link">
+              <button className="home-details-button">Check Details</button>
+            </Link>
+          </div>
+        )) : <p>No properties available</p>}
+      </section>
+
       </div>
 
       <Footer />

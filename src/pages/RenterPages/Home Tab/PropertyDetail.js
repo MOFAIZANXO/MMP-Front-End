@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import "../../../stylesheets/Renter/Home Tab/propertydetail.css";
-import properties from "../../../datasets/newProperties";
+import renterhomeproperties from "../../../datasets/newProperties";
 import RenterNavbar from "../../../components/Renter/RenterNavbar";
 import Footer from "../../../components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,7 +12,7 @@ import PropertyGeneralInfo from "../../../components/Renter/PropertyGeneralInfo"
 
 function PropertyDetail() {
   const { index } = useParams();
-  const property = properties[parseInt(index)];
+  const property = renterhomeproperties[parseInt(index)];
   const navigate = useNavigate();
 
   useEffect(() => {

@@ -25,9 +25,10 @@
 /* Profile Picture Section */
 .PM_profile-picture {
     position: relative;
-    text-align: center;
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
-    cursor: pointer;
+    cursor: pointer; 
 }
 
 .PM_profile-img {
@@ -35,7 +36,7 @@
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #ddd;
+    border: 3px solid #db3434;
     transition: opacity 0.3s ease-in-out;
 }
 

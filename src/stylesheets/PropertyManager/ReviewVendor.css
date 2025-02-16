@@ -1,0 +1,147 @@
+.PmVendorForm_Container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .PmVendorForm_LogoContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  
+  .PmVendorForm_Logo {
+    height: 60px;
+  }
+  
+  .PmVendorForm_Container h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+  
+  /* Sections */
+  .PmVendorForm_Section {
+    padding: 1rem;
+  }
+  
+  .PmVendorForm_Group {
+    margin-bottom: 2rem;
+  }
+  
+  .PmVendorForm_Group h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+  }
+  
+  .PmVendorForm_Group p {
+    margin: 0.5rem 0;
+    color: #333;
+  }
+  
+  .PmVendorForm_Group p strong {
+    color: #555;
+  }
+  
+  /* File Previews */
+  .PmVendorForm_FilePreviews {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .PmVendorForm_FilePreview {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  
+  .PmVendorForm_FilePreview img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  
+  .PmVendorForm_FileIcon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .PmVendorForm_FilePreview span {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  /* Action Buttons */
+  .PmVendorForm_Actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .PmVendorForm_ApproveButton,
+  .PmVendorForm_RejectButton,
+  .PmVendorForm_ContactButton {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    color: white;
+  }
+  
+  /* Approve Button */
+  .PmVendorForm_ApproveButton {
+    background: #28a745;
+  }
+  
+  .PmVendorForm_ApproveButton:hover {
+    background: #218838;
+  }
+  
+  /* Reject Button */
+  .PmVendorForm_RejectButton {
+    background: #dc3545;
+  }
+  
+  .PmVendorForm_RejectButton:hover {
+    background: #c82333;
+  }
+  
+  /* Contact Button */
+  .PmVendorForm_ContactButton {
+    background: #007bff;
+  }
+  
+  .PmVendorForm_ContactButton:hover {
+    background: #0056b3;
+  }
+  
+  /* Close Button */
+  .PmVendorForm_CloseButton {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #ff4d4d;
+  }
+  
+  .PmVendorForm_CloseButton:hover {
+    color: #d40000;
+  }

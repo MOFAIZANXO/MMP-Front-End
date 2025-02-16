@@ -1,36 +1,41 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
 import "../../../stylesheets/PropertyManager/ReviewVendor.css";
-import dummyVendorData from "../../../datasets/dummyVendorFormData"; // Replace with your dataset
-import logo from "../../../assets/images/logo.png"; // Replace with your logo path
+import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useVendorContext } from "../../../context/VendorContext";
+import logo from "../../../assets/images/logo.png";
 
-const PmVendorForm = ({ vendorData = dummyVendorData }) => {
-  const navigate = useNavigate(); // Hook for navigation
+const PmVendorForm = () => {
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const { vendorApplications, currentVendors, approveVendor, rejectVendor } = useVendorContext();
 
-  const {
-    fullName,
-    contactNumber,
-    cnic,
-    email,
-    dateOfBirth,
-    address,
-    businessName,
-    businessType,
-    servicesProvided,
-    yearsOfExperience,
-    additionalDetails,
-    cnicFiles,
-    businessLicenseFiles,
-  } = vendorData;
+  // Find the vendor in applications or current vendors
+  const vendorData = [...vendorApplications, ...currentVendors].find(
+    (vendor) => vendor.id === parseInt(id)
+  );
+
+  // Handle approval
+  const handleApprove = () => {
+    approveVendor(parseInt(id));
+    navigate("/pm-vendors");
+  };
+
+  // Handle rejection
+  const handleReject = () => {
+    rejectVendor(parseInt(id));
+    navigate("/pm-vendors");
+  };
+
+  if (!vendorData) {
+    return <p>Vendor not found.</p>;
+  }
+
+  const { name, province, city, services, cnicFront, cnicBack, description, status } = vendorData;
 
   return (
     <div className="PmVendorForm_Container">
-      {/* Close Button */}
-      <button className="PmVendorForm_CloseButton" onClick={() => navigate(-1)}>
-        ❌
-      </button>
-
-      {/* Logo */}
+      <button className="PmVendorForm_CloseButton" onClick={() => navigate(-1)}>❌</button>
+      
       <div className="PmVendorForm_LogoContainer">
         <img src={logo} alt="Company Logo" className="PmVendorForm_Logo" />
       </div>
@@ -38,100 +43,42 @@ const PmVendorForm = ({ vendorData = dummyVendorData }) => {
       <h1>Vendor Application Details</h1>
 
       <div className="PmVendorForm_Section">
-        {/* Vendor Details */}
         <div className="PmVendorForm_Group">
           <h2>Personal Information</h2>
-          <p>
-            <strong>Full Name:</strong> {fullName}
-          </p>
-          <p>
-            <strong>Contact Number:</strong> {contactNumber}
-          </p>
-          <p>
-            <strong>Email:</strong> {email}
-          </p>
-          <p>
-            <strong>CNIC:</strong> {cnic}
-          </p>
-          <p>
-            <strong>Date of Birth:</strong> {dateOfBirth}
-          </p>
-          <p>
-            <strong>Address:</strong> {address}
-          </p>
+          <p><strong>Name:</strong> {name}</p>
+          <p><strong>Province:</strong> {province}</p>
+          <p><strong>City:</strong> {city}</p>
         </div>
 
-        {/* Business Details */}
         <div className="PmVendorForm_Group">
-          <h2>Business Information</h2>
-          <p>
-            <strong>Business Name:</strong> {businessName}
-          </p>
-          <p>
-            <strong>Business Type:</strong> {businessType}
-          </p>
-          <p>
-            <strong>Services Provided:</strong> {servicesProvided}
-          </p>
-          <p>
-            <strong>Years of Experience:</strong> {yearsOfExperience}
-          </p>
-          <p>
-            <strong>Additional Details:</strong>{" "}
-            {additionalDetails || "None"}
-          </p>
+          <h2>Services</h2>
+          <p><strong>Services:</strong> {services.join(", ")}</p>
         </div>
 
-        {/* Uploaded CNIC Files */}
         <div className="PmVendorForm_Group">
-          <h2>Uploaded CNIC</h2>
-          <div className="PmVendorForm_FilePreviews">
-            {cnicFiles.map((file, index) => (
-              <div key={index} className="PmVendorForm_FilePreview">
-                {file.file.type.startsWith("image") ? (
-                  <img src={file.preview} alt={`CNIC ${index + 1}`} />
-                ) : (
-                  <div className="PmVendorForm_FileIcon">📄</div>
-                )}
-                <span>{file.file.name}</span>
-              </div>
-            ))}
+          <h2>CNIC</h2>
+          <div className="PmVendorForm_CNICImages">
+            <img src={cnicFront} alt="CNIC Front" className="PmVendorForm_CNICImage" />
+            <img src={cnicBack} alt="CNIC Back" className="PmVendorForm_CNICImage" />
           </div>
         </div>
 
-        {/* Uploaded Business License Files */}
         <div className="PmVendorForm_Group">
-          <h2>Uploaded Business License</h2>
-          <div className="PmVendorForm_FilePreviews">
-            {businessLicenseFiles.map((file, index) => (
-              <div key={index} className="PmVendorForm_FilePreview">
-                {file.file.type.startsWith("image") ? (
-                  <img src={file.preview} alt={`License ${index + 1}`} />
-                ) : (
-                  <div className="PmVendorForm_FileIcon">📄</div>
-                )}
-                <span>{file.file.name}</span>
-              </div>
-            ))}
-          </div>
+          <h2>Description</h2>
+          <p>{description}</p>
+        </div>
+
+        <div className="PmVendorForm_Group">
+          <h2>Status</h2>
+          <p><strong>Status:</strong> {status}</p>
         </div>
       </div>
 
-      {/* Action Buttons */}
       <div className="PmVendorForm_Actions">
-        <button className="PmVendorForm_RejectButton">Reject</button>
-        <button className="PmVendorForm_ApproveButton">Approve</button>
-        <button
-          className="PmVendorForm_ContactButton"
-          onClick={() => navigate("/chat")}
-        >
+        <button className="PmVendorForm_RejectButton" onClick={handleReject}>Reject</button>
+        <button className="PmVendorForm_ApproveButton" onClick={handleApprove}>Approve</button>
+        <button className="PmVendorForm_ContactButton" onClick={() => navigate("/chat")}>
           Contact Vendor
-        </button>
-        <button
-          className="PmVendorForm_ReviewButton"
-          onClick={() => navigate(`/pm-vendor-form/${vendorData.id}`)}
-        >
-          Review
         </button>
       </div>
     </div>

@@ -12,7 +12,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 5px 20px;
-  background: white; 
+  background: white;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -48,7 +48,6 @@
   top: 70px; /* Header height (approx 50px) */
   z-index: 999;
   padding-left: 30px;
-  
 }
 
 .PM_nav-bar button {

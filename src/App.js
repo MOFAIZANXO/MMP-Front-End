@@ -13,6 +13,11 @@ import RentPayment from './pages/RenterPages/Payment.js';
 import OwnerProfile from './pages/OwnerPages/OwnerProfile.js';
 import OwnerForm from './pages/OwnerPages/PropertyOwnerForm.js';
 import OwnerPropertyDetail from './pages/OwnerPages/OwnerPropertyDetail.js';
+import PmProperties from "./pages/PropertyManagerPages/Properties/PmProperties.js";
+import PmRenters from "./pages/PropertyManagerPages/Renters/PmRenters";
+import PmVendors from "./pages/PropertyManagerPages/Vendors/PmVendors";
+import PmWorkorders from "./pages/PropertyManagerPages/WorkOrders/PmWorkorders"; 
+import PmProfile from "./pages/PropertyManagerPages/Profile/PmProfile";
 import PmReviewProperty from './pages/PropertyManagerPages/Properties/ReviewProperty.js';
 import PmReviewRenter from './pages/PropertyManagerPages/Renters/PmRenterForm.js';
 import PmVendorForm from './pages/PropertyManagerPages/Vendors/PmVendorForm.js';
@@ -25,7 +30,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   return (
-    <VendorProvider> {/* Wrap the entire app with VendorProvider */}
+    <VendorProvider>
       <Router>
         <div className="App">
           <Routes>
@@ -41,10 +46,16 @@ function App() {
             <Route path="/renterprofile" element={<RenterProfile />} />
             <Route path="/repairform" element={<RepairForm />} />
             <Route path="/rentpayment" element={<RentPayment />} />          
-            <Route path="/property-manager" element={<PropertyManager />} />
+            <Route path="/property-manager" element={<PropertyManager />}>
+              <Route path="pmProperties" element={<PmProperties />} />
+              <Route path="pmRenters" element={<PmRenters />} />
+              <Route path="pmVendors" element={<PmVendors />} />
+              <Route path="pmWorkOrders" element={<PmWorkorders />} />
+              <Route path="pmProfile" element={<PmProfile />} />
+            </Route>
             <Route path="/review-property" element={<PmReviewProperty />} />
             <Route path="/PmRenterForm" element={<PmReviewRenter />} />
-            <Route path="/pm-vendor-form/:id" element={<PmVendorForm />} /> {/* Fixed route parameter */}
+            <Route path="/pm-vendor-form/:id" element={<PmVendorForm />} />
             <Route path="/vendor" element={<Vendor />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />

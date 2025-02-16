@@ -31,7 +31,7 @@ function App() {
           <Route path="/owner" element={<Owner />} />
           <Route path="/ownerprofile" element={<OwnerProfile />} />
           <Route path="/ownerform" element={<OwnerForm />} />
-          <Route path="/owner-property-detail/:propertyName" element={<OwnerPropertyDetail />} />
+          <Route path="/ownerpropertydetail/:propertyName" element={<OwnerPropertyDetail />} />
           <Route path="/renter" element={<Renter />} />
           <Route path="/property/:index" element={<PropertyDetail />} />
           <Route path="/renterform" element={<ApplyForm />} />

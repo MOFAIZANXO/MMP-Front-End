@@ -1,5 +1,3 @@
-// BACKEND WAALAY: READ COMMENTS AT THE END
-
 import React, { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { addProperty } from '../../datasets/ownerproperties';
@@ -15,12 +13,13 @@ const OwnerForm = () => {
   const [cnic, setCnic] = useState('');
   const [propertyName, setPropertyName] = useState('');
   const [province, setProvince] = useState('');
+  const [city, setCity] = useState('');
   const [address, setAddress] = useState('');
   const [expectedRent, setExpectedRent] = useState('');
   const [includedUtilities, setIncludedUtilities] = useState({
     electricityBill: false,
     gasBill: false,
-    waterSupply: false
+    waterSupply: false,
   });
   const [rooms, setRooms] = useState('');
   const [bathrooms, setBathrooms] = useState('');
@@ -34,17 +33,54 @@ const OwnerForm = () => {
     cnic: false,
     propertyName: false,
     province: false,
+    city: false,
     address: false,
     expectedRent: false,
     rooms: false,
     bathrooms: false,
     kitchens: false,
     propertyNeighborhood: false,
-    files: false
+    files: false,
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleBack = () => page > 1 && setPage(prev => prev - 1);
+  const provinceCities = {
+    Punjab: [
+      'Lahore', 'Faisalabad', 'Rawalpindi', 'Multan', 'Gujranwala', 'Sialkot', 'Bahawalpur', 'Sargodha', 'Sheikhupura', 'Jhelum',
+      'Rahim Yar Khan', 'Kasur', 'Sahiwal', 'Okara', 'Mianwali', 'Hafizabad', 'Attock', 'Bhakkar', 'Chiniot', 'Dera Ghazi Khan',
+      'Gujrat', 'Jhang', 'Khushab', 'Mandi Bahauddin', 'Narowal', 'Pakpattan', 'Toba Tek Singh', 'Vehari', 'Wah Cantonment',
+      'Muzaffargarh', 'Khanewal', 'Lodhran', 'Nankana Sahib', 'Chakwal', 'Talagang', 'Jauharabad', 'Kamoke', 'Muridke', 'Gojra',
+      'Hasilpur', 'Kabirwala', 'Kot Addu', 'Mailsi', 'Pattoki', 'Renala Khurd', 'Sadiqabad', 'Sambrial', 'Taxila', 'Zafarwal',
+    ],
+    Sindh: [
+      'Karachi', 'Hyderabad', 'Sukkur', 'Larkana', 'Nawabshah', 'Mirpur Khas', 'Thatta', 'Jacobabad', 'Shikarpur', 'Khairpur',
+      'Badin', 'Dadu', 'Ghotki', 'Jamshoro', 'Kamber Shahdadkot', 'Kashmore', 'Matiari', 'Qambar Shahdadkot', 'Sanghar', 'Shahbandar',
+      'Tando Allahyar', 'Tando Muhammad Khan', 'Umerkot', 'Tharparkar', 'Naushahro Feroze', 'Shaheed Benazirabad', 'Sujawal', 'Hala',
+      'Kotri', 'Moro', 'Naushahro Feroze', 'Rohri', 'Sehwan', 'Tando Adam', 'Ubauro', 'Warah',
+    ],
+    KPK: [
+      'Peshawar', 'Abbottabad', 'Mardan', 'Swat', 'Nowshera', 'Kohat', 'Bannu', 'Charsadda', 'Haripur', 'Mansehra',
+      'Swabi', 'Dera Ismail Khan', 'Karak', 'Battagram', 'Buner', 'Chitral', 'Hangu', 'Kohistan', 'Lakki Marwat', 'Lower Dir',
+      'Malakand', 'Shangla', 'Tank', 'Upper Dir', 'Timergara', 'Tordher', 'Shabqadar', 'Takht Bhai', 'Topi', 'Batkhela',
+      'Jamrud', 'Landi Kotal', 'Parachinar', 'Hangu', 'Daggar', 'Kulachi', 'Lakki', 'Tangi', 'Zaida',
+    ],
+    Balochistan: [
+      'Quetta', 'Gwadar', 'Turbat', 'Khuzdar', 'Chaman', 'Sibi', 'Loralai', 'Zhob', 'Dera Bugti', 'Ziarat',
+      'Usta Muhammad', 'Kalat', 'Mastung', 'Nushki', 'Panjgur', 'Qila Saifullah', 'Kharan', 'Washuk', 'Awaran', 'Barkhan',
+      'Dera Murad Jamali', 'Harnai', 'Kech', 'Kohlu', 'Lasbela', 'Musakhel', 'Pishin', 'Qila Abdullah', 'Sherani', 'Sohbatpur',
+      'Turbat', 'Ziarat', 'Duki', 'Jaffarabad', 'Jhal Magsi', 'Lehri', 'Sibi', 'Sohbatpur',
+    ],
+    Gilgit: [
+      'Gilgit', 'Skardu', 'Hunza', 'Astore', 'Ghizer', 'Nagar', 'Ghanche', 'Shigar', 'Kharmang', 'Diamer',
+      'Gupis-Yasin', 'Ishkoman', 'Roundu', 'Khaplu', 'Minimerg', 'Punial', 'Thak', 'Yasin',
+    ],
+    Kashmir: [
+      'Muzaffarabad', 'Mirpur', 'Rawalakot', 'Kotli', 'Bagh', 'Bhimber', 'Hattian Bala', 'Haveli', 'Neelum', 'Palandri',
+      'Sudhnati', 'Athmuqam', 'Chikar', 'Dhirkot', 'Forward Kahuta', 'Hajira', 'Khuiratta', 'Mangla', 'Sehnsa', 'Tattapani',
+    ],
+  };
+
+  const handleBack = () => page > 1 && setPage((prev) => prev - 1);
 
   const handleCNICChange = (e) => {
     let value = e.target.value.replace(/\D/g, '');
@@ -60,7 +96,7 @@ const OwnerForm = () => {
   };
 
   const handleUtilityChange = (utility) => {
-    setIncludedUtilities(prev => ({ ...prev, [utility]: !prev[utility] }));
+    setIncludedUtilities((prev) => ({ ...prev, [utility]: !prev[utility] }));
   };
 
   const isValidFile = (file) => {
@@ -70,8 +106,8 @@ const OwnerForm = () => {
 
   const handleFileChange = (e) => {
     const newFiles = Array.from(e.target.files)
-      .filter(file => isValidFile(file))
-      .map(file => {
+      .filter((file) => isValidFile(file))
+      .map((file) => {
         const reader = new FileReader();
         return new Promise((resolve, reject) => {
           reader.onload = () => resolve({ file, preview: reader.result });
@@ -79,12 +115,12 @@ const OwnerForm = () => {
           reader.readAsDataURL(file);
         });
       });
-  
-    Promise.all(newFiles).then(results => {
-      setFiles(prev => [...prev, ...results]);
+
+    Promise.all(newFiles).then((results) => {
+      setFiles((prev) => [...prev, ...results]);
       setTouched({ ...touched, files: true });
     });
-  
+
     if (newFiles.length < e.target.files.length) {
       setError('Some files were invalid (JPEG, PNG, PDF under 50MB only)');
     }
@@ -93,16 +129,16 @@ const OwnerForm = () => {
   const handleDrop = useCallback((e) => {
     e.preventDefault();
     const newFiles = Array.from(e.dataTransfer.files)
-      .filter(file => isValidFile(file))
-      .map(file => ({ file, preview: URL.createObjectURL(file) }));
+      .filter((file) => isValidFile(file))
+      .map((file) => ({ file, preview: URL.createObjectURL(file) }));
 
-    setFiles(prev => [...prev, ...newFiles]);
+    setFiles((prev) => [...prev, ...newFiles]);
     setTouched({ ...touched, files: true });
   }, []);
 
   const removeFile = (index) => {
     URL.revokeObjectURL(files[index].preview);
-    setFiles(prev => prev.filter((_, i) => i !== index));
+    setFiles((prev) => prev.filter((_, i) => i !== index));
   };
 
   const ProgressSteps = () => {
@@ -115,10 +151,7 @@ const OwnerForm = () => {
           <div className={`step ${page >= 3 ? 'active' : ''}`}>3</div>
         </div>
         <div className="progressBar-container">
-          <div
-            className="progressFill"
-            style={{ width: progressWidth }}
-          ></div>
+          <div className="progressFill" style={{ width: progressWidth }}></div>
         </div>
       </div>
     );
@@ -160,6 +193,8 @@ const OwnerForm = () => {
         return propertyName.trim() === '' ? 'Property Name is required' : null;
       case 'province':
         return province === '' ? 'Province is required' : null;
+      case 'city':
+        return city === '' ? 'City is required' : null;
       case 'address':
         return address.trim() === '' ? 'Address is required' : null;
       case 'expectedRent':
@@ -191,6 +226,7 @@ const OwnerForm = () => {
     return (
       propertyName.trim() !== '' &&
       province !== '' &&
+      city !== '' &&
       address.trim() !== '' &&
       expectedRent !== '' &&
       rooms !== '' &&
@@ -203,15 +239,15 @@ const OwnerForm = () => {
 
   const handleSubmit = () => {
     if (!isPage1Valid() || !isPage2Valid()) {
-      alert("Please complete all steps correctly.");
+      alert('Please complete all steps correctly.');
       return;
     }
-  
-    const fullAddress = `${cleanAddress(address)}, ${province}`;
-  
+
+    const fullAddress = `${address}, ${city}, ${province}`;
+
     const includedUtilitiesArray = Object.keys(includedUtilities)
-      .filter(key => includedUtilities[key])
-      .map(key => {
+      .filter((key) => includedUtilities[key])
+      .map((key) => {
         switch (key) {
           case 'electricityBill':
             return 'Electricity bill';
@@ -223,7 +259,7 @@ const OwnerForm = () => {
             return '';
         }
       });
-  
+
     const newProperty = {
       name: propertyName,
       ownerName: ownerName,
@@ -237,10 +273,10 @@ const OwnerForm = () => {
         bathrooms: bathrooms,
         kitchens: kitchens,
       },
-      included: includedUtilitiesArray, 
+      included: includedUtilitiesArray,
       excluded: Object.keys(includedUtilities)
-        .filter(key => !includedUtilities[key])
-        .map(key => {
+        .filter((key) => !includedUtilities[key])
+        .map((key) => {
           switch (key) {
             case 'electricityBill':
               return 'Electricity Bill';
@@ -253,11 +289,11 @@ const OwnerForm = () => {
           }
         }),
       propertyNeighborhood: propertyNeighborhood,
-      images: files.map(fileObj => fileObj.preview),
+      images: files.map((fileObj) => fileObj.preview),
     };
-  
+
     addProperty(newProperty);
-    console.log("Form submitted with data:", newProperty);
+    console.log('Form submitted with data:', newProperty);
     setIsSubmitted(true);
   };
 
@@ -267,7 +303,7 @@ const OwnerForm = () => {
         <FaCheckCircle className="successIcon" />
         <h2>Your property has been submitted successfully!</h2>
         <p>Thanks for listing your property with us!</p>
-        <button onClick={() => navigate("/ownerprofile")}>Continue</button>
+        <button onClick={() => navigate('/ownerprofile')}>Continue</button>
       </div>
     );
   }
@@ -279,10 +315,9 @@ const OwnerForm = () => {
           <img src={logo} alt="Logo" className="headLogo" />
         </header>
       </div>
-      
+
       <h1 className="form-title">
-        {page === 1 ? 'Owner Details' :
-          page === 2 ? 'Property Details' : 'Review Information'}
+        {page === 1 ? 'Owner Details' : page === 2 ? 'Property Details' : 'Review Information'}
       </h1>
       {page === 1 && <p className="encouragement-text">Let's get started! Just a few basic details about yourself</p>}
       {page === 2 && <p className="encouragement-text">Almost there! Tell us more about your property</p>}
@@ -354,6 +389,7 @@ const OwnerForm = () => {
               value={province}
               onChange={(e) => {
                 setProvince(e.target.value);
+                setCity('');
                 setTouched({ ...touched, province: true });
               }}
               className="province-select"
@@ -361,17 +397,35 @@ const OwnerForm = () => {
               <option value="">Select Province</option>
               <option value="Punjab">Punjab</option>
               <option value="Sindh">Sindh</option>
-              <option value="KPK">KPK</option>
+              <option value="KPK">Khyber Pakhtunkhwa</option>
               <option value="Balochistan">Balochistan</option>
+              <option value="Gilgit">Gilgit Baltistan</option>
+              <option value="Kashmir">Azad & Jammu Kashmir</option>
             </select>
             {getFieldError('province') && <div className="error-message">{getFieldError('province')}</div>}
+
+            <select
+              value={city}
+              onChange={(e) => {
+                setCity(e.target.value);
+                setTouched({ ...touched, city: true });
+              }}
+              className="city-select"
+              disabled={!province}
+            >
+              <option value="">Select City</option>
+              {provinceCities[province]?.map((cityName) => (
+                <option key={cityName} value={cityName}>
+                  {cityName}
+                </option>
+              ))}
+            </select>
+            {getFieldError('city') && <div className="error-message">{getFieldError('city')}</div>}
+
             <input
               type="text"
               value={address}
-              onChange={(e) => {
-                setAddress(e.target.value);
-                setTouched({ ...touched, address: true });
-              }}
+              onChange={handleAddressChange}
               placeholder="Property Address"
             />
             {getFieldError('address') && <div className="error-message">{getFieldError('address')}</div>}
@@ -405,7 +459,7 @@ const OwnerForm = () => {
                   />
                   Gas Bill
                 </label>
-                <label classNamr="water">
+                <label className="water">
                   <input
                     type="checkbox"
                     checked={includedUtilities.waterSupply}
@@ -506,10 +560,11 @@ const OwnerForm = () => {
             <p>CNIC: {cnic}</p>
             <h3>Property Information</h3>
             <p>Name: {propertyName}</p>
-            <p>Location: {province}, {address}</p>
+            <p>Location: {address}, {city}, {province}</p>
             <p>Expected Rent: {expectedRent}</p>
             <p>Included Utilities: {Object.keys(includedUtilities)
-              .filter(k => includedUtilities[k]).join(', ') || 'None'}</p>
+              .filter((k) => includedUtilities[k])
+              .join(', ') || 'None'}</p>
             <p>Rooms: {rooms}</p>
             <p>Bathrooms: {bathrooms}</p>
             <p>Kitchens: {kitchens}</p>
@@ -538,15 +593,3 @@ const OwnerForm = () => {
 };
 
 export default OwnerForm;
-
-/* 
-    The properties entered idher are being saved in ownerproperties.js
-    The picture files of the property are being saved in local storage from ownerproperties.js file
-    jahan say wo fetch and display ho rahi hain in the owner's profile
-    Inko backend mein isi format mein save kerna hai jis format mein wo enter ki jaa rahi hain
-    Make sure to clear local storage before creating functions waghaira for saving data
-    To clear local storage: 1. Go to the browser jahan yay site run ho rahi hai (Chrome)
-                            2. Ctrl + Shift + J
-                            3. Go to debug console
-                            4. Enter command "localStorage.clear();"
-*/

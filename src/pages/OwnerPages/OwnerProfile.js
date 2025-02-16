@@ -125,10 +125,8 @@ const OwnerProfile = () => {
 
   const handleViewDetails = (property) => {
     if (property.status === 'Rented') {
-      // Navigate to OwnerPropertyDetail.js for rented properties
-      navigate(`/owner-property-detail/${property.name}`, { state: { property } });
+      navigate(`/ownerpropertydetail/${property.name}`, { state: { property } });
     } else {
-      // Show the old popup for vacant properties
       setSelectedProperty(property);
     }
   };

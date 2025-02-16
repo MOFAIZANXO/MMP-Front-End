@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../../stylesheets/Renter/WorkOrderForm.css';
-import logo from '../../../assets/images/logo.png'; // Adjust the path to your logo
+import logo from '../../../assets/images/logo.png';
 
 const RepairRequestForm = () => {
   const [files, setFiles] = useState([]);

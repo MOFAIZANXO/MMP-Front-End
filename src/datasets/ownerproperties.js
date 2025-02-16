@@ -7,7 +7,7 @@ let initialProperties = {
           CNIC: '12345-6789012-3',
           status: 'Rented',
           rent: 60000,
-          address: 'Islamabad, Main Bulliward Bahria Town Block A',
+          address: 'Main Bulliward Bahria Town Block A, Islamabad, Punjab',
           roomDetail: {
             bedrooms: 3,
             bathrooms: 2,
@@ -20,14 +20,15 @@ let initialProperties = {
             'https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg',
             'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg',
           ],
-          rentee: {
+          currentRentee: {
             name: 'John Doe',
             contact: '03001234567',
-            cnicFront: 'https://example.com/cnic-front.jpg',
-            cnicBack: 'https://example.com/cnic-back.jpg',
+            cnicFront: 'https://themysteryshack.com/cdn/shop/products/sb-spongebob2_630x.jpg?v=1607092498',
+            cnicBack: 'https://themysteryshack.com/cdn/shop/products/sb-sandy_630x.jpg?v=1607092498',
+            residents: 2,
           },
-          rentDueDate: '2023-11-15', // Dummy rent due date
-          rentPaid: false, // Payment status
+          rentDueDate: '15th November 2023',
+          rentPaid: false,
         },
         {
           name: 'Rayan Resort',
@@ -36,7 +37,7 @@ let initialProperties = {
           CNIC: '32109-8765432-1',
           status: 'Rented',
           rent: 90000,
-          address: 'Islamabad, Near Faisal Mosque',
+          address: 'Near Faisal Mosque, Islamabad, Punjab',
           roomDetail: {
             bedrooms: 4,
             bathrooms: 3,
@@ -49,14 +50,15 @@ let initialProperties = {
             'https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg',
             'https://images.pexels.com/photos/209315/pexels-photo-209315.jpeg',
           ],
-          rentee: {
+          currentRentee: {
             name: 'Jane Smith',
             contact: '03009876543',
-            cnicFront: 'https://example.com/cnic-front.jpg',
-            cnicBack: 'https://example.com/cnic-back.jpg',
+            cnicFront: 'https://themysteryshack.com/cdn/shop/products/sb-spongebob2_630x.jpg?v=1607092498',
+            cnicBack: 'https://themysteryshack.com/cdn/shop/products/sb-sandy_630x.jpg?v=1607092498',
+            residents: 5,
           },
-          rentDueDate: '2023-11-20', // Dummy rent due date
-          rentPaid: true, // Payment status
+          rentDueDate: '20th November 2023', 
+          rentPaid: true,
         },
     ],
     vacant: [
@@ -67,7 +69,7 @@ let initialProperties = {
             CNIC: '45678-9012345-6',
             status: 'Vacant',
             rent: 50000,
-            address: 'Islamabad, Main Bulliward Bahria Town Block A',
+            address: 'Main Bulliward Bahria Town Block A, Islamabad, Punjab',
             roomDetail: {
                 bedrooms: 2,
                 bathrooms: 2,
@@ -88,7 +90,7 @@ let initialProperties = {
             CNIC: '45678-9012345-6',
             status: 'Vacant',
             rent: 50000,
-            address: 'Islamabad, Main Bulliward Bahria Town Block A',
+            address: 'Main Bulliward Bahria Town Block A, Islamabad, Punjab',
             roomDetail: {
                 bedrooms: 2,
                 bathrooms: 2,
@@ -109,7 +111,7 @@ let initialProperties = {
             CNIC: '45678-9012345-6',
             status: 'Vacant',
             rent: 50000,
-            address: 'Islamabad, Main Bulliward Bahria Town Block A',
+            address: 'Main Bulliward Bahria Town Block A, Islamabad, Punjab',
             roomDetail: {
                 bedrooms: 2,
                 bathrooms: 2,

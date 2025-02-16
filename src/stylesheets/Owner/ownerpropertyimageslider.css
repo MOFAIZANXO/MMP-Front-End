@@ -1,0 +1,113 @@
+/* Slider Styles */
+.owner-slider {
+  width: 100%;
+  margin: 20px 0px 20px -21px;
+  position: relative;
+}
+
+.owner-main-swiper {
+  width: 95%;
+  height: 350px;
+  margin-bottom: 15px;
+}
+
+.owner-slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.owner-thumbnail-swiper {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  margin-top: 10px;
+  padding: 5px 0;
+  cursor: grab;
+}
+
+.owner-thumbnail-swiper .swiper-wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.owner-thumbnail-swiper .swiper-slide {
+  width: auto;
+  flex-shrink: 0;
+}
+
+.owner-thumbnail-image {
+  width: 300px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.owner-thumbnail-image:hover {
+  opacity: 1;
+}
+
+.owner-main-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  opacity: 1;
+  margin: 0 5px !important;
+  transition: background-color 0.3s ease;
+}
+
+.owner-main-swiper .swiper-pagination-bullet-active {
+  background-color: #bc2d2d;
+}
+
+/* Navigation Arrows */
+.owner-swiper-button-next,
+.owner-swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.owner-swiper-button-next:hover,
+.owner-swiper-button-prev:hover {
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.owner-swiper-button-next {
+  right: 10px;
+}
+
+.owner-swiper-button-prev {
+  left: 10px;
+}
+
+.arrow-icon {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.owner-thumbnail-swiper .swiper-slide {
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.owner-thumbnail-swiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.owner-thumbnail-swiper .swiper-slide-thumb-active .owner-thumbnail-image {
+  opacity: 1;
+  border: 2px solid #bc2d2d;
+}

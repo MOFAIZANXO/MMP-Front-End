@@ -19,6 +19,10 @@ let initialProperties = {
           images: [
             'https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg',
             'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg',
+            'https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg',
+            'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg',
+            'https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg',
+            'https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg',
           ],
           currentRentee: {
             name: 'John Doe',

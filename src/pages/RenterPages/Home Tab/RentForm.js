@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { FaCheckCircle } from 'react-icons/fa';
 import logo from "../../../assets/images/logo.png";
-import rentRequests from "../../../datasets/rentrequests"; // Import rentRequests
+import rentRequests from "../../../datasets/rentrequests"; 
 
 const ApplyForm = () => {
   const [step, setStep] = useState(1);
@@ -13,7 +13,7 @@ const ApplyForm = () => {
     numberOfPeople: "",
     cnicFront: null,
     cnicBack: null,
-    propertyId: null, // Add propertyId to formData
+    propertyId: null,
   });
   const [previews, setPreviews] = useState({ front: null, back: null });
   const [touched, setTouched] = useState({

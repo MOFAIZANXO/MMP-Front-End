@@ -33,18 +33,17 @@ function PropertyGeneralInfo({ property }) {
         <div className="info-card rent">
           <img src={rent} alt="" className="rentImg" />
           <h4>Rs {property.propertyRent}/month</h4>
-          <p>
-            <b>Included:</b>{" "}
-            {property.rentIncludeExclude.included
-              ? property.rentIncludeExclude.included.join(", ")
-              : "None"}
+          <p><b>Included:</b>{" "}
+            {property.rentIncludeExclude.included 
+              ? property.rentIncludeExclude.included.join(", ") 
+              : "No expense included"}
           </p>
-          <p>
-            <b>Excluded:</b>{" "}
-            {property.rentIncludeExclude.excluded
-              ? property.rentIncludeExclude.excluded.join(", ")
-              : "None"}
-          </p>
+          {property.rentIncludeExclude.included && (
+            <p>
+              <b>Excluded:</b>{" "}
+              {property.rentIncludeExclude.excluded.join(", ")}
+            </p>
+          )}
         </div>
 
         {/* Location Card */}

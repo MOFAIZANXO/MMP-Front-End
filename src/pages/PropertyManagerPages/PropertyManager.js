@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../stylesheets/PropertyManager/PropertyManager.css";
 import logo from "../../assets/images/logo.png";
 import PmProperties from "../PropertyManagerPages/Properties/PmProperties";
@@ -8,7 +9,12 @@ import PmWorkorders from "../PropertyManagerPages/WorkOrders/PmWorkorders";
 import PmProfile from "../PropertyManagerPages/Profile/PmProfile";
 
 const PropertyManager = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Properties");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="PM_property-manager">
@@ -58,7 +64,7 @@ const PropertyManager = () => {
         >
           Profile
         </button>
-        <button className="PM_logout">Logout</button>
+        <button onClick={navigate("/")} className="PM_logout">Logout</button>
       </nav>
 
       {/* Content Section */}

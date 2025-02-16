@@ -78,8 +78,8 @@ function PropertyDetail() {
 
         {/* About Location's Neighborhood */}
         <div className="neighborhood-info">
-          <h3>About Location's Neighborhood</h3>
-          <p>{property.propertyNeighborhood}</p>
+          <h3>Additional Description</h3>
+          <p>{property.propertyDescription}</p>
         </div>
 
         {/* Reviews */}

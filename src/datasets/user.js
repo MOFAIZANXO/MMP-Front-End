@@ -22,7 +22,7 @@ export function validateUser(email, password) {
     const user = users.find(
         (user) => user.email === email && user.password === password
     );
-    return user || null; // Return the user object if found, otherwise return null
+    return user || null; 
 }
 
 // Other functions

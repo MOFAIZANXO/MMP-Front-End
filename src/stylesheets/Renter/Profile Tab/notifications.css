@@ -1,0 +1,100 @@
+.notifications-popup {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    width: 900px;
+    height: 450px;
+    animation: fadeIn 0.3s ease;
+    overflow-y: scroll;
+    resize: none;
+}
+
+.notifications-popup p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.notifications-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.notifications-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.close-icon {
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #666;
+}
+
+.notifications-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.requests-section, .rent-due-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.no-requests {
+    padding: 15px 0px;
+    width: 100%;
+}
+
+.requests-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.request-card, .rent-due-card {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.request-card p, .rent-due-card p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.cancel-request-button, .pay-rent-button {
+    background: #db3434;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.cancel-request-button:hover, .pay-rent-button:hover {
+    background: #c22d2d;
+}

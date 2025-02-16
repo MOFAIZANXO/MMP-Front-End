@@ -1,0 +1,43 @@
+/* Sidebar.css */
+.sidebar {
+  width: 280px;
+  background: linear-gradient(90deg, #000000, #db3434);
+  padding: 25px;
+  color: white;
+  position: sticky;
+  top: 0;
+  padding-top: 40px;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  height: 100vh; 
+  overflow-y: auto; 
+}
+
+.profile-menu-logo {
+  padding: 25px;
+  margin-left: 40px;
+}
+
+.menu-logo {
+  width: 80px;
+  height: 80px;
+}
+
+.menu-item {
+  padding: 15px 20px;
+  margin: 12px 0;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.95em;
+}
+
+.menu-item:hover {
+  background-color: #5e3434;
+  transform: translateX(5px);
+}
+
+.menu-item.active {
+  background-color: #db3434;
+  font-weight: 600;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}

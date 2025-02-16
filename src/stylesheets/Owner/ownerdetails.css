@@ -1,0 +1,49 @@
+.form-page {
+  padding: 0 2rem;
+}
+
+.FormGroup {
+  margin-bottom: 1.5rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.NextButton {
+  background: #FB1717;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.NextButton:hover {
+  background: #d61414;
+}
+
+.NextButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}

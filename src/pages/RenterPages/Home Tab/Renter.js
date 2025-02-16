@@ -1,3 +1,5 @@
+// We have 2 components here and 1 data file is being used (look at it to see the necessary data to use)
+
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../../../stylesheets/Renter/Home Tab/Home.css";

@@ -1,0 +1,49 @@
+.progressContainer {
+  width: 80%;
+  margin: 2rem auto;
+}
+
+.step-numbers {
+  display: flex;
+  padding-left: 65px;
+  padding-right: 62px;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.step {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #666;
+  z-index: 1;
+}
+
+.step.active {
+  background: #28ab45;
+  color: white;
+}
+
+.progressBar-container {
+  height: 4px;
+  background: #eee;
+  border-radius: 2px;
+  position: relative;
+  margin-top: -32.5px;
+  margin-left: 68px;
+  margin-bottom: 20px;
+  width: 73%;
+}
+
+.progressFill {
+  height: 100%;
+  background: #1fb640;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import { useVendorContext } from "../../../context/VendorContext";
 import "../../../stylesheets/PropertyManager/PmVendors.css";
-import PmVendorDummy from "../../../datasets/PmVendorDummy";
 
 const PmVendors = () => {
   const navigate = useNavigate();
@@ -11,10 +11,9 @@ const PmVendors = () => {
   const [selectedType, setSelectedType] = useState("All");
   const [selectedStatus, setSelectedStatus] = useState("All");
 
-  const { vendorApplications, currentVendors } = PmVendorDummy;
+  const { vendorApplications, currentVendors } = useVendorContext();
   const vendors = activeSubTab === "Applications" ? vendorApplications : currentVendors;
 
-  // Filtering logic
   const filteredVendors = vendors.filter((vendor) => {
     const nameMatch = vendor.name.toLowerCase().includes(searchTerm.toLowerCase());
     const typeMatch = selectedType === "All" || vendor.services.includes(selectedType);
@@ -24,6 +23,7 @@ const PmVendors = () => {
 
   return (
     <div className="PmVendors">
+      {/* Sub-Navigation */}
       <div className="PmVendors_sub-nav">
         <button className={activeSubTab === "Applications" ? "PmVendors_sub-active" : ""} onClick={() => setActiveSubTab("Applications")}>
           Applications
@@ -70,11 +70,15 @@ const PmVendors = () => {
                 <p><strong>Services:</strong> {vendor.services.join(", ")}</p>
                 <p><strong>Location:</strong> {vendor.city}, {vendor.province}</p>
                 <div className={vendor.status === "Active" ? "PmVendors_status PmVendors_status-active" : "PmVendors_status PmVendors_status-inactive"}>{vendor.status}</div>
-                
-                {/* Updated Button to Navigate to Vendor Review Form */}
                 <button 
                   className="PmVendors_contact-button" 
-                  onClick={() => navigate(`/pm-vendor-form/${vendor.id}`)}
+                  onClick={() => {
+                    if (activeSubTab === "Applications") {
+                      navigate(`/pm-vendor-form/${vendor.id}`);
+                    } else {
+                      navigate("/chat");
+                    }
+                  }}
                 >
                   {activeSubTab === "Applications" ? "Review" : "Contact Vendor"}
                 </button>

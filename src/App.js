@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { VendorProvider } from './context/VendorContext';
 import './App.css';
 import ChatPage from './pages/Chat.js';
 import PropertyManager from './pages/PropertyManagerPages/PropertyManager.js';
@@ -24,31 +25,33 @@ import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/chat" element={<ChatPage />} />
-          <Route path="/owner" element={<Owner />} />
-          <Route path="/ownerprofile" element={<OwnerProfile />} />
-          <Route path="/ownerform" element={<OwnerForm />} />
-          <Route path="/ownerpropertydetail/:propertyName" element={<OwnerPropertyDetail />} />
-          <Route path="/renter" element={<Renter />} />
-          <Route path="/property/:index" element={<PropertyDetail />} />
-          <Route path="/renterform" element={<ApplyForm />} />
-          <Route path="/renterprofile" element={<RenterProfile />} />
-          <Route path="/repairform" element={<RepairForm />} />
-          <Route path="/rentpayment" element={<RentPayment />} />          
-          <Route path="/property-manager" element={<PropertyManager />} />
-          <Route path="/review-property" element={<PmReviewProperty />} />
-          <Route path="/PmRenterForm" element={<PmReviewRenter />} />
-          <Route path="/pm-vendor-form/:vendorId" element={<PmVendorForm />} />
-          <Route path="/vendor" element={<Vendor />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </div>
-    </Router>
+    <VendorProvider> {/* Wrap the entire app with VendorProvider */}
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/chat" element={<ChatPage />} />
+            <Route path="/owner" element={<Owner />} />
+            <Route path="/ownerprofile" element={<OwnerProfile />} />
+            <Route path="/ownerform" element={<OwnerForm />} />
+            <Route path="/ownerpropertydetail/:propertyName" element={<OwnerPropertyDetail />} />
+            <Route path="/renter" element={<Renter />} />
+            <Route path="/property/:index" element={<PropertyDetail />} />
+            <Route path="/renterform" element={<ApplyForm />} />
+            <Route path="/renterprofile" element={<RenterProfile />} />
+            <Route path="/repairform" element={<RepairForm />} />
+            <Route path="/rentpayment" element={<RentPayment />} />          
+            <Route path="/property-manager" element={<PropertyManager />} />
+            <Route path="/review-property" element={<PmReviewProperty />} />
+            <Route path="/PmRenterForm" element={<PmReviewRenter />} />
+            <Route path="/pm-vendor-form/:id" element={<PmVendorForm />} /> {/* Fixed route parameter */}
+            <Route path="/vendor" element={<Vendor />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </div>
+      </Router>
+    </VendorProvider>
   );
 }
 

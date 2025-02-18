@@ -1,0 +1,64 @@
+.form-page {
+  padding: 0 2rem;
+}
+
+.review-section {
+  text-align: left;
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.review-section h3 {
+  color: #2c3e50;
+  margin: 1.5rem 0 1rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.file-list {
+  margin-top: 1rem;
+  padding-left: 1rem;
+}
+
+.file-item {
+  padding: 0.3rem 0;
+  color: #666;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.BackButton {
+  background: #666;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.SubmitButton {
+  background: #FB1717;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.BackButton:hover {
+  background: #444;
+}
+
+.SubmitButton:hover {
+  background: #d61414;
+}

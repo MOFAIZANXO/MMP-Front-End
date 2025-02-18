@@ -1,3 +1,5 @@
+// 1 data file is being used here (look at it to see the necessary data to use)
+
 import "../../../stylesheets/Renter/Home Tab/RentForm.css";
 import React, { useState, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
@@ -28,7 +30,6 @@ const ApplyForm = () => {
   const fileInputBack = useRef(null);
   const navigate = useNavigate();
 
-  // Get propertyId from URL
   const propertyId = new URLSearchParams(window.location.search).get('propertyId');
 
   const handleNext = () => {
@@ -103,7 +104,6 @@ const ApplyForm = () => {
       return;
     }
 
-    // Save the rent request
     const rentRequest = {
       ...formData,
       propertyId,
@@ -111,9 +111,9 @@ const ApplyForm = () => {
       type: "rent",
       requestDate: new Date().toISOString(),
     };
-    rentRequests.push(rentRequest); // Save to rentRequests
+    rentRequests.push(rentRequest);
 
-    setIsSubmitted(true); // Trigger success animation
+    setIsSubmitted(true);
     console.log("Form Data:", formData);
   };
 
@@ -196,7 +196,7 @@ const ApplyForm = () => {
                 )}
               </div>
 
-              <div className="button-container">
+              <div className="Button-Container">
                 <button className="cancelBtn" onClick={() => navigate(-1)}>
                   Cancel
                 </button>
@@ -264,7 +264,7 @@ const ApplyForm = () => {
                 )}
               </div>
 
-              <div className="button-container">
+              <div className="Button-Container">
                 <button className="back-Btn" onClick={handleBack}>
                   Back
                 </button>
@@ -315,7 +315,7 @@ const ApplyForm = () => {
                   )}
                 </p>
               </div>
-              <div className="button-container">
+              <div className="Button-Container">
                 <button className="back-Btn" onClick={handleBack}>
                   Back
                 </button>

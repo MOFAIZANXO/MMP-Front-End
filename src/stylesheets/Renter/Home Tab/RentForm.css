@@ -15,22 +15,21 @@ input {
   margin: 10px 0;
 }
 
-.button-container {
+.Button-Container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   margin-top: 20px;
+  gap: 15px;
 }
 
-button {
+.cancelBtn, .back-Btn {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-}
-
-.cancelBtn, .back-Btn {
   background-color: #ccc;
-  color: white;
+  color: white;  
 }
 
 .cancelBtn:hover, .back-Btn:hover{
@@ -39,6 +38,10 @@ button {
 }
 
 .nextBtn, .submit-Btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   background-color: red;
   color: white;
 }

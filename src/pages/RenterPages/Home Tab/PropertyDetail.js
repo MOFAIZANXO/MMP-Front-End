@@ -1,3 +1,5 @@
+// We have 3 components here and 1 data file is being used (look at it to see the necessary data to use)
+
 import React, { useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import "../../../stylesheets/Renter/Home Tab/propertydetail.css";
@@ -23,7 +25,6 @@ function PropertyDetail() {
     return <div>Property not found!</div>;
   }
 
-  // Determine if the slider should be clickable
   const shouldEnableSlider = property.reviews.length > 2;
 
   return (

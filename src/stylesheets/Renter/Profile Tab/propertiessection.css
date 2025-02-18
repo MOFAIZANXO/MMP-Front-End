@@ -1,0 +1,194 @@
+.properties-list {
+    display: grid;
+    gap: 20px;
+}
+
+.property-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.property-card:hover {
+    transform: translateY(-5px);
+}
+
+.property-card h3 {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.status {
+    padding: 8px 8px 8px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 500;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.status.rented {
+    background-color: #27ae60;
+    color: white;
+}
+
+.status.pending {
+    background-color: #db3434;
+    color: white;
+}
+
+.rent-rate {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.property-details-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+.property-details-content {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 500px;
+    max-width: 90%;
+    animation: fadeIn 0.3s ease;
+    overflow: hidden;
+}
+
+.property-details-content .property-image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.property-details-content .property-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.property-details-content h3 {
+    margin: 20px;
+    color: #2c3e50;
+    font-size: 1.4em;
+}
+
+.property-info {
+    padding: 0 20px 20px 20px;
+}
+
+.property-info p {
+    margin: 10px 0;
+    font-size: 1em;
+    color: #333;
+}
+
+.close-button {
+    background: #db3434;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+    background: #c22d2d;
+}
+
+.properties-section {
+    margin-bottom: 30px;
+}
+
+.properties-section h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-size: 1.2em;
+}
+
+.property-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 0 15px 15px 15px;
+}
+
+.payRent-button, .home-service-button {
+    background-color: #db3434;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.payRent-button:hover, .home-service-button:hover {
+    background-color: #c22d2d;
+}
+
+.home-service-button {
+    background-color: #27ae60;
+}
+
+.home-service-button:hover {
+    background-color: #219653;
+}
+
+.status.rented {
+    background-color: #27ae60;
+    color: white;
+}
+
+.status.previously-rented {
+    background-color: #666;
+    color: white;
+}
+
+.address {
+    color: #666;
+    font-size: 0.95em;
+    margin-bottom: 10px;
+}
+
+.propertyOwner {
+    color: #666;
+    font-size: 0.95em;
+    margin-bottom: 10px;
+}
+
+.property-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+}
+
+.property-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

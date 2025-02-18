@@ -8,17 +8,17 @@
 }
 
 .BackButton-icon {
-  position: absolute;
-  top: 30px;
-  left: 40px;
-  font-size: 26px;
-  color: #333;
-  cursor: pointer;
-  transition: color 0.3s;
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    font-size: 26px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
 .BackButton-icon:hover {
-  color: #bc2d2d;
+    color: #bc2d2d;
 }
 
 .PropertyCard-div {

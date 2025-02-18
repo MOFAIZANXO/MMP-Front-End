@@ -1,15 +1,19 @@
+// We have 3 components here
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../../../stylesheets/Renter/WorkOrderForm.css';
 import logo from '../../../assets/images/logo.png';
+import DescriptionSection from '../../../components/Renter/DescriptionSection';
+import FileUploadSection from '../../../components/Renter/FileUploadSection';
+import ButtonContainer from '../../../components/Renter/ButtonContainer';
 
 const RepairRequestForm = () => {
   const [files, setFiles] = useState([]);
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleFileChange = (event) => {
-    const selectedFiles = Array.from(event.target.files);
+  const handleFileChange = (selectedFiles) => {
     if (files.length + selectedFiles.length > 2) {
       setError('You can only upload a maximum of 2 images.');
       return;
@@ -44,41 +48,14 @@ const RepairRequestForm = () => {
       <img src={logo} alt="Logo" className="logo-image" />
       <h2>Work Order Form</h2>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="description">Add Description:</label>
-          <textarea id="description" name="description" rows="4" required></textarea>
-        </div>
-        <div className="form-group">
-          <label htmlFor="file">Problem Image:</label>
-          <div className="file-drop-area" onClick={() => document.getElementById('file').click()}>
-            <input
-              type="file"
-              id="file"
-              name="file"
-              onChange={handleFileChange}
-              accept=".jpeg,.png,.jpg"
-              multiple
-              required
-              style={{ display: 'none' }}
-            />
-            <p>Drag & drop images or click to upload (JPEG, PNG, max 2 images)</p>
-          </div>
-          {error && <p className="error-message">{error}</p>}
-        </div>
-        <div className="image-preview-container">
-          {files.map((file, index) => (
-            <div key={index} className="image-preview">
-              <img src={URL.createObjectURL(file)} alt={`Preview ${index + 1}`} className="review-image" />
-              <button type="button" onClick={() => handleRemoveImage(index)} className="remove-button">
-                Remove
-              </button>
-            </div>
-          ))}
-        </div>
-        <div className="button-container">
-          <button type="button" onClick={handleCancel} className="cancelButton">Cancel</button>
-          <button type="submit" className="submitButton">Send</button>
-        </div>
+        <DescriptionSection />
+        <FileUploadSection
+          files={files}
+          error={error}
+          handleFileChange={handleFileChange}
+          handleRemoveImage={handleRemoveImage}
+        />
+        <ButtonContainer onCancel={handleCancel} />
       </form>
     </div>
   );

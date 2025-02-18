@@ -922,6 +922,7 @@
   border: 1.5px solid #db3434;
   font-weight: 500;
   color: #db3434;
+  border-radius: 5px;
   padding: 5px 15px;
   transition: all 0.1s;
 }
@@ -936,6 +937,9 @@
   font-weight: 500;
   color: #db3434;
   border: 1.5px solid #db3434;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
   transition: all 0.1s;
 }
 
@@ -949,6 +953,9 @@
   font-weight: 500;
   color: #27ae60;
   border: 1.5px solid #27ae60;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
   transition: all 0.1s;
 }
 

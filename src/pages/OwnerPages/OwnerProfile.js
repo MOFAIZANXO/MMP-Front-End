@@ -467,6 +467,12 @@ const OwnerProfile = () => {
           Dashboard
         </div>
         <div
+          className={`menu-item ${activeSection === 'properties' ? 'active' : ''}`}
+          onClick={() => setActiveSection('properties')}
+        >
+          My Properties
+        </div>
+        <div
           className={`menu-item ${activeSection === 'agents' ? 'active' : ''}`}
           onClick={() => setActiveSection('agents')}
         >
@@ -478,12 +484,7 @@ const OwnerProfile = () => {
         >
           Personal Info
         </div>
-        <div
-          className={`menu-item ${activeSection === 'properties' ? 'active' : ''}`}
-          onClick={() => setActiveSection('properties')}
-        >
-          My Properties
-        </div>
+        
       </div>
 
       <div className="mainContent">

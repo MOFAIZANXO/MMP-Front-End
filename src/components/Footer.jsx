@@ -14,7 +14,7 @@ const Footer = () => {
           <h3>MMP</h3>
           <p className="footer-contact">
             <a href="tel:1234567890" className="footer-link">
-              (123) 456–7890
+              0304-7157085
             </a>
           </p>
           <p className="footer-contact">
@@ -23,7 +23,7 @@ const Footer = () => {
             </a>
           </p>
           <div className="footer-social">
-            <a href="https://www.facebook.com/" aria-label="Facebook" className="footer-icon">
+            <a href="https://www.facebook.com/profile.php?id=61560821040445" aria-label="Facebook" className="footer-icon">
               <FaFacebookF />
             </a>
             <a href="https://x.com/i/flow/login" aria-label="Twitter" className="footer-icon">

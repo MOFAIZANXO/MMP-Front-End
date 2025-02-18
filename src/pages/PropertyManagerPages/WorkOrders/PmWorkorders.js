@@ -13,7 +13,8 @@ const PmWorkorderDummy = {
       date: "2023-08-02",
       vendorType: "Plumber",
       description: "Bathroom pipe leakage",
-      issueImage: "https://www.thespruce.com/thmb/OO8Atcd9Hoy5m5K8wKXmMXUBwCY=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/SPR-wire-connection-problems-and-solutions-1152877-hero_30062-22e3d3deac834e8b809b757af5be5fce.jpg", // Replace with actual issue image URL
+      issueImage:
+        "https://www.thespruce.com/thmb/OO8Atcd9Hoy5m5K8wKXmMXUBwCY=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/SPR-wire-connection-problems-and-solutions-1152877-hero_30062-22e3d3deac834e8b809b757af5be5fce.jpg", // Replace with actual issue image URL
     },
   ],
   currentWorkorders: [],
@@ -35,14 +36,6 @@ const WorkorderCard = ({ workorder, onIssue }) => {
         <p className="location">{workorder.location}</p>
       </div>
 
-      {workorder.issueImage && (
-        <img
-          src={workorder.issueImage}
-          alt="Issue"
-          className="workorder-image"
-        />
-      )}
-
       <div className="workorder-meta">
         <span>WO#: {workorder.workorderNumber}</span>
         <span>Requested by: {workorder.requestedBy}</span>
@@ -51,21 +44,31 @@ const WorkorderCard = ({ workorder, onIssue }) => {
       </div>
 
       {(isHovered || isExpanded) && (
-        <div className="workorder-actions">
-          <p className="description">{workorder.description}</p>
-          <div className="action-links">
-            <span className="action-link">Contact Owner</span>
-            <span
-              className="action-link"
-              onClick={(e) => {
-                e.stopPropagation();
-                onIssue(workorder.id);
-              }}
-            >
-              Issue Workorder
-            </span>
+        <>
+          {workorder.issueImage && (
+            <img
+              src={workorder.issueImage}
+              alt="Issue"
+              className="workorder-image"
+            />
+          )}
+
+          <div className="workorder-actions">
+            <p className="description">{workorder.description}</p>
+            <div className="action-links">
+              <span className="action-link">Contact Owner</span>
+              <span
+                className="action-link"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onIssue(workorder.id);
+                }}
+              >
+                Issue Workorder
+              </span>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );

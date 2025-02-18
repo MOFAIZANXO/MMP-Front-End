@@ -60,6 +60,7 @@
     transition: all 0.3s ease;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     transform: scale(1);
+    overflow: hidden; /* Ensures content doesn't overflow during transitions */
   }
   
   .workorder-card.hovered {
@@ -79,18 +80,6 @@
     font-size: 14px;
   }
   
-  .workorder-image {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .workorder-card.hovered .workorder-image {
-    opacity: 1;
-  }
-  
   .workorder-meta {
     display: flex;
     flex-wrap: wrap;
@@ -108,6 +97,24 @@
     font-weight: 500;
   }
   
+  .expandable-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .expandable-content.visible {
+    max-height: 500px; /* Increased to ensure buttons are visible */
+    opacity: 1;
+  }
+  
+  .workorder-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
   .workorder-actions {
     border-top: 1px solid #eee;
     padding-top: 15px;
@@ -118,12 +125,6 @@
     font-size: 14px;
     line-height: 1.5;
     margin-bottom: 15px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .workorder-card.hovered .description {
-    opacity: 1;
   }
   
   .action-links {
